@@ -612,11 +612,68 @@ constructed, and therefore carries no boundary constraint. The junction is dilut
 roughly as the square of the constructed share — at a memory share of 0.40 it
 retains 41% of its full value.
 
-What survives, in a more exact form: **none of the three architectures we tried
-reproduces all four signatures** — not selection, not construction, not their
-hybrid. Selection cannot buy the junction at any price; construction gives it away
-but supplies nothing else; and the hybrid pays for the other three in the coin of
-the junction.
+### 7.6 An architecture that does reproduce all four
+
+The hybrid fails because memory works by reuse and a reused word carries no
+boundary constraint. That suggests memory *subordinate* to the boundary, and there
+are two ways to subordinate it.
+
+**Filtering.** Keep only those memory candidates — neighbours, cache entries,
+same-frequency-class words — whose initial character is legal after the previous
+word's final character. The junction rises from 41% to 55%, and no configuration
+out of 27 reaches all four.
+
+**Weighting.** Choose among candidates not uniformly but with weight equal to the
+observed transition frequency. The difference is slight and turns out to decide
+everything.
+
+| architecture | best junction with three signatures held |
+|---|---|
+| selection of whole words (503 grid points) | 26% |
+| hybrid: construction, memory ignores the boundary | 41% |
+| memory *filtered* for legality | 55% |
+| **memory *weighted* by transition frequency** | **82%** |
+
+Filtering preserves which transitions are possible; weighting preserves their
+frequencies. The junction lives in the distribution of boundary transitions, not
+in its support, and the gap between the two forms of subordination demonstrates it.
+
+At neighbour 0.15, cache 0.10, frequency class 0.20, over five seeds:
+
+| | value | % of target |
+|---|---|---|
+| recurrence d1–5 | 2.013 ± 0.070 | **82%** |
+| length autocorrelation | 0.108 ± 0.009 | **81%** |
+| rank correlation | 0.062 ± 0.004 | **78%** |
+| junction | 0.157 ± 0.006 | **81%** |
+
+And not only there: across a grid of 54 configurations, **eighteen reach all four**
+at the 70% threshold declared in advance. In the winning region the junction holds
+between 71% and 82% across quite different memory shares, so it is not tracking a
+single parameter.
+
+**We therefore withdraw the claim that no architecture reproduces all four.** It
+held for the three we had tried and was false as a general statement. What
+replaces it is a principle rather than a prohibition: **memory must be subordinate
+to the boundary, and subordinate by weighting rather than by filtering.** Each word
+is either constructed with a boundary-drawn initial character, or taken from
+memory with its initial character sampled from the same boundary statistics. The
+junction is then not diluted by reuse, and the other three signatures come from
+the memories as before.
+
+This sharpens what we can say to cipher hypotheses. It is not that selection of
+whole units cannot produce the manuscript's profile; it is that **selection
+indifferent to the boundary** cannot. A table cipher that chose its table with
+weight depending on the previous unit's final character would acquire the junction
+for nothing.
+
+What this does not show: every distribution used here — boundary frequencies, the
+character chain, the neighbour sets, the frequency classes — is taken from the
+manuscript itself, which by the standard raised on the forum is fitting. The claim
+is only that a class of mechanism exists which reproduces all four signatures where
+three other classes do not. Nothing follows about how the manuscript was actually
+made. The 70% threshold was declared in advance but is arbitrary; at 80% fewer
+configurations would qualify.
 
 ## 8. The inventory
 
