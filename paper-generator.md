@@ -44,10 +44,16 @@ We then test that architecture against measures it was not fitted to, and half t
 result evaporates: 88.9% of its output consists of actual manuscript words, so its
 vocabulary statistics test identity rather than architecture. Of nine held-out
 measures only two are informative; it passes one and fails the other — the
-line-start divergence — completely, because it has no notion of a line. Adding one
-rule taken from the audit, prepending a character at line starts, lifts all three
-line-start phenomena together but not in the right proportions, and leaves the line
-*end* untouched, as the audit predicted.
+line-start divergence — completely, because it has no notion of a line.
+
+Adding the line takes two rules rather than the one the audit proposed. Prepending
+a character accounts for the length of line-initial words — the mean gain is
++0.400, and the estimator is unbiased in the generator — but at that rate it
+produces less than half the observed first-character divergence, and no choice of
+character pool rescues it. An operation that changes the opening character without
+changing the length closes the gap and costs nothing on two held-out measures. We
+also withdraw, in §8.3, a claim made the same day, because its null model
+destroyed the mechanism whose sufficiency was in question.
 
 ## 1. Data and method
 
@@ -375,27 +381,119 @@ Fitted on line-start divergence alone; everything else held out.
 | 0.8 | **93%** | **103%** | 174% | 1.0× |
 
 One rule lifts all three line-start phenomena together, which confirms by
-generation what the audit found by observation: they are one thing. But their
-proportions do not agree at any single rate — divergence wants about 0.85, the
-Grove fraction about 0.75, and the count of only-initial words about 0.3, where at
-0.8 it overshoots by 74%. Prepending is the main part of the story and not all of
-it.
+generation what the audit found by observation: they are one family. But their
+proportions do not agree at any single rate, and pursuing that disagreement turned
+out to be worth a section of its own.
 
-The line *end* is untouched: `m`-final words stay at 1.0× against the manuscript's
-18.4× at every rate. That is what the audit predicted — line-final words decompose
-in the same way only 8% of the time against 77% for line-initial ones — and it is
-now confirmed by generation rather than by observation alone.
+### 8.1 Two of the three measures were measuring the wrong thing
+
+The disagreement looked like this: divergence wanted *p* ≈ 0.85, the Grove
+fraction ≈ 0.75, the count of only-initial words ≈ 0.3. Half of it was in the
+measures.
+
+**Only-initial words** was a raw count of types. Prepending manufactures new types
+— a character plus a word — and a new type is rare, and a rare type is almost
+certain to occur only once and therefore only line-initially. The measure was
+counting a by-product. As a *proportion* of line-initial types it wants *p* ≈
+0.55; restricted to types occurring at least twice, ≈ 0.60.
+
+**The Grove fraction** asked whether a line-initial word decomposes into a
+character plus a word *of the text's own vocabulary*. Prepending raises the
+numerator and enlarges the vocabulary at the same time — the same dependence on
+vocabulary density that forced the retraction in the companion paper's §3. Scored
+against the manuscript's vocabulary, fixed for every model, it wants *p* ≈ 0.70.
+
+Correcting both narrows the disagreement from 0.55 to 0.30, and to 0.25 with the
+frequency threshold. It does not remove it.
+
+### 8.2 What is left is a disagreement with word length
+
+Prepending adds exactly one character, so the mean length difference between
+line-initial and mid-line words estimates *p* directly. In the generator, where
+the true rate is known, the estimator is unbiased: true rates of 0.2, 0.4, 0.6,
+0.8 and 1.0 are recovered as 0.18, 0.42, 0.60, 0.77 and 0.97. In the manuscript
+the difference is **+0.400**, so *p* ≈ 0.40.
+
+At that rate the generator produces a first-character divergence of 0.186 against
+the manuscript's 0.385 — **less than half**. The gap is not in the choice of
+characters: repeating the fit with the most favourable pool available, the
+observed first characters of line-initial words themselves, gives 0.174, slightly
+worse. Prepending at the rate its own length signature implies cannot produce the
+line start's first-character distribution, whatever it prepends.
+
+What closes it is an operation that changes the first character without changing
+the length. Substituting the first character — same character pool, applied to
+line-initial words that were not prepended — gives, at prepending 0.4 and
+substitution 0.6 over three seeds:
+
+| measure | manuscript | model | % |
+|---|---|---|---|
+| length gain *(fitted)* | +0.400 | +0.417 | 104% |
+| first-character divergence *(fitted)* | 0.385 | 0.421 | 109% |
+| Grove fraction *(held out)* | 0.749 | 0.633 | 85% |
+| stem divergence *(held out)* | 0.265 | 0.259 | 98% |
+
+The two held-out measures are where prepending alone left them, so the second
+operation buys the divergence without costing anything. **The line start is two
+operations, not one: a character is added about two fifths of the time, and about
+three fifths of the rest have their opening character replaced.** Both draw from
+the same small pool.
+
+We state the limit of that. Substitution is the simplest operation of its shape —
+changes the first character, leaves the length — and it is the one we tested. Any
+other operation of the same shape would do as well, and nothing here identifies
+which the scribe performed.
+
+### 8.3 A retraction from the same day
+
+We first read the residual differently, and were wrong in an instructive way.
+Stripping the prepended character from line-initial words leaves a stem whose
+first-character distribution still differs from mid-line words by 0.265; against a
+within-page shuffle this looked decisive (null 0.053, p = 0.005, and 0.271–0.287
+across all six transliterations). We concluded that the line start also *selects*
+a different word, and stratified by the removed character and by stem length to
+rule out the obvious confounds; both stratifications held.
+
+They were beside the point. A prepending-only generator, fitted on word length
+alone, produces a stem divergence of 0.257 [0.242; 0.272] over twenty seeds — the
+manuscript's 0.265 falls inside it. The residual is what the stripping procedure
+manufactures, not evidence of anything beyond prepending. **The null model has to
+contain the mechanism whose sufficiency is in question.** A within-page shuffle
+destroys prepending along with everything else, so it tests whether line structure
+exists, which was never in doubt, rather than whether prepending accounts for it.
+No stratification of a comparison against the wrong null can rescue it — the same
+lesson as the companion paper's §3.3, arriving by a different route.
+
+### 8.4 The paragraph and the line end
+
+Splitting line starts by the IVTFF paragraph marker shows the family is not
+homogeneous. On the 252 first lines of paragraphs, prepending accounts for 73% of
+the divergence and the length gain is +1.22; on the 3,725 continuation lines it
+accounts for 35% and the gain is +0.34. The gallows behave differently too: at a
+paragraph start all four are elevated (`p` 71.9×, `f` 22.5×, `t` 11.3×, `k` 4.4×
+over their mid-line rates), while on continuation lines `p` and `t` are elevated
+(14.5× and 4.7×) and **`k` is suppressed** at 0.4×. Whatever happens at the top of
+a paragraph is not what happens at the start of an ordinary line.
+
+The line *end* is untouched by any of this: `m`-final words stay at 1.0× against
+the manuscript's 18.4× at every prepending rate. That is what the audit predicted
+— line-final words decompose in the same way only 8% of the time against 77% for
+line-initial ones — and it is now confirmed by generation rather than by
+observation alone.
 
 The cost to the four earlier signatures is small and falls on one of them. At
 p = 0.8: recurrence 91%, length autocorrelation 81%, junction 79%, but rank
 correlation drops from 72% to 66%, which makes it the worst of the four and pulls
 the configuration's worst-of-four ratio down with it.
+
 ## 9. What this constrains, and what it does not
 
 Four independent memories are needed; they compete for a single decision when the
 generator selects whole words; the boundary information is unreachable that way and
 free the other way; and an architecture reaching all four exists, provided memory
-is subordinated to the boundary by weighting.
+is subordinated to the boundary by weighting. The line start takes two operations
+rather than one, and a paragraph's first line is not the same object as an ordinary
+line.
 
 For cipher hypotheses this is a constraint and not a refutation. Naibbe draws whole
 ciphertext units from tables, as does any nomenclator or table cipher, and such a
@@ -410,9 +508,9 @@ claim is that a class of mechanism exists which reproduces these signatures, not
 that the manuscript was made this way. The 70% threshold was declared in advance
 but is load-bearing — none of the grid survives 85% — which is why the result is
 better stated as a best worst-ratio of 82%. And the architecture reproduces
-sequence structure while
-reproducing no line-positional structure beyond what one prepending rule supplies,
-so it is at best a partial account of the text.
+sequence structure while reproducing line-positional structure only through the two
+rules of §8, which are fitted to the manuscript's own line statistics, so it is at
+best a partial account of the text.
 
 ## 10. Limitations
 
@@ -450,7 +548,7 @@ observation, we have tried to say whose it is.
 
 ## Appendix. Claims audited in this paper
 
-Eighteen claims, each with its source, the null model applied, and the outcome.
+Twenty-one claims, each with its source, the null model applied, and the outcome.
 The other fifty-three are in the companion paper. Machine-readable version, with the
 numbers for each row, in `scripts/inventory.py`.
 
@@ -474,6 +572,9 @@ numbers for each row, in `scripts/inventory.py`.
 | G16 | The line-start phenomena are one thing, produced by prepending | ours (audit conclusion, tested by generation) | one rule, fitted on line-start divergence alone; Grove fraction, only-initial words and line end held out | weakened |
 | G17 | The line end is a different mechanism from the line start | ours (audit prediction) | generation with a line-start mechanism only; line end held out | survives |
 | G18 | The architecture claim is independent of the chosen threshold | ours (methodological premise) | grid recomputed at thresholds 60-90%, plus a threshold-free measure: the best worst-of-four ratio | dissolves |
+| G19 | The line start is one operation, prepending a character | ours (audit conclusion tested by generation) | fit on two measures (length gain and first-character divergence), Grove fraction and stem divergence held out; competing family with the most favourable character pool | dissolves |
+| G20 | The stem of a line-initial word is a different word, so a second selection mechanism exists | ours (claimed and withdrawn the same day) | null model that contains prepending rather than destroying it | **retracted** |
+| G21 | Paragraph-first lines and continuation lines behave alike | ours (methodological premise) | separate analysis by the IVTFF paragraph marker, 252 against 3,725 lines | dissolves |
 
 ## References
 

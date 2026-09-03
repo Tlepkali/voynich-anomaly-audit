@@ -600,8 +600,8 @@ Morfessor Baseline 2.0.6. A reader who trusts none of them should read §3 only 
 a demonstration that the attribution is algorithm-dependent, which is all we now
 claim for it.
 
-Fifty-three claims are audited here; eighteen further claims arising from generative
-modelling are in the companion paper, which is why its count differs.
+Fifty-three claims are audited here; twenty-one further claims arising from
+generative modelling are in the companion paper, which is why its count differs.
 
 All measurements are by one author with no independent replication. What we can
 offer instead is machine-checked internal consistency. Each recurring quantity —
@@ -681,7 +681,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | # | Claim | Source | Control applied | Outcome |
 |---|---|---|---|---|
 | C1 | Grove words: special words at line starts | community | matched on word length and on the base word | survives |
-| C2 | LAAFU is a single line-start phenomenon | community | stripping the prepended glyph where the remainder is a vocabulary word | weakened |
+| C2 | LAAFU is a single line-start phenomenon | ours | null model containing the mechanism under test: a prepending-only generator fitted on word length alone | weakened |
 | C3 | An s- prefix at line starts | E. M. Smith, thread 734 (with a better argument, from the ban on a-initials) | comparison against a homogeneous class, sh-words excluded | weakened |
 | C4 | The line end is the same mechanism as the line start | ours (hypothesis) | same decomposition rule applied to m-final words | dissolves |
 | C5 | Neal keys: single-leg gallows pair on the paragraph's top line | Neal; Tiltman; Pelling | permutation of labels within the line, preserving their count | dissolves |
