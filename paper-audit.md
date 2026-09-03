@@ -195,6 +195,12 @@ Voynichese; `s`, `que`, `m`, `rum`, `tur`, `tum` for Latin.
 | 2: Goldsmith signatures (ours) | 24.9% | 28.7% | 0.87× | −0.05 | −0.014 | −1.02 |
 | **3: Morfessor Baseline** | **88.1%** | **62.5%** | **1.41×** | **−0.02** | **−0.070** | **−10.8** |
 
+![Figure 3](img/fig/fig3-three-algorithms.svg)
+
+*Figure 3. One quantity, three decompositions: the shift in type-level slot
+rigidity after stripping affixes. Morfessor's row is a mean of five seeded runs;
+the bar shows their spread, and Latin's own shift changes sign between them.*
+
 All three rows are measured by one instrument: the same density, junction and
 rigidity functions, with the within-word shuffle averaged over ten fixed seeds.
 Morfessor's own training is not seeded, so its row is the mean of five runs; the
@@ -271,6 +277,11 @@ The size of the effect depends on word length, and "roughly half" is the value a
 length 4. Across lengths 4 to 7 the token measure inflates the gap by 1.86×,
 3.71×, 2.27× and 2.00×. **At length 3 it reverses**: the type-level gap (2.48×) is
 larger than the token-level one (2.03×).
+
+![Figure 2](img/fig/fig2-type-token.svg)
+
+*Figure 2. The gap with Latin on slot rigidity, measured on tokens and on types,
+across word lengths 3 to 7. At length 3 the order reverses.*
 
 Conditional entropy behaves more regularly and has no exception: the type-level
 gap is closer to unity at every length — 0.96 against 0.84 at length 3, then
@@ -360,6 +371,12 @@ languages:
 | Italian | 5.9% (4.9×) | 6.6% (4.4×) |
 | Spanish | 2.6% (10.9×) | 5.7% (5.1×) |
 | Latin | 1.7% (17.2×) | 3.5% (8.1×) |
+
+![Figure 1](img/fig/fig1-regeneration.svg)
+
+*Figure 1. Chain regeneration under both matchings. All sub-vocabularies are
+7,205 types; the gap is four- to seventeen-fold depending on which matching is
+used.*
 
 Five sampling seeds each, three chain seeds per sample; the intervals do not
 overlap between the two procedures for Latin or Spanish. The manuscript's own

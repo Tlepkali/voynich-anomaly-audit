@@ -271,6 +271,11 @@ everything.
 | memory *filtered* for legality | 55% |
 | **memory *weighted* by transition frequency** | **82%** |
 
+![Figure 4](img/fig/fig4-architectures.svg)
+
+*Figure 4. The best three-character junction each architecture attains while the
+other three signatures are held.*
+
 Filtering preserves which transitions are possible; weighting preserves their
 frequencies. The junction lives in the distribution of boundary transitions, not
 in its support, and the gap between the two forms of subordination demonstrates it.
@@ -295,6 +300,11 @@ claim is therefore better made without a threshold at all: taking each
 configuration's worst of the four ratios, the best value anywhere on the grid is
 82%, with a median of 58%. The architecture reproduces the four signatures to about
 four fifths each and no better.
+
+![Figure 5](img/fig/fig5-threshold.svg)
+
+*Figure 5. Configurations of 54 reaching all four signatures, by the threshold
+called "reached". The 70% column is the threshold we declared in advance.*
 
 This is a weakening and not a retraction. The differences between architectures
 survive it intact: selection of whole words never lifts the junction above 26% at
@@ -442,6 +452,12 @@ substitution 0.6 over three seeds:
 | first-character divergence *(fitted)* | 0.385 | 0.421 | 109% |
 | Grove fraction *(held out)* | 0.749 | 0.633 | 85% |
 | stem divergence *(held out)* | 0.265 | 0.259 | 98% |
+
+![Figure 6](img/fig/fig6-line-start.svg)
+
+*Figure 6. First character of the first word of a line, against mid-line words
+and against a prepending-only model at the rate the observed length gain implies.
+The residual is structured: `y`, `p` and `t` in excess, `c` and `o` in deficit.*
 
 The two held-out measures are where prepending alone left them, so the second
 operation buys the divergence without costing anything. **The line start is two
