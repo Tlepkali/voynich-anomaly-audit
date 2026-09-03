@@ -571,9 +571,52 @@ This constrains cipher hypotheses without refuting any. Naibbe draws whole
 ciphertext units from tables; so did our generator; so does any nomenclator or
 table cipher. Such a design can be given memory, and with enough of it will
 reproduce three of the four signatures — but not the fourth, and not because the
-memory is insufficient. A mechanism that constructs words character by character,
-with the boundary constrained during construction, is not subject to this
-trade-off. We have not built one.
+memory is insufficient.
+
+### 7.5 Construction instead of selection
+
+An earlier version of this section ended by saying that a mechanism constructing
+words character by character, with the boundary constrained during construction,
+would not be subject to this trade-off, and that we had not built one. We have now
+built it, and the claim was half right.
+
+The generator assembles each word with a character Markov chain and draws its
+first character from the distribution observed after the previous word's final
+character. There is no word to select, so there is no selection budget. Nothing is
+fitted to any of the four signatures.
+
+| | recurrence | length autocorr. | rank corr. | junction |
+|---|---|---|---|---|
+| manuscript | 2.44 | +0.134 | +0.0797 | 0.194 |
+| construction, boundary on | 0.99 (41%) | +0.013 (10%) | +0.003 (4%) | **0.200 (103%)** |
+| construction, boundary off | 0.99 | −0.002 | −0.004 | −0.001 (0%) |
+
+**The junction comes for free** — 103% here, 118% for an order-3 chain trained on
+types — and collapses to zero if the boundary constraint is removed. That half of
+the claim holds: the junction is a property of construction, and no amount of
+memory over selection reached more than 26% of it across 503 configurations.
+
+Nothing else comes with it. Recurrence sits at chance, the other two near zero.
+The two architectures are exact mirrors.
+
+The obvious move is to combine them: construct each word, and add the word-level
+memories on top, since the boundary now costs no selection budget. Fitting the
+three word-level measures and holding out the junction, the best configuration
+(neighbour 0.25, cache 0.05, frequency 0.10) gives recurrence 83%, length
+autocorrelation 106%, rank correlation 58% — and junction 41%.
+
+That is further than either pure architecture reaches, and it is still not all
+four. **So we withdraw the claim that construction escapes the trade-off.** It is
+subject to a different one: a word emitted from memory is a word that was not
+constructed, and therefore carries no boundary constraint. The junction is diluted
+roughly as the square of the constructed share — at a memory share of 0.40 it
+retains 41% of its full value.
+
+What survives, in a more exact form: **none of the three architectures we tried
+reproduces all four signatures** — not selection, not construction, not their
+hybrid. Selection cannot buy the junction at any price; construction gives it away
+but supplies nothing else; and the hybrid pays for the other three in the coin of
+the junction.
 
 ## 8. The inventory
 
