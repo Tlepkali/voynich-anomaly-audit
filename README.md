@@ -1,9 +1,9 @@
 # Voynich anomaly audit
 
 Code and working materials for an audit of claimed statistical peculiarities of
-the Voynich manuscript. Fifty-eight claims — other people's and our own — each
-re-tested against a null model matched to the unit the claim concerns. Eighteen
-survive as stated; seven of the retractions are of claims we made ourselves.
+the Voynich manuscript. Seventy claims — other people's and our own — each
+re-tested against a null model matched to the unit the claim concerns. 22
+survive as stated; 10 are retractions, 9 of them of claims we made ourselves.
 
 Two draft write-ups: `paper-audit.md` (what survives the controls) and
 `paper-generator.md` (what the residue constrains about generative mechanisms).
@@ -11,13 +11,13 @@ Neither is submitted anywhere and we would rather be corrected than not.
 
 ## What is here
 
-    scripts/            ~186 files, standard library only (one exception below)
-    scripts/inventory.py    the audit itself: 58 machine-readable records with
+    scripts/            ~204 files, standard library only (one exception below)
+    scripts/inventory.py    the audit itself: 70 machine-readable records with
                             claim / source / control applied / numbers / outcome
     scripts/fetch_data.sh   downloads the data, which is not in this repository
-    paper-audit.md      draft: the audit, ~6,600 words
-    paper-generator.md  draft: generative constraints, ~4,500 words
-    report.html         the full working record, in Russian, 71 sections
+    paper-audit.md      draft: the audit, ~7,300 words
+    paper-generator.md  draft: generative constraints, ~4,800 words
+    report.html         the full working record, in Russian, 72 sections
     img/                IIIF crops from Beinecke MS 408 (public domain)
 
 ## The data is not here, deliberately
@@ -55,14 +55,17 @@ token stream roughly doubles the manuscript's apparent distance from Latin on
 both conditional entropy and glyph-position rigidity.
 
 **A character bigram chain trained on the manuscript's own vocabulary regenerates
-28.8% of its 7,205 word types**, against 1.5–5.8% for language corpora matched on
-both vocabulary size and word length.
+28.8% of its 7,205 word types**, against 3.5–6.6% for language corpora matched on
+vocabulary size and on the whole distribution of word lengths. Matching the mean
+length alone gives 1.7–5.9% and doubles the apparent gap; both are reported.
 
 **Four kinds of memory are needed in generation, and they compete for one
 decision.** A generator that selects whole words reproduces three of the four
-sequence signatures but not the information across the word boundary, at any
-parameter setting we could find. That last one appears to be a property of how a
-word is built rather than of which word is chosen.
+sequence signatures but not the information across the word boundary, at any of
+503 parameter settings. That last one is a property of how a word is built rather
+than of which word is chosen: an architecture in which memory is weighted by the
+boundary transition frequency reaches all four, to about four fifths of target
+each and no better.
 
 Everything is computed on six transliterations parsed with identical rules, two
 of them in non-EVA alphabets, against eighteen reference corpora each at least as
@@ -83,5 +86,5 @@ English prose in the write-ups is machine-written.
 
 ## Licence
 
-Code under MIT (see LICENSE). The prose in `paper-draft.md`, `report.html` and the
-forum posts is CC BY 4.0.
+Code under MIT (see LICENSE). The prose in `paper-audit.md`, `paper-generator.md`
+and `report.html` is CC BY 4.0.

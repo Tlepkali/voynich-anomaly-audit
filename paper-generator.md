@@ -115,8 +115,12 @@ mechanism supplies exactly one signature; that was too clean and is withdrawn.
 
 This rule deserves a note, because the manuscript makes it available in a way
 languages do not: 84.7% of its types have a neighbour at edit distance 1, with
-12.06 neighbours each, against Italian 74.0% / 4.04, Spanish 73.3% / 2.90 and
-Latin 56.9% / 1.96. The mechanism is not *unavailable* to Latin — more than half
+12.06 neighbours each, against Italian 70.6% / 3.48, Spanish 58.6% / 1.89 and
+Latin 53.3% / 1.65, all four corpora cut to the manuscript's 34,024 tokens. (An
+earlier version quoted 74.0% / 4.04, 73.3% / 2.90 and 56.9% / 1.96 from the
+language files taken whole. Larger corpora are denser, so the unmatched
+comparison understated the difference; the correction runs in favour of the
+claim, which is why we caught it late.) The mechanism is not *unavailable* to Latin — more than half
 its types have some neighbour — but a generator following neighbours there would
 return to the same word almost every time. The difference is the width of the
 choice, and it follows from the density of the companion paper, §5.1.
@@ -180,8 +184,9 @@ decision.
 The junction is the sharp case. It requires essentially the whole selection
 budget, which no working generator can give it. That fits what the companion paper's §3 found from the
 opposite direction: the junction excess is the one anomaly that vanishes entirely
-under affix stripping, falling from 0.194 to 0.036 against Latin's own 0.036. It
-is a property of how a word is *built*, not of which word is *chosen*.
+under affix stripping, falling from 0.194 to 0.036 where Latin, stripped by the
+same procedure, moves only from 0.047 to 0.043. It is a property of how a word is
+*built*, not of which word is *chosen*.
 
 This constrains cipher hypotheses without refuting any. Naibbe draws whole
 ciphertext units from tables; so did our generator; so does any nomenclator or
@@ -228,7 +233,7 @@ constructed, and therefore carries no boundary constraint. The junction is dilut
 roughly as the square of the constructed share — at a memory share of 0.40 it
 retains 41% of its full value.
 
-## 6. An architecture that reproduces all four
+## 6. An architecture that reaches all four
 
 The hybrid fails because memory works by reuse and a reused word carries no
 boundary constraint. That suggests memory *subordinate* to the boundary, and there
@@ -316,8 +321,8 @@ seven measures found afterwards (companion paper, §8). We applied that test her
 | three-character junction | 0.246 | 0.182 | 74% |
 | **line-start divergence** | 0.385 | 0.018 | **5%** |
 
-Eight of nine within ±43%, which would be a strong result if the measures were
-informative. Most are not. **88.9% of the generated tokens are actual manuscript
+Eight of nine within 26% of target, which would be a strong result if the
+measures were informative. Most are not. **88.9% of the generated tokens are actual manuscript
 words** — the neighbour, cache and frequency-class mechanisms draw them from its
 vocabulary, and chain-constructed words often coincide with it as well. The
 type-token ratio, hapax fraction, neighbourhood density, Zipf slope and chain
@@ -348,12 +353,12 @@ character chain, the neighbour sets, the frequency classes — is taken from the
 manuscript itself, which by the standard raised on the forum is fitting. The claim
 is that a class of mechanism exists which reproduces those four signatures where
 three other classes do not. Nothing follows about how the manuscript was actually
-made. The 70% threshold was declared in advance but is arbitrary; at 80% fewer
-configurations would qualify.
+made. On the threshold that governed the earlier form of this claim, see §6: it is
+load-bearing, and the claim is better stated without it.
 
 ## 8. The line
 
-The generator of §7.6 has no notion of a line, and §7.7 showed what that costs: a
+The generator of §6 has no notion of a line, and §7 showed what that costs: a
 whole family of the manuscript's best-documented peculiarities — LAAFU, Grove
 words, words occurring only line-initially — is out of reach. The mechanism is not
 a guess; our own audit found these to be largely one operation, prepending a
@@ -383,7 +388,8 @@ now confirmed by generation rather than by observation alone.
 
 The cost to the four earlier signatures is small and falls on one of them. At
 p = 0.8: recurrence 91%, length autocorrelation 81%, junction 79%, but rank
-correlation drops from 72% to 66% and leaves the threshold.
+correlation drops from 72% to 66%, which makes it the worst of the four and pulls
+the configuration's worst-of-four ratio down with it.
 ## 9. What this constrains, and what it does not
 
 Four independent memories are needed; they compete for a single decision when the
@@ -422,7 +428,7 @@ near-neighbour rule — turned out to supply two signatures where we had assumed
 shows that the search over mechanisms is not exhaustive, and nothing here excludes
 a mechanism we did not think of.
 
-One error of implementation is worth recording. In an early run of §8 a condition
+One error of implementation is worth recording. In an early run of §6 a condition
 of the form "is this name defined here" was false inside the function, so the
 neighbour mechanism never fired; the script then printed an explanatory note that
 rationalised the resulting figures. No statistical control catches a dead branch.
@@ -441,7 +447,7 @@ observation, we have tried to say whose it is.
 ## Appendix. Claims audited in this paper
 
 Eighteen claims, each with its source, the null model applied, and the outcome.
-The other fifty are in the companion paper. Machine-readable version, with the
+The other fifty-two are in the companion paper. Machine-readable version, with the
 numbers for each row, in `scripts/inventory.py`.
 
 | # | Claim | Source | Control applied | Outcome |

@@ -15,13 +15,13 @@ word boundary, an exceptionally dense vocabulary. They are normally treated as
 separate facts, and any proposed account of the text is expected to reproduce all
 of them.
 
-We re-examine fifty such claims, each against a null model matched on the
+We re-examine fifty-two such claims, each against a null model matched on the
 unit the claim concerns, on six independent transliterations and against eighteen
-reference corpora each at least as large as the manuscript. **Twenty survive as
-stated.** Of the remainder, twenty-one dissolve under a matched control, ten
+reference corpora each at least as large as the manuscript. **Fifteen survive as
+stated.** Of the remainder, twenty-one dissolve under a matched control, eight
 shrink to a magnitude that decides nothing, two are consequences of something else
-already in the inventory, and eight are retractions of claims we made ourselves in
-the course of this work.
+already in the inventory, and six are retractions — five of them of claims we made
+ourselves in the course of this work.
 
 Our own most promising positive result — an attribution of three famous anomalies
 to the manuscript's affix layer — is among the retractions, and we describe its
@@ -33,8 +33,9 @@ further decompositions, one of them a standard tool, disagree with it.
 
 One result is not deflationary: a character bigram chain trained on the
 manuscript's own vocabulary regenerates 28.8% of its 7,205 word types, against
-1.5–5.8% for language corpora matched on both vocabulary size and word length
-(§5.1).
+3.5–6.6% for language corpora matched on vocabulary size and on the whole
+distribution of word lengths (§5.1). Matching the mean length alone, as we first
+did, gives 1.7–5.9% and doubles the apparent gap; we report both.
 
 Otherwise what we offer is negative and methodological: a count of how much of the
 inventory is an artefact of its comparison, a demonstration that the unit of
@@ -106,33 +107,44 @@ error is a general one, we set it out fully.
 
 ### 3.1 What we did
 
-**Algorithm 1.** Take the 5,000 most frequent types; select the 15 most frequent
-prefixes and 15 suffixes of length 1–3 by type count; call a type *derived* if it
-equals an affix plus **another type of the vocabulary**, iterating to a fixed
-point. Applied identically to every corpus, this gives 59.0% derived for
-Voynichese against 30.1% (English), 18.9% (Latin), 17.0% (German), 9.9%
-(Italian), and 7.0% for a control with the same glyph multiset in shuffled
-within-word order. Rates across the six transliterations: 56.6–68.8% against a
-6.2–13.8% shuffled baseline. Types reducing twice or more: 42.0% against 1.5–4.1%
-for languages.
+**Algorithm 1.** Take the vocabulary; select the 15 most frequent prefixes and 15
+suffixes of length 1–3 by type count; call a type *derived* if it equals an affix
+plus **another type of the vocabulary**, iterating to a fixed point. Applied
+identically to every corpus at the manuscript's own size of 34,024 tokens, this
+gives 57.2% derived for Voynichese against 15.7% (Latin), 20.6% (Vulgate), 23.5%
+(Spanish), 24.4% (English), 27.5% (Italian) and 29.6% (French), and 6.2% for a
+control that shuffles the glyphs within each type. Rates across the six
+transliterations: 56.6–68.8% against a 6.2–13.8% shuffled baseline. Types
+reducing twice or more: 40.6% against 2.7–9.5% for languages.
+
+Two notes on those figures, both of which we owe to the re-checking described in
+§3.2. The algorithm has a free parameter we did not report: capping the
+vocabulary at the 5,000 most frequent types instead of using all of it gives
+59.0% for the manuscript and moves its density shift from −0.33 to −0.19. And an
+earlier version of this section quoted language rates of 9.9–30.1% from corpora
+taken whole rather than cut to the manuscript's size; those are not reproducible
+and the range above replaces them. The corrections go against the claim being
+made here, which is the claim we retract below.
 
 Rewriting the running text in the resulting stems then appeared to remove three
 well-known anomalies, in every transliteration:
 
 - the neighbourhood-density ratio (mean edit-distance-1 neighbours at word length
-  5 over length 3) shifted by −0.19 to −0.33, from 0.70–0.74 toward the language
-  range of 0.20–0.28;
+  5 over length 3) fell from 0.73 to 0.40, against a language range of 0.24–0.41
+  and Latin's own 0.41;
 - the excess single-character mutual information across the word boundary fell
-  from 0.194 to 0.036, converging on Latin's own stripped value of 0.036 to three
-  decimals, and to 0.021–0.048 across all six files;
-- the type-level glyph–position association fell from 21.11× to 5.08× over a
-  within-word shuffle, against Latin's 9.27× → 5.06×.
+  from 0.194 to 0.036, and to 0.021–0.048 across all six files. An earlier version
+  added that this converged on Latin's own stripped value "to three decimals";
+  measured with the same instrument Latin strips to 0.043, and the coincidence was
+  an artefact of comparing two different runs;
+- the type-level glyph–position association fell from 20.86× to 5.02× over a
+  within-word shuffle, against Latin's 8.59× → 7.04×.
 
 We ran three controls against circularity, since stripping removes exactly those
 words that have an edit-distance-1 neighbour: removing the same number of
 randomly chosen connected types gave −0.09; the same algorithm with randomly
 chosen affixes gave −0.17; removing the same number weighted by neighbour count
-gave **+0.58**, the opposite direction. Against the real −0.30 these looked
+gave **+0.58**, the opposite direction. Against the real −0.33 these looked
 decisive.
 
 ### 3.2 What broke it
@@ -146,7 +158,7 @@ Latin, which are the correct Latin inflections. It is not badly suited to either
 
 | | derived, Voynich | derived, Latin | density shift | junction shift | rigidity shift |
 |---|---|---|---|---|---|
-| Algorithm 1 | 57.2% | 15.7% | −0.33 | −0.157 | −16.3 |
+| Algorithm 1 | 57.2% | 15.7% | −0.33 | −0.157 | −15.8 |
 | **Algorithm 2** | **24.9%** | **28.7%** | **−0.05** | **−0.014** | **−1.02** |
 
 Under the density-independent criterion, **Voynichese is not more decomposable
@@ -166,8 +178,8 @@ The reason is visible directly:
 Algorithm 1's derivation rate tracks vocabulary density across all four rows. It
 requires the remainder to be a vocabulary word, and Voynichese has a dense
 vocabulary, so the remainder is in the vocabulary almost by construction. Our
-headline "59% against 10–30% for languages" was in substantial part a restatement
-of the density finding, not independent evidence about morphology.
+headline — 57% against 16–30% for languages — was in substantial part a
+restatement of the density finding, not independent evidence about morphology.
 
 **Algorithm 3.** Because both of the above are our own implementations, we
 repeated the test with Morfessor Baseline 2.0.6, an established unsupervised
@@ -177,19 +189,30 @@ Voynichese; `s`, `que`, `m`, `rum`, `tur`, `tum` for Latin.
 
 | algorithm | derived, Voynich | derived, Latin | ratio | density | junction | rigidity |
 |---|---|---|---|---|---|---|
-| 1: affix + vocabulary word (ours) | 57.2% | 15.7% | 3.6× | −0.33 | −0.157 | −16.3 |
+| 1: affix + vocabulary word (ours) | 57.2% | 15.7% | 3.6× | −0.33 | −0.157 | −15.8 |
 | 2: Goldsmith signatures (ours) | 24.9% | 28.7% | 0.87× | −0.05 | −0.014 | −1.02 |
-| **3: Morfessor Baseline** | **88.0%** | **62.9%** | **1.40×** | **−0.01** | **−0.070** | **−10.44** |
+| **3: Morfessor Baseline** | **88.1%** | **62.5%** | **1.41×** | **−0.02** | **−0.070** | **−10.8** |
+
+All three rows are measured by one instrument: the same density, junction and
+rigidity functions, with the within-word shuffle averaged over ten fixed seeds.
+Morfessor's own training is not seeded, so its row is the mean of five runs; the
+figures that vary materially between runs are marked where they appear below.
 
 On the density profile — the anomaly the attribution was built to explain —
-Morfessor moves the manuscript by −0.01 while moving Latin by −0.26. Two
-independent decompositions, one of them a standard tool, agree that **the density
-profile does not reduce to the affix layer.** The retraction stands.
+Morfessor does not move the manuscript at all (−0.02, and −0.035 to +0.013 across
+five runs) while moving Latin by −0.26. Two independent decompositions, one of
+them a standard tool, agree that **the density profile does not reduce to the
+affix layer.** The retraction stands.
 
-On slot rigidity they do not agree. Morfessor takes the manuscript from 20.86 to
-10.41 while Latin goes from 8.59 to 9.80, closing the gap from 2.43× to 1.06× —
-which is the convergence algorithm 1 claimed and algorithm 2 did not produce.
-Three algorithms give −16.3, −1.02 and −10.44 for the same quantity.
+On slot rigidity they do not agree, and here even the arithmetic is unstable.
+Morfessor takes the manuscript from 20.86 to about 10.0 while Latin goes from 8.59
+to about 8.9, closing the gap from 2.43× to roughly 1.1× — but the post-stripping
+values range over 9.6–10.7 and 7.8–10.2 across five runs, so that ratio is
+anywhere between 0.9× and 1.4×, and Latin's own shift changes sign between runs.
+Algorithm 1 does not converge on Latin either: it overshoots, taking the
+manuscript to 5.02 against Latin's 7.04, so the gap reverses to 0.71×. Algorithm 2
+leaves it at 2.06×. Three algorithms give −15.8, −1.02 and −10.8 for the same
+quantity, and only one of the three leaves the manuscript anywhere near Latin.
 
 That spread is the finding. The retraction is correct in the form *the attribution
 is algorithm-dependent*, not in the form *there is no attribution*. For the density
@@ -235,8 +258,10 @@ token measure reports, on both of these much-cited statistics. Bootstrapping ove
 words, the intervals do not overlap: slot rigidity 2.23 [2.12, 2.36] on tokens
 against 1.64 [1.44, 1.91] on types; h2 0.75 [0.74, 0.76] against 0.88 [0.87,
 0.90]. (Those are ratios of raw mutual information rather than of excess over a
-shuffle, hence the different figures.) To this should be added the known
-transcription effect: merging the EVA digraphs raises h2 from 2.20 to 2.68.
+shuffle, hence the different figures.) To this should be added the
+transcription effect, on our own files: the character-level h2 of the running text
+is 1.86 in EVA's 25 symbols, 2.05 in FSG's 23 and 2.29 in Claston's 68-symbol
+v101, where EVA's `ch`, `sh` and `cth` are single characters.
 
 Three qualifications, none of which was in an earlier version of this section.
 
@@ -299,10 +324,11 @@ original vocabulary, density is 5.24 rather than 9.60, so "80% explained" is an
 upper bound.
 
 That memorisation figure is itself the sharper result, and it is the one claim in
-this paper that we attacked deliberately and could not break.
+this paper that we attacked deliberately and could not break — though the audit
+below cuts its magnitude roughly in half.
 
 **A chain that knows only adjacent character pairs regenerates 28.8% of a
-7,205-type vocabulary.** The obvious confound is that Voynichese has a smaller
+7,205-type vocabulary** (28.9% averaged over twenty seeds, range 28.2–29.5%)**.** The obvious confound is that Voynichese has a smaller
 vocabulary of shorter words than our language corpora, which should make it an
 easier target. It runs the other way: the regeneration rate *rises* with
 vocabulary size in every corpus, because a larger vocabulary is a larger target.
@@ -315,9 +341,30 @@ type length (6.6–6.9):
 | corpus | types | mean length | regenerated | ratio |
 |---|---|---|---|---|
 | **Voynich** | 7,205 | 6.64 | **28.8%** | — |
-| Italian | 7,205 | 6.42 | 5.8% | 4.9× |
-| Spanish | 7,205 | 6.92 | 2.5% | 11.4× |
-| Latin | 7,205 | 6.88 | 1.5% | 18.6× |
+| Italian | 7,205 | 6.42 | 5.9% | 4.9× |
+| Spanish | 7,205 | 6.91 | 2.6% | 10.9× |
+| Latin | 7,205 | 6.89 | 1.7% | 17.2× |
+
+**The size of that gap depends on how the vocabularies are matched, and we report
+the sensitivity because our own rule (§8) requires it.** The table matches the
+*mean* type length by drawing random sub-vocabularies until one falls within 0.25
+of the target. A second and at least as defensible matching — draw from each
+length band in the proportion the manuscript has — matches the whole length
+distribution rather than its first moment, and gives higher figures for the
+languages:
+
+| corpus | matched on mean length | matched on the length distribution |
+|---|---|---|
+| Italian | 5.9% (4.9×) | 6.6% (4.4×) |
+| Spanish | 2.6% (10.9×) | 5.7% (5.1×) |
+| Latin | 1.7% (17.2×) | 3.5% (8.1×) |
+
+Five sampling seeds each, three chain seeds per sample; the intervals do not
+overlap between the two procedures for Latin or Spanish. The manuscript's own
+figure is stable — 28.9% over twenty seeds, range 28.2–29.5% — so the variation is
+entirely in the comparison set. The result survives either way, but the honest
+statement of it is a gap of **four- to seventeen-fold**, not the eighteen-fold the
+first matching alone suggests. We report the stricter matching in the abstract.
 
 Because the languages have too few short types to be matched downward completely,
 we also matched upward, restricting the manuscript to its long types and
@@ -440,16 +487,18 @@ sets of numbers are not directly comparable, and anyone combining them should be
 aware of it. We would welcome the correction.
 ## 7. The inventory
 
-Fifty claims examined. **Fifteen survive as stated.** Of the other thirty-five: twenty-one dissolve under a matched control, ten shrink to a magnitude
-that decides nothing, two are consequences of something else in the inventory,
-and seven are our own retractions. Twenty-eight of the fifty-eight are claims we
-advanced ourselves; thirty are other people's, and in most of those cases the
-control confirms the observation while changing its statement.
+Fifty-two claims examined. **Fifteen survive as stated.** Of the other
+thirty-seven: twenty-one dissolve under a matched control, eight shrink to a
+magnitude that decides nothing, two are consequences of something else in the
+inventory, and six are retractions. Twenty-three of the fifty-two are claims we
+advanced ourselves; twenty-nine are other people's, and in most of those cases the control confirms
+the observation while changing its statement.
 
-Seven retractions out of twenty-eight own claims is a poor ratio, and we report it
-rather than quietly dropping the failures, because the shape of the failures is
-the paper's content. Four of the six died the same death: a comparison set or a
-selection criterion that was not independent of the quantity being explained.
+Five of the six retractions are of our own claims, and five retractions out of
+twenty-three is a poor ratio. We report it rather than quietly dropping the
+failures, because the shape of the failures is the paper's content. Four of the
+six died the same death: a comparison set or a selection criterion that was not
+independent of the quantity being explained.
 
 Of the four most-cited peculiarities — low entropy, rigid slots, adjacent
 repetition, boundary behaviour — the first two are roughly halved by measuring
@@ -469,7 +518,7 @@ slot rigidity and word length, and then found it failed four of seven measures
 discovered afterwards. Parisel (2026a) makes the stronger version of the point by
 sweeping whole parameter spaces rather than one tuned instance.
 
-Four recommendations, each of which we violated at least once in this work.
+Five recommendations, each of which we violated at least once in this work.
 
 1. State the null model, and match it to the unit the claim concerns.
 2. Report types and tokens separately; on this text they differ by a factor of
@@ -483,10 +532,10 @@ Four recommendations, each of which we violated at least once in this work.
    advance.
 5. When a generative account is tested, declare which measures are fitted and
    which are held out *before* the run, and report the held-out ones whatever
-   they say. Every result in §7 was obtained this way, and the one claim there
-   we had to withdraw — that each memory supplies exactly one signature — was
-   caught by a mechanism we had not thought of, not by a held-out measure. The
-   discipline is necessary and not sufficient.
+   they say. Every result in the companion paper was obtained this way, and the
+   claim there we had to withdraw — that each memory supplies exactly one
+   signature — was caught by a mechanism we had not thought of, not by a held-out
+   measure. The discipline is necessary and not sufficient.
 ## 9. Limitations
 
 The word segmentation is no longer merely assumed. The ZL transliteration marks
@@ -504,6 +553,15 @@ spaces, gives:
 | junction, 1 character | 0.194 | 0.160 | 0.193 | 0.047 |
 | slot rigidity (types) | 21.00 | 22.11 | 18.40 | 8.59 |
 | chain regeneration | 28.6% | 26.4% | 19.7% | 1.5% |
+
+Two figures in that table differ in the last digit from the same quantities
+elsewhere in the paper — slot rigidity 21.00 against 20.86 in §3–§4, chain
+regeneration 28.6% against 28.8% in §5.1 — because the re-segmentation script
+carries its own copy of the estimator, with different shuffle and chain seeds.
+Both quantities are stochastic at that precision (the chain figure ranges
+28.2–29.5% over twenty seeds), all four columns of the table use one estimator,
+and nothing in the comparison turns on it. We leave the figures as the script
+produced them rather than harmonise them by hand.
 
 No conclusion in this paper depends on the segmentation being right. Destroying
 18.4% of word boundaries at random leaves every measure far from its language
@@ -529,7 +587,7 @@ Morfessor Baseline 2.0.6. A reader who trusts none of them should read §3 only 
 a demonstration that the attribution is algorithm-dependent, which is all we now
 claim for it.
 
-Fifty claims are audited here; seventeen further claims arising from generative
+Fifty-two claims are audited here; eighteen further claims arising from generative
 modelling are in the companion paper, which is why its count differs.
 
 All measurements are by one author with no independent replication. The code and
@@ -543,7 +601,7 @@ and the voynich.ninja community. Where a result is a control under someone else'
 observation, we have tried to say whose it is.
 ## Appendix. The inventory
 
-Fifty claims, each with its source, the null model applied, and the outcome.
+Fifty-two claims, each with its source, the null model applied, and the outcome.
 Machine-readable version, with the numbers for each row, in `scripts/inventory.py`.
 ### Vocabulary and word structure
 
@@ -552,9 +610,11 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | A1 | Words are built from ordered positional slots | Stolfi 1997/2000; Zattera 2022; Greshko 2025 | within-word glyph shuffle; same glyph classes on Latin | weakened |
 | A2 | Voynichese is more decomposable into affixes than languages are | ours (strengthening Stolfi 1997) | two decompositions: affix-plus-vocabulary-word, and Goldsmith signatures; combinatorial baseline | **retracted** |
 | A3 | Affix stacking is the distinctive property | ours | reduction depth, but only under the density-biased algorithm 1 | **retracted** |
+| A3b | Algorithm 1's figures are independent of its free parameters | ours (methodological premise) | settings swept: full vocabulary against the 5,000 most frequent types, 15 against 20 affixes, minimum remainder 2 against 3 | dissolves |
 | A4 | Unsupervised affixes coincide with the canonical ones | community | frequency-based selection, identical across corpora | survives |
 | A5 | Latin is equally decomposable given enough affixes | ours (test) | affix inventory raised to 400 | dissolves |
 | A6 | Word types have anomalously many edit-distance-1 neighbours | close to Timm | two nulls: positional (char by length and position), and a character Markov chain | weakened |
+| A6b | The chain-regeneration gap is independent of how the vocabularies are matched | ours (methodological premise) | two defensible matchings: on mean type length, and on the whole length distribution; 5 sampling seeds x 3 chain seeds | dissolves |
 | A7 | The flat density profile is attributable to the affix layer | ours | affix stripping plus three controls -- insufficient; a second algorithm gives no effect | **retracted** |
 | A8 | Glyph-position rigidity is a property of the vocabulary | Bennett; Landini; many | types vs tokens on raw text, fixed word length, within-word shuffle | weakened |
 | A9 | The stem vocabulary is a combinatorial grid | ours | grid built on half the stems, coverage measured on the other half | dissolves |
