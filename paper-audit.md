@@ -17,8 +17,8 @@ of them.
 
 We re-examine fifty-three such claims, each against a null model matched on the
 unit the claim concerns, on six independent transliterations and against eighteen
-reference corpora each at least as large as the manuscript. **Fifteen survive as
-stated.** Of the remainder, twenty-two dissolve under a matched control, eight
+reference corpora each at least as large as the manuscript. **Fourteen survive as
+stated.** Of the remainder, twenty-two dissolve under a matched control, nine
 shrink to a magnitude that decides nothing, two are consequences of something else
 already in the inventory, and six are retractions — five of them of claims we made
 ourselves in the course of this work.
@@ -500,8 +500,8 @@ sets of numbers are not directly comparable, and anyone combining them should be
 aware of it. We would welcome the correction.
 ## 7. The inventory
 
-Fifty-three claims examined. **Fifteen survive as stated.** Of the other
-thirty-eight: twenty-two dissolve under a matched control, eight shrink to a
+Fifty-three claims examined. **Fourteen survive as stated.** Of the other
+thirty-nine: twenty-two dissolve under a matched control, nine shrink to a
 magnitude that decides nothing, two are consequences of something else in the
 inventory, and six are retractions. Twenty-four of the fifty-three are claims we
 advanced ourselves; twenty-nine are other people's, and in most of those cases the control confirms
@@ -517,6 +517,29 @@ Of the four most-cited peculiarities — low entropy, rigid slots, adjacent
 repetition, boundary behaviour — the first two are roughly halved by measuring
 types instead of tokens (§4), the third is the absence of a prohibition rather
 than an excess (§5), and the fourth remains as stated.
+
+We also swept the table itself, asking of every row whether its null model
+contains the mechanism whose sufficiency is in question or destroys it along with
+everything else. That is the disease two of our retractions died of. It found no
+third instance, but it found something we had not looked for: **three rows carried
+no null at all.** Two of them — the Zipf slope and the word-length autocorrelation
+— now have one, and both survive: the Zipf slope of −1.165 sits inside the
+eighteen-corpus range of −1.229 to −0.769, and the autocorrelation is treated in
+the companion paper's §2.1; the third, the hapax rate, was marked as
+surviving on a comparison with Latin alone, and against eighteen corpora the
+manuscript's 0.697 is above every one of them (0.420–0.694, Latin closest at
+0.694). It is a small exceedance and we now record it as weakened rather than
+confirmed, but the direction of the claim reverses: the hapax rate is not
+language-like, it is at the top of the language range. That is our own
+recommendation 3 below, violated in our own table.
+
+The sweep also supplied a control the affix result never had. "Unsupervised affix
+discovery recovers the canonical affixes" is close to tautological if both lists
+are simply the frequent substrings at word edges. Running the same selection on a
+vocabulary whose glyphs are shuffled within each word recovers 5.9 of the 16
+canonical affixes on average against 16 of 16 from the real vocabulary, and every
+one it finds is a single glyph: the multi-character suffixes (`dy`, `iin`, `edy`)
+it never finds at all. The claim survives, and now it is not a tautology.
 
 The full table, with the null model applied to each claim, is in the appendix and
 in machine-readable form in the accompanying code.
@@ -649,7 +672,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | A2 | Voynichese is more decomposable into affixes than languages are | ours (strengthening Stolfi 1997) | two decompositions: affix-plus-vocabulary-word, and Goldsmith signatures; combinatorial baseline | **retracted** |
 | A3 | Affix stacking is the distinctive property | ours | reduction depth, but only under the density-biased algorithm 1 | **retracted** |
 | A3b | Algorithm 1's figures are independent of its free parameters | ours (methodological premise) | settings swept: full vocabulary against the 5,000 most frequent types, 15 against 20 affixes, minimum remainder 2 against 3 | dissolves |
-| A4 | Unsupervised affixes coincide with the canonical ones | community | frequency-based selection, identical across corpora | survives |
+| A4 | Unsupervised affixes coincide with the canonical ones | community | the same selection on a within-word-shuffled vocabulary, 20 seeds; positive control on Latin | survives |
 | A5 | Latin is equally decomposable given enough affixes | ours (test) | affix inventory raised to 400 | dissolves |
 | A6 | Word types have anomalously many edit-distance-1 neighbours | close to Timm | two nulls: positional (char by length and position), and a character Markov chain | weakened |
 | A6b | The chain-regeneration gap is independent of how the vocabularies are matched | ours (methodological premise) | two defensible matchings: on mean type length, and on the whole length distribution; 5 sampling seeds x 3 chain seeds | dissolves |
@@ -675,7 +698,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | B7 | A deficit of three-character boundary information | ours | affix stripping, matched samples | survives |
 | B7b | Each quantity in the project has one definition | ours (methodological premise) | canonical module against what individual scripts print; negative test on altered figures | dissolves |
 | B8 | Word recurrence decay is language-like | close to Montemurro & Zanette 2013 | full distance range rather than the first six points | survives |
-| B9 | Word-length autocorrelation is positive where languages are negative | Matlach et al. 2022; Gaskell & Bowern | -- | survives |
+| B9 | Word-length autocorrelation exceeds that of all eighteen reference corpora | Matlach et al. 2022; Gaskell & Bowern | 18 corpora at 34,024 tokens; within-line shuffle, 200 repetitions | survives |
 ### Position in the line
 
 | # | Claim | Source | Control applied | Outcome |
@@ -704,8 +727,8 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | # | Claim | Source | Control applied | Outcome |
 |---|---|---|---|---|
 | E1 | Conditional entropy is anomalously low | Bennett 1976 onward | types vs tokens; fixed word length; merged EVA digraphs | attributed |
-| E2 | The text follows Zipf's law | commonplace | -- | survives |
-| E3 | The hapax rate is language-like | ours | comparison with Latin | survives |
+| E2 | The text follows Zipf's law | commonplace | slope across 18 corpora at 34,024 tokens each | survives |
+| E3 | The hapax rate is language-like | ours | 18 corpora at 34,024 tokens, replacing a comparison with Latin alone | weakened |
 | E4 | The space is a real word boundary | commonplace | comparison against random boundaries | survives |
 ### Origin hypotheses
 

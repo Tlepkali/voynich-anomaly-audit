@@ -2,7 +2,7 @@
 
 Code and working materials for an audit of claimed statistical peculiarities of
 the Voynich manuscript. Seventy-four claims — other people's and our own — each
-re-tested against a null model matched to the unit the claim concerns. 22
+re-tested against a null model matched to the unit the claim concerns. 21
 survive as stated; 11 are retractions, 10 of them of claims we made ourselves.
 
 Two draft write-ups: `paper-audit.md` (what survives the controls) and
@@ -18,7 +18,7 @@ Neither is submitted anywhere and we would rather be corrected than not.
     scripts/fetch_data.sh   downloads the data, which is not in this repository
     paper-audit.md      draft: the audit, ~7,300 words
     paper-generator.md  draft: generative constraints, ~4,800 words
-    report.html         the full working record, in Russian, 74 sections
+    report.html         the full working record, in Russian, 75 sections
     Makefile            `make check` verifies the papers against the code
     img/                IIIF crops from Beinecke MS 408 (public domain)
 
@@ -76,6 +76,11 @@ both conditional entropy and glyph-position rigidity.
 28.8% of its 7,205 word types**, against 3.5–6.6% for language corpora matched on
 vocabulary size and on the whole distribution of word lengths. Matching the mean
 length alone gives 1.7–5.9% and doubles the apparent gap; both are reported.
+
+**Three of the seventy-four rows carried no null model at all**, and a sweep of
+every row's control found them. Two survive once given one; the third — the hapax
+rate, marked as language-like on a comparison with Latin alone — turns out to sit
+above all eighteen reference corpora, and its verdict reverses.
 
 **The line start takes two operations, not one.** Prepending a character accounts
 for the length of line-initial words but, at that rate, for less than half their

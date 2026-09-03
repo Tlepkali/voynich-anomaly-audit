@@ -121,6 +121,26 @@ rec("recur_d15", M.recurrence(VL, 1, 5), "{:.2f}", B, "manuscript")
 rec("recur_d620", M.recurrence(VL, 6, 20), "{:.2f}", B, "manuscript")
 rec("recur_decay", M.recurrence_decay(VL), "{:d}", B, "d ≈")
 rec("lenauto_voy", M.len_autocorr(VL), "{:+.3f}", B, "manuscript")
+# нуль автокорреляции длины: перемешивание ВНУТРИ строки (появился 03.09.2026)
+print("нуль автокорреляции длины…", file=sys.stderr)
+import random as _r
+def _sh(L, seed):
+    rnd=_r.Random(seed); out=[]
+    for l in L:
+        c=l[:]; rnd.shuffle(c); out.append(c)
+    return out
+_nl=[M.len_autocorr(_sh(VL,s)) for s in range(200)]
+rec("lenauto_null", st.mean(_nl), "{:+.3f}", B, "a shuffle *within lines*")
+rec("lenauto_null_lo", min(_nl), "{:+.3f}", B, "a shuffle *within lines*")
+rec("lenauto_null_hi", max(_nl), "{:+.3f}", B, "a shuffle *within lines*")
+# доля одноразовых слов и наклон Ципфа (записи E3 и E2, где контроля не было)
+import collections as _c, math as _m
+_cnt=_c.Counter(tv)
+rec("hapax_voy", sum(1 for v in _cnt.values() if v==1)/len(_cnt), "{:.3f}", A, "Latin closest at")
+_f=sorted(_cnt.values(), reverse=True); _n=min(len(_f),3000)
+_xs=[_m.log(i+1) for i in range(_n)]; _ys=[_m.log(v) for v in _f[:_n]]
+_mx,_my=st.mean(_xs),st.mean(_ys)
+rec("zipf_voy", sum((x-_mx)*(y-_my) for x,y in zip(_xs,_ys))/sum((x-_mx)**2 for x in _xs), "{:.3f}", A, "Zipf slope of")
 
 # ── §3 генеративной: доступность соседа ─────────────────────────────────────
 print("доступность соседа…", file=sys.stderr)

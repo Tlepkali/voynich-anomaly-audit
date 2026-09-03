@@ -95,7 +95,17 @@ preserves the vocabulary and every frequency exactly — gives:
 | manuscript | 2.44 | 1.86 | d ≈ 47 | +0.134 | +0.0797 | 0.194 |
 | memoryless | 1.05 | 0.97 | d ≈ 6 | +0.007 | −0.0009 | 0.000 |
 
-All four are lost.
+All four are lost. Two of them need a further note, both added after a sweep of
+every null model in the companion paper's inventory. The length autocorrelation
+had no null recorded at all; a shuffle *within lines* — which preserves each
+line's own word lengths and destroys only their order — already produces +0.053
+[+0.040; +0.064] over 200 repetitions, so about two fifths of the raw +0.134 is
+line-internal homogeneity rather than sequence memory. Against eighteen reference
+corpora the manuscript is nonetheless above every one (the range is −0.199 to
++0.085), though the common statement that languages are negative here is wrong:
+three of the eighteen are positive. Neither correction changes what follows, since
+every model below is scored against the manuscript's own value on the same
+measure.
 
 ## 3. No single memory supplies more than two
 
