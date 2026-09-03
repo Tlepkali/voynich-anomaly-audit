@@ -119,19 +119,21 @@ reducing twice or more: 40.6% against 2.7–9.5% for languages.
 
 Two notes on those figures, both of which we owe to the re-checking described in
 §3.2. The algorithm has a free parameter we did not report: capping the
-vocabulary at the 5,000 most frequent types instead of using all of it gives
-59.0% for the manuscript and moves its density shift from −0.33 to −0.19. And an
-earlier version of this section quoted language rates of 9.9–30.1% from corpora
-taken whole rather than cut to the manuscript's size; those are not reproducible
-and the range above replaces them. The corrections go against the claim being
-made here, which is the claim we retract below.
+vocabulary at the 5,000 most frequent types instead of using all of it changes
+the manuscript's derived rate to 59.0% and roughly halves its density shift. And
+an earlier version of this section quoted language rates of 9.9–30.1% from
+corpora taken whole rather than cut to the manuscript's size; those are not
+reproducible and the range above replaces them. Both corrections go against the
+claim being made here, which is the claim we retract below.
 
 Rewriting the running text in the resulting stems then appeared to remove three
 well-known anomalies, in every transliteration:
 
 - the neighbourhood-density ratio (mean edit-distance-1 neighbours at word length
   5 over length 3) fell from 0.73 to 0.40, against a language range of 0.24–0.41
-  and Latin's own 0.41;
+  and Latin's own 0.41. The shift is negative in all six transliterations,
+  −0.19 to −0.33, the smallest in the v101 alphabet, whose unstripped ratio is
+  0.44 rather than 0.73;
 - the excess single-character mutual information across the word boundary fell
   from 0.194 to 0.036, and to 0.021–0.048 across all six files. An earlier version
   added that this converged on Latin's own stripped value "to three decimals";
