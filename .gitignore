@@ -1,0 +1,24 @@
+# Чужие данные — не наши, чтобы их распространять.
+# Восстанавливаются через scripts/fetch_data.sh
+
+# клон github.com/greshko/naibbe-cipher
+naibbe/
+# посты участников voynich.ninja
+forum/
+# корпуса: Гутенберг, Википедия (CC BY-SA), Плиний, писание
+ref/
+# транскрипции IVTFF, распространяет Р. Зандберген на voynich.nu
+data/*.txt
+data/*.json
+# симлинки в data/
+parsed.json
+ZL3b-n.txt
+
+# черновики писем конкретным людям — не отправлены, лежат только локально
+letter-to-*.md
+
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+followup-post-*.md
