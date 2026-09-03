@@ -433,8 +433,12 @@ of the form "is this name defined here" was false inside the function, so the
 neighbour mechanism never fired; the script then printed an explanatory note that
 rationalised the resulting figures. No statistical control catches a dead branch.
 
-All measurements are by one author with no independent replication. Code and
-parsed corpora are available.
+All measurements are by one author with no independent replication. The four
+signatures and the held-out measures are defined once, in `scripts/measures.py`,
+with seeds and repetition counts in the signatures; `scripts/check_paper.py`
+recomputes the load-bearing figures of both papers and fails on any disagreement
+with the text. That checks arithmetic and bookkeeping, not judgement: it cannot
+tell whether a measure is the right one. Code and parsed corpora are available.
 
 ## Acknowledgements
 
@@ -447,7 +451,7 @@ observation, we have tried to say whose it is.
 ## Appendix. Claims audited in this paper
 
 Eighteen claims, each with its source, the null model applied, and the outcome.
-The other fifty-two are in the companion paper. Machine-readable version, with the
+The other fifty-three are in the companion paper. Machine-readable version, with the
 numbers for each row, in `scripts/inventory.py`.
 
 | # | Claim | Source | Control applied | Outcome |

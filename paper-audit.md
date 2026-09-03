@@ -15,10 +15,10 @@ word boundary, an exceptionally dense vocabulary. They are normally treated as
 separate facts, and any proposed account of the text is expected to reproduce all
 of them.
 
-We re-examine fifty-two such claims, each against a null model matched on the
+We re-examine fifty-three such claims, each against a null model matched on the
 unit the claim concerns, on six independent transliterations and against eighteen
 reference corpora each at least as large as the manuscript. **Fifteen survive as
-stated.** Of the remainder, twenty-one dissolve under a matched control, eight
+stated.** Of the remainder, twenty-two dissolve under a matched control, eight
 shrink to a magnitude that decides nothing, two are consequences of something else
 already in the inventory, and six are retractions — five of them of claims we made
 ourselves in the course of this work.
@@ -392,8 +392,19 @@ English 0.08×. Thread 61 of voynich.ninja states the general point — sequenti
 repetition is an aspect of local repetition, which is an aspect of local
 similarity; our contribution is the matched null and the cross-language range.
 
-**A deficit of three-character information across the word boundary**, 0.109
-against Latin's 0.381.
+**A deficit of three-character information across the word boundary.** On the raw
+text the manuscript gives 0.245 against 0.435 (Latin), 0.554 (Italian), 0.568
+(Spanish), 0.643 (Vulgate), 0.744 (English) and 0.867 (French) — between 28% and
+56% of a language's value, measured against the same word-order shuffle. The
+contrast within one corpus is the sharp part: on *one* character the manuscript
+is in excess of every language (0.194 against 0.047–0.147), on *three* it is in
+deficit of every one.
+
+An earlier version of this section gave 0.109 against Latin's 0.381 for this
+measure. Those were computed on text stripped by algorithm 1 — the decomposition
+retracted in §3 — and had no business in a list of what survives on the raw text.
+The deficit itself survives the correction; its size does not, changing from 0.29×
+to 0.56× of Latin.
 
 **The 1.26× density residual** of §5.1.
 ## 6. A measure we could not make usable
@@ -489,15 +500,15 @@ sets of numbers are not directly comparable, and anyone combining them should be
 aware of it. We would welcome the correction.
 ## 7. The inventory
 
-Fifty-two claims examined. **Fifteen survive as stated.** Of the other
-thirty-seven: twenty-one dissolve under a matched control, eight shrink to a
+Fifty-three claims examined. **Fifteen survive as stated.** Of the other
+thirty-eight: twenty-two dissolve under a matched control, eight shrink to a
 magnitude that decides nothing, two are consequences of something else in the
-inventory, and six are retractions. Twenty-three of the fifty-two are claims we
+inventory, and six are retractions. Twenty-four of the fifty-three are claims we
 advanced ourselves; twenty-nine are other people's, and in most of those cases the control confirms
 the observation while changing its statement.
 
 Five of the six retractions are of our own claims, and five retractions out of
-twenty-three is a poor ratio. We report it rather than quietly dropping the
+twenty-four is a poor ratio. We report it rather than quietly dropping the
 failures, because the shape of the failures is the paper's content. Four of the
 six died the same death: a comparison set or a selection criterion that was not
 independent of the quantity being explained.
@@ -548,7 +559,7 @@ spaces, gives:
 
 | measure | as parsed | transcriber's joins | random joins | Latin |
 |---|---|---|---|---|
-| rank correlation | +0.0797 | +0.0890 | +0.0478 | −0.088 |
+| rank correlation | +0.0797 | +0.0890 | +0.0478 | −0.087 |
 | adjacent identity | 1.01 | 1.08 | 1.04 | 0.02 |
 | neighbourhood density | 12.06 | 10.60 | 7.40 | 1.65 |
 | density shape | 0.73 | 0.73 | 0.72 | 0.41 |
@@ -589,11 +600,36 @@ Morfessor Baseline 2.0.6. A reader who trusts none of them should read §3 only 
 a demonstration that the attribution is algorithm-dependent, which is all we now
 claim for it.
 
-Fifty-two claims are audited here; eighteen further claims arising from generative
+Fifty-three claims are audited here; eighteen further claims arising from generative
 modelling are in the companion paper, which is why its count differs.
 
-All measurements are by one author with no independent replication. The code and
-the parsed corpora are available; we would rather be corrected than not.
+All measurements are by one author with no independent replication. What we can
+offer instead is machine-checked internal consistency. Each recurring quantity —
+neighbourhood density, the length profile, slot rigidity, conditional entropy,
+the junction, the four sequence signatures, the affix decomposition — is defined
+once, in `scripts/measures.py`, with its seed and its number of repetitions in
+the function signature. `scripts/paper_numbers.py` recomputes 77 load-bearing
+figures from those definitions and `scripts/check_paper.py` verifies that each
+appears in the text where it should, that the appendix matches the
+machine-readable inventory row for row and verdict for verdict, and that no
+section cross-reference dangles. It exits non-zero on any disagreement.
+
+Those 77 are about an eighth of the numbers printed in this paper; the check
+reports its own coverage so the figure cannot quietly decay. The rest are
+derived quantities, other people's figures, and values from scripts not yet in
+the manifest.
+
+This was built after a consistency pass found eleven discrepancies in an earlier
+version of these two papers, of which the automated check would have caught
+eight. It found two more in its first run: a three-character junction figure in
+§5.2 computed on text stripped by the decomposition retracted in §3, and a
+recurrence statistic that a re-implementation had silently redefined. What it
+cannot check is whether a definition is the right one, or whether an alternative
+procedure would give a different answer — the two failures in this paper that
+mattered most (§3.2, §5.1) were of exactly that kind.
+
+The code and the parsed corpora are available; we would rather be corrected than
+not.
 ## Acknowledgements
 
 This work depends throughout on transliterations by Zandbergen and Landini,
@@ -603,7 +639,7 @@ and the voynich.ninja community. Where a result is a control under someone else'
 observation, we have tried to say whose it is.
 ## Appendix. The inventory
 
-Fifty-two claims, each with its source, the null model applied, and the outcome.
+Fifty-three claims, each with its source, the null model applied, and the outcome.
 Machine-readable version, with the numbers for each row, in `scripts/inventory.py`.
 ### Vocabulary and word structure
 
@@ -637,6 +673,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | B5 | Word order carries no information at all | ours (hypothesis) | shuffle within a sliding window, preserving local composition | dissolves |
 | B6 | Word-boundary structure is attributable to the affix layer | E. M. Smith (End-End); Sazonov 2003; Parisel 2026a | affix stripping -- but the second algorithm shifts it by only -0.014 | **retracted** |
 | B7 | A deficit of three-character boundary information | ours | affix stripping, matched samples | survives |
+| B7b | Each quantity in the project has one definition | ours (methodological premise) | canonical module against what individual scripts print; negative test on altered figures | dissolves |
 | B8 | Word recurrence decay is language-like | close to Montemurro & Zanette 2013 | full distance range rather than the first six points | survives |
 | B9 | Word-length autocorrelation is positive where languages are negative | Matlach et al. 2022; Gaskell & Bowern | -- | survives |
 ### Position in the line

@@ -1,7 +1,7 @@
 # Voynich anomaly audit
 
 Code and working materials for an audit of claimed statistical peculiarities of
-the Voynich manuscript. Seventy claims — other people's and our own — each
+the Voynich manuscript. Seventy-one claims — other people's and our own — each
 re-tested against a null model matched to the unit the claim concerns. 22
 survive as stated; 10 are retractions, 9 of them of claims we made ourselves.
 
@@ -11,13 +11,15 @@ Neither is submitted anywhere and we would rather be corrected than not.
 
 ## What is here
 
-    scripts/            ~204 files, standard library only (one exception below)
-    scripts/inventory.py    the audit itself: 70 machine-readable records with
+    scripts/            ~210 files, standard library only (one exception below)
+    scripts/measures.py     one definition per quantity, seeds in the signatures
+    scripts/inventory.py    the audit itself: 71 machine-readable records with
                             claim / source / control applied / numbers / outcome
     scripts/fetch_data.sh   downloads the data, which is not in this repository
     paper-audit.md      draft: the audit, ~7,300 words
     paper-generator.md  draft: generative constraints, ~4,800 words
-    report.html         the full working record, in Russian, 72 sections
+    report.html         the full working record, in Russian, 73 sections
+    Makefile            `make check` verifies the papers against the code
     img/                IIIF crops from Beinecke MS 408 (public domain)
 
 ## The data is not here, deliberately
@@ -31,6 +33,22 @@ can:
 It retrieves the six IVTFF transliterations from voynich.nu, parses them, and
 fetches book-length corpora from Project Gutenberg. What it cannot restore
 automatically is listed at the end of its output.
+
+## Checking the papers against the code
+
+Each recurring quantity is defined once in `scripts/measures.py`, with its seed
+and repetition count in the function signature. `make numbers` recomputes 77
+load-bearing figures from those definitions; `make check` verifies that each
+appears in the papers where it should, that the appendix matches the
+machine-readable inventory row for row and verdict for verdict, and that no
+section cross-reference dangles. It exits non-zero on any disagreement and
+reports its own coverage — currently 13% of the numbers in the audit paper and
+7% in the generative one, the rest being derived quantities and other people's
+figures.
+
+This is a check on arithmetic and bookkeeping, not on judgement. It found two
+real defects on its first run and misses, by construction, the kind of error
+that matters most: a defensible alternative procedure giving a different answer.
 
 ## Dependencies
 
