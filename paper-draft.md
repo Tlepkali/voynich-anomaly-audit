@@ -539,6 +539,21 @@ The reason is structural rather than parametric. Each word is chosen once. A
 generator that spends that choice on the boundary cannot also spend it on topic,
 on length, or on frequency class.
 
+A reader on voynich.ninja objected, reasonably, that changes of this kind should
+be demonstrated "without introducing rules based on the VMS text" — and the rates
+above are fitted to the manuscript's own figures. The structural claim can be
+made without them. Sweeping all four rates over a grid in steps of 0.1 with their
+sum at most 1 gives 503 configurations, none of them fitted to anything. Counting
+a signature as reached at 70% of target: **no configuration reaches all four.**
+Three hundred and three reach exactly three, and in every one of the best the
+missing one is the junction, whose maximum among them is 26%. In all the best
+configurations the boundary share sits at the grid's ceiling of 0.4 and the
+junction still does not exceed a quarter.
+
+The fitted figures earlier in this section show that three signatures are
+*attainable*, which is what fitting is for. The claim that the fourth is not
+attainable no longer rests on them.
+
 ### 7.4 What this constrains
 
 "Some kind of memory" is not one thing. At least four are needed, they are
