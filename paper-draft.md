@@ -720,6 +720,40 @@ three other classes do not. Nothing follows about how the manuscript was actuall
 made. The 70% threshold was declared in advance but is arbitrary; at 80% fewer
 configurations would qualify.
 
+### 7.8 The line
+
+The generator of §7.6 has no notion of a line, and §7.7 showed what that costs: a
+whole family of the manuscript's best-documented peculiarities — LAAFU, Grove
+words, words occurring only line-initially — is out of reach. The mechanism is not
+a guess; our own audit found these to be largely one operation, prepending a
+character to an ordinary word. We added it as a single rule, prepending with
+probability *p* at the start of each line, the character drawn from the observed
+distribution of prepended ones (`d` 580, `q` 472, `y` 465, `o` 379, `s` 360).
+Fitted on line-start divergence alone; everything else held out.
+
+| p | divergence *(fitted)* | Grove fraction | only-initial words | m-final |
+|---|---|---|---|---|
+| target | 0.385 | 74.9% | 1,033 | 18.4× |
+| 0.0 | 5% | 64% | 45% | 1.0× |
+| 0.4 | 48% | 85% | 119% | 1.1× |
+| 0.8 | **93%** | **103%** | 174% | 1.0× |
+
+One rule lifts all three line-start phenomena together, which confirms by
+generation what the audit found by observation: they are one thing. But their
+proportions do not agree at any single rate — divergence wants about 0.85, the
+Grove fraction about 0.75, and the count of only-initial words about 0.3, where at
+0.8 it overshoots by 74%. Prepending is the main part of the story and not all of
+it.
+
+The line *end* is untouched: `m`-final words stay at 1.0× against the manuscript's
+18.4× at every rate. That is what the audit predicted — line-final words decompose
+in the same way only 8% of the time against 77% for line-initial ones — and it is
+now confirmed by generation rather than by observation alone.
+
+The cost to the four earlier signatures is small and falls on one of them. At
+p = 0.8: recurrence 91%, length autocorrelation 81%, junction 79%, but rank
+correlation drops from 72% to 66% and leaves the threshold.
+
 ## 8. The inventory
 
 Fifty-eight claims examined. **Eighteen survive as stated.** Of the other
