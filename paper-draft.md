@@ -667,10 +667,55 @@ indifferent to the boundary** cannot. A table cipher that chose its table with
 weight depending on the previous unit's final character would acquire the junction
 for nothing.
 
-What this does not show: every distribution used here — boundary frequencies, the
+### 7.7 The same architecture against measures it was not fitted to
+
+The architecture above is fitted to four signatures. Our first generator was
+fitted to six measures, matched them to within a few percent, and failed four of
+seven measures found afterwards (§9). We applied that test here too.
+
+| measure | manuscript | model | % |
+|---|---|---|---|
+| mean word length | 5.07 | 5.04 | 100% |
+| density profile, len 5 / len 3 | 0.73 | 0.74 | 101% |
+| chain regeneration | 0.286 | 0.309 | 108% |
+| neighbourhood density | 12.06 | 11.44 | 95% |
+| Zipf slope | −1.041 | −0.969 | 93% |
+| type-token ratio | 0.212 | 0.192 | 91% |
+| hapax fraction | 0.697 | 0.595 | 85% |
+| three-character junction | 0.246 | 0.182 | 74% |
+| **line-start divergence** | 0.385 | 0.018 | **5%** |
+
+Eight of nine within ±43%, which would be a strong result if the measures were
+informative. Most are not. **88.9% of the generated tokens are actual manuscript
+words** — the neighbour, cache and frequency-class mechanisms draw them from its
+vocabulary, and chain-constructed words often coincide with it as well. The
+type-token ratio, hapax fraction, neighbourhood density, Zipf slope and chain
+regeneration therefore come out right because the output *is* largely the
+manuscript's vocabulary. They test identity, not architecture.
+
+Two measures are not determined by that identity. The three-character junction, at
+74%, is a genuine if partial success beyond what was fitted. The line-start
+divergence, at 5%, is a complete failure — and a predictable one: the generator has
+no notion of a line. It emits a stream which we cut to the manuscript's line
+lengths, and nothing in it knows a line has begun. A whole family of the
+manuscript's peculiarities — LAAFU, Grove words, words occurring only line-initially
+— is out of its reach.
+
+The remaining 11% of output, the words that are not in the manuscript, carry a
+defect the four fitted signatures did not catch: their mean length is 8.16
+characters against the manuscript's 5.07. The chain does not stop in time, and it
+shows on inspection: `dolpchokshal`, `ctheckheody`, `ckhepchor`. Overall mean word
+length stays correct only because the copied 89% holds it there.
+
+**So we withdraw "the architecture passes eight of nine held-out measures."** Of
+the nine, two are informative and it fails one of them outright. What stands is the
+narrower claim: the architecture reproduces four sequence signatures, and does not
+reproduce the line-positional structure at all.
+
+What none of this shows: every distribution used — boundary frequencies, the
 character chain, the neighbour sets, the frequency classes — is taken from the
 manuscript itself, which by the standard raised on the forum is fitting. The claim
-is only that a class of mechanism exists which reproduces all four signatures where
+is that a class of mechanism exists which reproduces those four signatures where
 three other classes do not. Nothing follows about how the manuscript was actually
 made. The 70% threshold was declared in advance but is arbitrary; at 80% fewer
 configurations would qualify.
