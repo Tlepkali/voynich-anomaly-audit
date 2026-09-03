@@ -233,10 +233,30 @@ at fixed word length 4.
 | conditional entropy h2, types | 3.12 | 3.53 | **0.88×** |
 
 Measured on types — the appropriate unit for a claim about how a vocabulary is
-built — the manuscript's distance from Latin is roughly half what the token
-measure reports, on both of these much-cited statistics. To this should be added
-the known transcription effect: merging the EVA digraphs raises h2 from 2.20 to
-2.68.
+built — the manuscript's distance from Latin is substantially smaller than the
+token measure reports, on both of these much-cited statistics. Bootstrapping over
+words, the intervals do not overlap: slot rigidity 2.23 [2.12, 2.36] on tokens
+against 1.64 [1.44, 1.91] on types; h2 0.75 [0.74, 0.76] against 0.88 [0.87,
+0.90]. (Those are ratios of raw mutual information rather than of excess over a
+shuffle, hence the different figures.) To this should be added the known
+transcription effect: merging the EVA digraphs raises h2 from 2.20 to 2.68.
+
+Three qualifications, none of which was in an earlier version of this section.
+
+The size of the effect depends on word length, and "roughly half" is the value at
+length 4. Across lengths 4 to 7 the token measure inflates the gap by 1.86×,
+3.71×, 2.27× and 2.00×. **At length 3 it reverses**: the type-level gap (2.48×) is
+larger than the token-level one (2.03×).
+
+Conditional entropy behaves more regularly and has no exception: the type-level
+gap is closer to unity at every length — 0.96 against 0.84 at length 3, then
+0.88/0.75, 0.81/0.63, 0.76/0.63, 0.73/0.61.
+
+Across transliterations the effect reproduces closely in the three EVA files
+(1.86×, 1.77×, 1.85×) and is absent in the two written in merged alphabets (0.52×
+and 1.05×). We cannot say why. Those two have words a full character shorter, so
+they could only be measured at length 3 — exactly where the effect reverses in the
+EVA files as well. Alphabet and word length are not separable in these data.
 
 We do not claim more than this. The frequency skew at length 4 is in fact similar
 in the two corpora (top five types cover 26.7% of Voynichese tokens against 28.0%
