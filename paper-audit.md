@@ -1,46 +1,45 @@
-# What Survives, and What It Constrains: An Audit of the Voynich Anomaly Inventory
+# What Survives? An Audit of the Voynich Anomaly Inventory
 
-**Draft, 1 September 2026. Not submitted. Comments wanted, especially disagreement.**
+**Draft, 3 September 2026. Not submitted. Comments wanted, especially disagreement.**
+
+*Companion paper: "What a Generator Must Have", which takes the residue left here
+and asks what it constrains. The two share their data and their controls but not
+their method, and either can be read alone.*
 
 ## Abstract
 
 A century of work on the Voynich manuscript has accumulated an inventory of
-claimed statistical anomalies: low conditional entropy, rigid positional
-structure within words, adjacent repetition of whole words, unusual behaviour
-across the word boundary, an exceptionally dense vocabulary. They are normally
-treated as separate facts, and a proposed generative account is expected to
-reproduce all of them.
+claimed statistical anomalies: low conditional entropy, rigid positional structure
+within words, adjacent repetition of whole words, unusual behaviour across the
+word boundary, an exceptionally dense vocabulary. They are normally treated as
+separate facts, and any proposed account of the text is expected to reproduce all
+of them.
 
-We re-examine 58 such claims, each against a null model matched on the unit the
-claim concerns, on six independent transliterations and against 18 reference
-corpora each at least as large as the manuscript. **Eighteen survive as stated.**
-Of the remainder, twenty-one dissolve under a matched control, ten shrink to a
-magnitude that decides nothing, two are consequences of something else already in
-the inventory, and seven are retractions of claims we made ourselves during this
-work.
+We re-examine fifty such claims, each against a null model matched on the
+unit the claim concerns, on six independent transliterations and against eighteen
+reference corpora each at least as large as the manuscript. **Twenty survive as
+stated.** Of the remainder, twenty-one dissolve under a matched control, ten
+shrink to a magnitude that decides nothing, two are consequences of something else
+already in the inventory, and eight are retractions of claims we made ourselves in
+the course of this work.
 
-We report no new explanation. Our own most promising positive result — an
-attribution of three famous anomalies to the manuscript's affix layer — is among
-the seven retractions, and we describe its collapse in detail (§3), because the way
-it failed is more useful than the claim would have been. A decomposition
-criterion that requires the remainder of a stripped word to be another word of
-the vocabulary is not independent of vocabulary density; it therefore "explains"
-a density anomaly by construction. A second, density-independent decomposition
-finds no excess decomposability in Voynichese at all.
+Our own most promising positive result — an attribution of three famous anomalies
+to the manuscript's affix layer — is among the retractions, and we describe its
+collapse in detail (§3), because the way it failed is more useful than the claim
+would have been. A decomposition criterion that requires the remainder of a
+stripped word to be another word of the vocabulary is not independent of
+vocabulary density; it therefore "explains" a density anomaly by construction. Two
+further decompositions, one of them a standard tool, disagree with it.
 
-Two results are not deflationary. A character bigram chain trained on the
+One result is not deflationary: a character bigram chain trained on the
 manuscript's own vocabulary regenerates 28.8% of its 7,205 word types, against
 1.5–5.8% for language corpora matched on both vocabulary size and word length
-(§5.1). And the residue turns out to constrain generative accounts sharply (§7):
-the four surviving sequence signatures require at least four independent
-memories, which compete for a single decision, so that a generator selecting
-whole words reproduces three of them but not the fourth — the information across
-the word boundary — at any parameter setting we could find.
+(§5.1).
 
-Otherwise what we offer is negative and methodological: a count of how much
-of the inventory is an artefact of its comparison, a demonstration that the unit of
-measurement (type or token) roughly halves the manuscript's apparent distance
-from Latin on two of the most-cited measures, and a worked case (§6) of a
+Otherwise what we offer is negative and methodological: a count of how much of the
+inventory is an artefact of its comparison, a demonstration that the unit of
+measurement (type or token) substantially changes the manuscript's apparent
+distance from Latin on two of the most-cited measures, and a worked case (§6) of a
 statistic that is robust in every internal respect and still cannot support any
 cross-corpus claim.
 
@@ -70,8 +69,8 @@ comparison set as a limitation. We reproduce two of its headline measures on its
 own transliteration in §6a.
 
 This paper asks a narrower question than either: of the claims already in
-circulation, how many survive a null model matched to the unit they concern?
-
+circulation, how many survive a null model matched to the unit they concern? The
+companion paper takes what survives and asks what it constrains.
 ## 2. Data
 
 **Transliterations.** All six IVTFF files distributed by Zandbergen, parsed with
@@ -98,7 +97,6 @@ in §6: the manuscript is one book, and a Wikipedia scrape is not.
 that the null must be matched on the unit the claim is about: a claim about lines
 against shuffling within lines, a claim about the vocabulary against types rather
 than tokens, a claim about a section against the same section split in half.
-
 ## 3. A retraction, and why it is the most useful part of this paper
 
 Voynichese words admit a decomposition into stem plus affixes (Stolfi 1997,
@@ -217,7 +215,6 @@ rigidity does is undecidable from our evidence, since the three disagree. We als
 retract the claim that Voynichese is unusually decomposable: the three algorithms
 give ratios of 3.6×, 0.87× and 1.40× against Latin, which is not a finding but a
 range of opinions about a procedure.
-
 ## 4. Type and token
 
 This result does not depend on any decomposition and is measured on the raw text
@@ -265,7 +262,6 @@ is the ordinary consequence of measuring a vocabulary property on a token stream
 An earlier and much more dramatic version of this result in our own notes (five
 types covering 81.4% of tokens) was an artefact of the decomposition retracted in
 §3.
-
 ## 5. What is left unexplained, and what left it
 
 ### 5.1 Neighbourhood density, mostly explained after all
@@ -351,7 +347,6 @@ similarity; our contribution is the matched null and the cross-language range.
 against Latin's 0.381.
 
 **The 1.26× density residual** of §5.1.
-
 ## 6. A measure we could not make usable
 
 We report this case at length because it is the clearest illustration of the
@@ -404,7 +399,6 @@ Two defensible corrections, two different orderings, and no principled reason to
 prefer one. **The measure describes the manuscript's structure but cannot support
 a claim about its unusualness in either direction.** Settling it would require a
 book-length Mongolian corpus, which we could not obtain.
-
 ## 6a. Reproducing Parisel (2026a) on his own file
 
 Because our reading of the field depends on that paper, we attempted to
@@ -444,320 +438,9 @@ We do not think this affects either paper's conclusions, since both rest on the
 size of the drop rather than on the absolute values, but it does mean the two
 sets of numbers are not directly comparable, and anyone combining them should be
 aware of it. We would welcome the correction.
+## 7. The inventory
 
-## 7. What a generator must have
-
-Everything above is deflationary. This section is not: it takes the residue and
-asks what it constrains.
-
-The question comes from Michael Greshko, replying on voynich.ninja to an earlier
-version of this work. The statistical limitation of the Naibbe cipher, he wrote,
-is that "each draw of a word... or of a prefix/suffix... is memoryless and
-independent... To get the VMS's long-range correlations and other observed
-features, there has to be some kind of memory at play when generating Voynichese
-tokens." Our own generator failed in the same place. The obvious next question is
-*which* memory, and how much.
-
-Throughout this section the fit targets were declared before each run and the
-remaining measures reported as held out. Configurations run on three to five
-seeds; the spread is 0.005–0.11, so differences below about 10% should not be
-read.
-
-### 7.1 Four signatures, and what a memoryless generator does to them
-
-Shuffling the manuscript's own token sequence — the memoryless model that
-preserves the vocabulary and every frequency exactly — gives:
-
-| | recurrence d1–5 | d6–20 | decay to 1.0 | length autocorr. | rank corr. | junction |
-|---|---|---|---|---|---|---|
-| manuscript | 2.44 | 1.86 | d ≈ 47 | +0.134 | +0.0797 | 0.194 |
-| memoryless | 1.05 | 0.97 | d ≈ 6 | +0.007 | −0.0009 | 0.000 |
-
-All four are lost.
-
-### 7.2 No single memory supplies more than two
-
-Five mechanisms, each fitted on one measure with the others declared held out.
-
-An **identity cache** — re-emit a word from the last *w* — reproduces the
-recurrence profile (2.30 / 2.05 / 41 against 2.44 / 1.86 / 47) and *nothing else*,
-at every window from 5 to 300 and every rate from 0.05 to 0.30: length
-autocorrelation +0.008, rank correlation −0.002, junction 0.000. It re-emits
-particular words, and the other three signatures are about what *kind* of word
-comes next.
-
-**Attraction by length** supplies the length autocorrelation; **attraction by
-frequency class** supplies the rank correlation (+0.0899 against +0.0797); each
-supplies only a quarter to a third of the other.
-
-A **near-neighbour rule** — emit a word at edit distance 1 from the previous one —
-supplies *two*: length autocorrelation in full (+0.150 at rate 0.20) and about a
-third of the rank correlation. It supersedes attraction-by-length. But it gives no
-long-range recurrence at all — d6–20 sits at 0.99 at every rate tried — and
-junction reaches 6% at best. An earlier version of this section claimed each
-mechanism supplies exactly one signature; that was too clean and is withdrawn.
-
-This rule deserves a note, because the manuscript makes it available in a way
-languages do not: 84.7% of its types have a neighbour at edit distance 1, with
-12.06 neighbours each, against Italian 74.0% / 4.04, Spanish 73.3% / 2.90 and
-Latin 56.9% / 1.96. The mechanism is not *unavailable* to Latin — more than half
-its types have some neighbour — but a generator following neighbours there would
-return to the same word almost every time. The difference is the width of the
-choice, and it follows from the density of §5.1.
-
-**Boundary memory** — draw the next word's initial character from the distribution
-observed after the current word's final character — supplies the junction, and
-that is the interesting case.
-
-### 7.3 The four memories compete for one decision
-
-Three combine without conflict. Neighbour 0.15 + cache 0.10 + frequency 0.10,
-three seeds:
-
-| | recurrence | length autocorr. | rank corr. | junction *(held out)* |
-|---|---|---|---|---|
-| manuscript | 2.44 | +0.134 | +0.0797 | 0.194 |
-| model | 2.42 | +0.141 | +0.0778 | **0.007 — 3%** |
-
-Three signatures essentially exact, and the junction at three percent of target.
-Giving the boundary mechanism a larger share raises it slowly and at a cost:
-
-| boundary share | junction | % of target | recurrence | length autocorr. | rank corr. |
-|---|---|---|---|---|---|
-| 0.15 | 0.007 | 3% | 2.42 | +0.141 | +0.0778 |
-| 0.30 | 0.021 | 11% | 2.29 | +0.143 | +0.0768 |
-| 0.50 | 0.054 | 28% | 2.27 | +0.146 | +0.0757 |
-| 1.00 | 0.205 | 106% | 1.04 | +0.026 | +0.0048 |
-
-The junction is reachable only when *every* word is chosen by its initial
-character, and there the other three collapse to 43%, 19% and 6% of target. **No
-configuration takes all four.** We ran this twice — once on a less efficient
-mechanism set, and again after the near-neighbour rule freed a whole mechanism's
-worth of budget — and the second run did not change it.
-
-The reason is structural rather than parametric. Each word is chosen once. A
-generator that spends that choice on the boundary cannot also spend it on topic,
-on length, or on frequency class.
-
-A reader on voynich.ninja objected, reasonably, that changes of this kind should
-be demonstrated "without introducing rules based on the VMS text" — and the rates
-above are fitted to the manuscript's own figures. The structural claim can be
-made without them. Sweeping all four rates over a grid in steps of 0.1 with their
-sum at most 1 gives 503 configurations, none of them fitted to anything. Counting
-a signature as reached at 70% of target: **no configuration reaches all four.**
-Three hundred and three reach exactly three, and in every one of the best the
-missing one is the junction, whose maximum among them is 26%. In all the best
-configurations the boundary share sits at the grid's ceiling of 0.4 and the
-junction still does not exceed a quarter.
-
-The fitted figures earlier in this section show that three signatures are
-*attainable*, which is what fitting is for. The claim that the fourth is not
-attainable no longer rests on them.
-
-### 7.4 What this constrains
-
-"Some kind of memory" is not one thing. At least four are needed, they are
-independent, and a generator that *selects whole words* cannot supply them
-simultaneously, however much memory is added, because they share a single
-decision.
-
-The junction is the sharp case. It requires essentially the whole selection
-budget, which no working generator can give it. That fits what §3 found from the
-opposite direction: the junction excess is the one anomaly that vanishes entirely
-under affix stripping, falling from 0.194 to 0.036 against Latin's own 0.036. It
-is a property of how a word is *built*, not of which word is *chosen*.
-
-This constrains cipher hypotheses without refuting any. Naibbe draws whole
-ciphertext units from tables; so did our generator; so does any nomenclator or
-table cipher. Such a design can be given memory, and with enough of it will
-reproduce three of the four signatures — but not the fourth, and not because the
-memory is insufficient.
-
-### 7.5 Construction instead of selection
-
-An earlier version of this section ended by saying that a mechanism constructing
-words character by character, with the boundary constrained during construction,
-would not be subject to this trade-off, and that we had not built one. We have now
-built it, and the claim was half right.
-
-The generator assembles each word with a character Markov chain and draws its
-first character from the distribution observed after the previous word's final
-character. There is no word to select, so there is no selection budget. Nothing is
-fitted to any of the four signatures.
-
-| | recurrence | length autocorr. | rank corr. | junction |
-|---|---|---|---|---|
-| manuscript | 2.44 | +0.134 | +0.0797 | 0.194 |
-| construction, boundary on | 0.99 (41%) | +0.013 (10%) | +0.003 (4%) | **0.200 (103%)** |
-| construction, boundary off | 0.99 | −0.002 | −0.004 | −0.001 (0%) |
-
-**The junction comes for free** — 103% here, 118% for an order-3 chain trained on
-types — and collapses to zero if the boundary constraint is removed. That half of
-the claim holds: the junction is a property of construction, and no amount of
-memory over selection reached more than 26% of it across 503 configurations.
-
-Nothing else comes with it. Recurrence sits at chance, the other two near zero.
-The two architectures are exact mirrors.
-
-The obvious move is to combine them: construct each word, and add the word-level
-memories on top, since the boundary now costs no selection budget. Fitting the
-three word-level measures and holding out the junction, the best configuration
-(neighbour 0.25, cache 0.05, frequency 0.10) gives recurrence 83%, length
-autocorrelation 106%, rank correlation 58% — and junction 41%.
-
-That is further than either pure architecture reaches, and it is still not all
-four. **So we withdraw the claim that construction escapes the trade-off.** It is
-subject to a different one: a word emitted from memory is a word that was not
-constructed, and therefore carries no boundary constraint. The junction is diluted
-roughly as the square of the constructed share — at a memory share of 0.40 it
-retains 41% of its full value.
-
-### 7.6 An architecture that does reproduce all four
-
-The hybrid fails because memory works by reuse and a reused word carries no
-boundary constraint. That suggests memory *subordinate* to the boundary, and there
-are two ways to subordinate it.
-
-**Filtering.** Keep only those memory candidates — neighbours, cache entries,
-same-frequency-class words — whose initial character is legal after the previous
-word's final character. The junction rises from 41% to 55%, and no configuration
-out of 27 reaches all four.
-
-**Weighting.** Choose among candidates not uniformly but with weight equal to the
-observed transition frequency. The difference is slight and turns out to decide
-everything.
-
-| architecture | best junction with three signatures held |
-|---|---|
-| selection of whole words (503 grid points) | 26% |
-| hybrid: construction, memory ignores the boundary | 41% |
-| memory *filtered* for legality | 55% |
-| **memory *weighted* by transition frequency** | **82%** |
-
-Filtering preserves which transitions are possible; weighting preserves their
-frequencies. The junction lives in the distribution of boundary transitions, not
-in its support, and the gap between the two forms of subordination demonstrates it.
-
-At neighbour 0.15, cache 0.10, frequency class 0.20, over five seeds:
-
-| | value | % of target |
-|---|---|---|
-| recurrence d1–5 | 2.013 ± 0.070 | **82%** |
-| length autocorrelation | 0.108 ± 0.009 | **81%** |
-| rank correlation | 0.062 ± 0.004 | **78%** |
-| junction | 0.157 ± 0.006 | **81%** |
-
-And not only there: across a grid of 54 configurations, **eighteen reach all four**
-at the 70% threshold declared in advance. In the winning region the junction holds
-between 71% and 82% across quite different memory shares, so it is not tracking a
-single parameter.
-
-**We therefore withdraw the claim that no architecture reproduces all four.** It
-held for the three we had tried and was false as a general statement. What
-replaces it is a principle rather than a prohibition: **memory must be subordinate
-to the boundary, and subordinate by weighting rather than by filtering.** Each word
-is either constructed with a boundary-drawn initial character, or taken from
-memory with its initial character sampled from the same boundary statistics. The
-junction is then not diluted by reuse, and the other three signatures come from
-the memories as before.
-
-This sharpens what we can say to cipher hypotheses. It is not that selection of
-whole units cannot produce the manuscript's profile; it is that **selection
-indifferent to the boundary** cannot. A table cipher that chose its table with
-weight depending on the previous unit's final character would acquire the junction
-for nothing.
-
-### 7.7 The same architecture against measures it was not fitted to
-
-The architecture above is fitted to four signatures. Our first generator was
-fitted to six measures, matched them to within a few percent, and failed four of
-seven measures found afterwards (§9). We applied that test here too.
-
-| measure | manuscript | model | % |
-|---|---|---|---|
-| mean word length | 5.07 | 5.04 | 100% |
-| density profile, len 5 / len 3 | 0.73 | 0.74 | 101% |
-| chain regeneration | 0.286 | 0.309 | 108% |
-| neighbourhood density | 12.06 | 11.44 | 95% |
-| Zipf slope | −1.041 | −0.969 | 93% |
-| type-token ratio | 0.212 | 0.192 | 91% |
-| hapax fraction | 0.697 | 0.595 | 85% |
-| three-character junction | 0.246 | 0.182 | 74% |
-| **line-start divergence** | 0.385 | 0.018 | **5%** |
-
-Eight of nine within ±43%, which would be a strong result if the measures were
-informative. Most are not. **88.9% of the generated tokens are actual manuscript
-words** — the neighbour, cache and frequency-class mechanisms draw them from its
-vocabulary, and chain-constructed words often coincide with it as well. The
-type-token ratio, hapax fraction, neighbourhood density, Zipf slope and chain
-regeneration therefore come out right because the output *is* largely the
-manuscript's vocabulary. They test identity, not architecture.
-
-Two measures are not determined by that identity. The three-character junction, at
-74%, is a genuine if partial success beyond what was fitted. The line-start
-divergence, at 5%, is a complete failure — and a predictable one: the generator has
-no notion of a line. It emits a stream which we cut to the manuscript's line
-lengths, and nothing in it knows a line has begun. A whole family of the
-manuscript's peculiarities — LAAFU, Grove words, words occurring only line-initially
-— is out of its reach.
-
-The remaining 11% of output, the words that are not in the manuscript, carry a
-defect the four fitted signatures did not catch: their mean length is 8.16
-characters against the manuscript's 5.07. The chain does not stop in time, and it
-shows on inspection: `dolpchokshal`, `ctheckheody`, `ckhepchor`. Overall mean word
-length stays correct only because the copied 89% holds it there.
-
-**So we withdraw "the architecture passes eight of nine held-out measures."** Of
-the nine, two are informative and it fails one of them outright. What stands is the
-narrower claim: the architecture reproduces four sequence signatures, and does not
-reproduce the line-positional structure at all.
-
-What none of this shows: every distribution used — boundary frequencies, the
-character chain, the neighbour sets, the frequency classes — is taken from the
-manuscript itself, which by the standard raised on the forum is fitting. The claim
-is that a class of mechanism exists which reproduces those four signatures where
-three other classes do not. Nothing follows about how the manuscript was actually
-made. The 70% threshold was declared in advance but is arbitrary; at 80% fewer
-configurations would qualify.
-
-### 7.8 The line
-
-The generator of §7.6 has no notion of a line, and §7.7 showed what that costs: a
-whole family of the manuscript's best-documented peculiarities — LAAFU, Grove
-words, words occurring only line-initially — is out of reach. The mechanism is not
-a guess; our own audit found these to be largely one operation, prepending a
-character to an ordinary word. We added it as a single rule, prepending with
-probability *p* at the start of each line, the character drawn from the observed
-distribution of prepended ones (`d` 580, `q` 472, `y` 465, `o` 379, `s` 360).
-Fitted on line-start divergence alone; everything else held out.
-
-| p | divergence *(fitted)* | Grove fraction | only-initial words | m-final |
-|---|---|---|---|---|
-| target | 0.385 | 74.9% | 1,033 | 18.4× |
-| 0.0 | 5% | 64% | 45% | 1.0× |
-| 0.4 | 48% | 85% | 119% | 1.1× |
-| 0.8 | **93%** | **103%** | 174% | 1.0× |
-
-One rule lifts all three line-start phenomena together, which confirms by
-generation what the audit found by observation: they are one thing. But their
-proportions do not agree at any single rate — divergence wants about 0.85, the
-Grove fraction about 0.75, and the count of only-initial words about 0.3, where at
-0.8 it overshoots by 74%. Prepending is the main part of the story and not all of
-it.
-
-The line *end* is untouched: `m`-final words stay at 1.0× against the manuscript's
-18.4× at every rate. That is what the audit predicted — line-final words decompose
-in the same way only 8% of the time against 77% for line-initial ones — and it is
-now confirmed by generation rather than by observation alone.
-
-The cost to the four earlier signatures is small and falls on one of them. At
-p = 0.8: recurrence 91%, length autocorrelation 81%, junction 79%, but rank
-correlation drops from 72% to 66% and leaves the threshold.
-
-## 8. The inventory
-
-Fifty-eight claims examined. **Eighteen survive as stated.** Of the other
-forty: twenty-one dissolve under a matched control, ten shrink to a magnitude
+Fifty claims examined. **Fifteen survive as stated.** Of the other thirty-five: twenty-one dissolve under a matched control, ten shrink to a magnitude
 that decides nothing, two are consequences of something else in the inventory,
 and seven are our own retractions. Twenty-eight of the fifty-eight are claims we
 advanced ourselves; thirty are other people's, and in most of those cases the
@@ -775,8 +458,7 @@ than an excess (§5), and the fourth remains as stated.
 
 The full table, with the null model applied to each claim, is in the appendix and
 in machine-readable form in the accompanying code.
-
-## 9. What this implies for future proposals
+## 8. What this implies for future proposals
 
 A generative account of Voynichese is normally asked to reproduce the anomaly
 inventory. That requirement is weaker than it looks, and a model can satisfy it
@@ -805,8 +487,7 @@ Four recommendations, each of which we violated at least once in this work.
    we had to withdraw — that each memory supplies exactly one signature — was
    caught by a mechanism we had not thought of, not by a held-out measure. The
    discipline is necessary and not sufficient.
-
-## 10. Limitations
+## 9. Limitations
 
 The word segmentation is no longer merely assumed. The ZL transliteration marks
 18.4% of its spaces (7,923 of 42,953) as uncertain; our parser silently treated
@@ -848,9 +529,11 @@ Morfessor Baseline 2.0.6. A reader who trusts none of them should read §3 only 
 a demonstration that the attribution is algorithm-dependent, which is all we now
 claim for it.
 
+Fifty claims are audited here; seventeen further claims arising from generative
+modelling are in the companion paper, which is why its count differs.
+
 All measurements are by one author with no independent replication. The code and
 the parsed corpora are available; we would rather be corrected than not.
-
 ## Acknowledgements
 
 This work depends throughout on transliterations by Zandbergen and Landini,
@@ -858,13 +541,10 @@ Takahashi, Claston, and the Friedman group, and on observations by Currier,
 Tiltman, Neal, Stolfi, Timm, Jackson, Pelling, Emma May Smith, Zattera, Greshko
 and the voynich.ninja community. Where a result is a control under someone else's
 observation, we have tried to say whose it is.
-
 ## Appendix. The inventory
 
-Fifty-eight claims, each with its source, the null model applied, and the outcome.
+Fifty claims, each with its source, the null model applied, and the outcome.
 Machine-readable version, with the numbers for each row, in `scripts/inventory.py`.
-
-
 ### Vocabulary and word structure
 
 | # | Claim | Source | Control applied | Outcome |
@@ -881,20 +561,6 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | A10 | Word length is stable; labels do not differ in it | ours | manual inspection of locus composition | **retracted** |
 | A11 | The affix attribution is robust to the choice of decomposition algorithm | ours (methodological premise) | second decomposition by Goldsmith signatures, no vocabulary reference; 12 parameter settings | dissolves |
 | A12 | The vocabulary is very nearly determined by its character transitions | ours | share of chain-generated words that are real vocabulary words; same measure on Latin | survives |
-
-### Memory in generation
-
-| # | Claim | Source | Control applied | Outcome |
-|---|---|---|---|---|
-| G1 | Memoryless generation cannot produce the manuscript's properties | Greshko 2025 and in reply on the forum; independently our own model | shuffling the token sequence as the memoryless model | survives |
-| G2 | One kind of memory suffices | ours (test of Greshko's phrasing) | identity cache at windows 5-300 and rates 0.05-0.30; held-out measures declared in advance | dissolves |
-| G3 | Each memory supplies exactly one signature | ours | fifth mechanism (near-neighbour rule) tested separately, 5 seeds per configuration | **retracted** |
-| G4 | Three word-level memories combine without conflict | ours | joint fit on three measures, junction held out | survives |
-| G5 | The junction is reachable by memory over word selection | ours | boundary share swept 0 to 1, twice: on the original and on the revised mechanism set; junction held out in both | weakened |
-| G6 | A generator selecting whole words can reproduce the manuscript's profile | ours (corollary) | four memories combined under a single selection budget | dissolves |
-| G7 | There are four independent memories | ours | fifth mechanism tested separately, 5 seeds per configuration | survives |
-| G8 | The near-neighbour rule is available to the manuscript in a way it is not to languages | ours | share of types having a neighbour, and neighbours per type, in four corpora | weakened |
-
 ### Sequence and order
 
 | # | Claim | Source | Control applied | Outcome |
@@ -911,7 +577,6 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | B7 | A deficit of three-character boundary information | ours | affix stripping, matched samples | survives |
 | B8 | Word recurrence decay is language-like | close to Montemurro & Zanette 2013 | full distance range rather than the first six points | survives |
 | B9 | Word-length autocorrelation is positive where languages are negative | Matlach et al. 2022; Gaskell & Bowern | -- | survives |
-
 ### Position in the line
 
 | # | Claim | Source | Control applied | Outcome |
@@ -923,7 +588,6 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | C5 | Neal keys: single-leg gallows pair on the paragraph's top line | Neal; Tiltman; Pelling | permutation of labels within the line, preserving their count | dissolves |
 | C6 | The pair sits about two thirds across the top line | Neal | rate by sixths of the line | dissolves |
 | C7 | Single-leg gallows cluster with their neighbour on ordinary lines | community practice (they are filtered out) | per-line null; rare-class analogue measured in languages | weakened |
-
 ### Divisions of the manuscript
 
 | # | Claim | Source | Control applied | Outcome |
@@ -936,7 +600,6 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | D6 | Labelese is a distinct vocabulary | Pelling, ReneZ, Koen G | page-matched control; manual cleaning of the locus | survives |
 | D7 | Zodiac labels are shorter than ordinary words | attributed to the community | median against running text on the same pages | dissolves |
 | D8 | Zodiac labels favour ot-/ok- | Pelling | page-matched control | survives |
-
 ### Whole-text: entropy, Zipf, size
 
 | # | Claim | Source | Control applied | Outcome |
@@ -945,7 +608,6 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | E2 | The text follows Zipf's law | commonplace | -- | survives |
 | E3 | The hapax rate is language-like | ours | comparison with Latin | survives |
 | E4 | The space is a real word boundary | commonplace | comparison against random boundaries | survives |
-
 ### Origin hypotheses
 
 | # | Claim | Source | Control applied | Outcome |
@@ -957,7 +619,6 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | F5 | The Naibbe cipher reproduces the profile | Greshko 2025 | measures outside its own set | weakened |
 | F6 | A slot generator captures the manuscript's statistics | ours; independently and more thoroughly Parisel 2026a | measures discovered after tuning; full parameter sweep in Parisel | dissolves |
 | F7 | Kinship with scripture or with the herbal genre | various | profile comparison | dissolves |
-
 ## References
 
 Bennett, W. R. (1976). *Scientific and Engineering Problem-Solving with the Computer.*

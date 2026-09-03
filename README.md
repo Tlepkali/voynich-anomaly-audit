@@ -5,8 +5,9 @@ the Voynich manuscript. Fifty-eight claims — other people's and our own — ea
 re-tested against a null model matched to the unit the claim concerns. Eighteen
 survive as stated; seven of the retractions are of claims we made ourselves.
 
-The draft write-up is `paper-draft.md`. It is not submitted anywhere and we would
-rather be corrected than not.
+Two draft write-ups: `paper-audit.md` (what survives the controls) and
+`paper-generator.md` (what the residue constrains about generative mechanisms).
+Neither is submitted anywhere and we would rather be corrected than not.
 
 ## What is here
 
@@ -14,7 +15,8 @@ rather be corrected than not.
     scripts/inventory.py    the audit itself: 58 machine-readable records with
                             claim / source / control applied / numbers / outcome
     scripts/fetch_data.sh   downloads the data, which is not in this repository
-    paper-draft.md      draft, ~7,600 words
+    paper-audit.md      draft: the audit, ~6,600 words
+    paper-generator.md  draft: generative constraints, ~4,500 words
     report.html         the full working record, in Russian, 71 sections
     img/                IIIF crops from Beinecke MS 408 (public domain)
 
