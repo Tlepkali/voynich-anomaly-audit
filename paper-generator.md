@@ -28,12 +28,17 @@ first character from the distribution observed after the previous word's last,
 obtains the junction for nothing — 103% of target — and nothing else. The two
 architectures are mirrors.
 
-An architecture that reproduces all four does exist, and the principle is narrow:
+An architecture that reaches all four does exist, and the principle is narrow:
 **memory must be subordinate to the boundary, and subordinate by weighting rather
 than by filtering.** Filtering memory candidates for a legal initial character
 reaches 55% of the junction and all four in none of 27 configurations; weighting
-them by the observed transition frequency reaches 82%, and eighteen of 54
-configurations reach all four.
+them by the observed transition frequency reaches 82%.
+
+How well it reaches them is best stated without a threshold. Taking each
+configuration's *worst* of the four ratios, the best any configuration achieves is
+**82%** — so the architecture reproduces all four to about four fifths each, and
+no better. The limiting measure is the rank correlation in 27 of 54 configurations
+and the junction in 18.
 
 We then test that architecture against measures it was not fitted to, and half the
 result evaporates: 88.9% of its output consists of actual manuscript words, so its
@@ -263,6 +268,21 @@ at the 70% threshold declared in advance. In the winning region the junction hol
 between 71% and 82% across quite different memory shares, so it is not tracking a
 single parameter.
 
+**The threshold is load-bearing, however, and we should have checked it sooner.**
+Eighteen configurations at 70% become six at 75%, two at 80%, and none at 85%. The
+claim is therefore better made without a threshold at all: taking each
+configuration's worst of the four ratios, the best value anywhere on the grid is
+82%, with a median of 58%. The architecture reproduces the four signatures to about
+four fifths each and no better.
+
+This is a weakening and not a retraction. The differences between architectures
+survive it intact: selection of whole words never lifts the junction above 26% at
+any of 503 configurations, and construction alone supplies nothing but the
+junction. What weakens is the estimate of how well the best architecture does, not
+the comparison between them. The measure that limits it is usually the rank
+correlation (27 configurations of 54), then the junction (18) — the same two that
+constrained the earlier architectures.
+
 **We therefore withdraw the claim that no architecture reproduces all four.** It
 held for the three we had tried and was false as a general statement. What
 replaces it is a principle rather than a prohibition: **memory must be subordinate
@@ -382,7 +402,9 @@ the character chain, the neighbour sets, the frequency classes — is taken from
 manuscript itself, so by the standard raised on voynich.ninja this is fitting: the
 claim is that a class of mechanism exists which reproduces these signatures, not
 that the manuscript was made this way. The 70% threshold was declared in advance
-but is arbitrary. And the architecture reproduces sequence structure while
+but is load-bearing — none of the grid survives 85% — which is why the result is
+better stated as a best worst-ratio of 82%. And the architecture reproduces
+sequence structure while
 reproducing no line-positional structure beyond what one prepending rule supplies,
 so it is at best a partial account of the text.
 
@@ -418,7 +440,7 @@ observation, we have tried to say whose it is.
 
 ## Appendix. Claims audited in this paper
 
-Seventeen claims, each with its source, the null model applied, and the outcome.
+Eighteen claims, each with its source, the null model applied, and the outcome.
 The other fifty are in the companion paper. Machine-readable version, with the
 numbers for each row, in `scripts/inventory.py`.
 
@@ -441,6 +463,7 @@ numbers for each row, in `scripts/inventory.py`.
 | G15 | The fourth architecture reproduces no line-positional structure | ours | line-start first-character divergence against mid-line | survives |
 | G16 | The line-start phenomena are one thing, produced by prepending | ours (audit conclusion, tested by generation) | one rule, fitted on line-start divergence alone; Grove fraction, only-initial words and line end held out | weakened |
 | G17 | The line end is a different mechanism from the line start | ours (audit prediction) | generation with a line-start mechanism only; line end held out | survives |
+| G18 | The architecture claim is independent of the chosen threshold | ours (methodological premise) | grid recomputed at thresholds 60-90%, plus a threshold-free measure: the best worst-of-four ratio | dissolves |
 
 ## References
 
