@@ -4,14 +4,7 @@
 здесь, — автогенерация из `paper-audit.md` и `paper-generator.md`; правки вносить
 в них, а не в `.tex`, иначе следующая сборка их сотрёт.
 
-    audit.tex
-    generator.tex
-    fig/fig1.tex
-    fig/fig2.tex
-    fig/fig3.tex
-    fig/fig4.tex
-    fig/fig5.tex
-    fig/fig6.tex
+<<FILES>>
 
 ## ГЛАВНОЕ ОГРАНИЧЕНИЕ: НЕ СКОМПИЛИРОВАНО
 
@@ -30,12 +23,7 @@ mactex-no-gui`, затем `pdflatex audit.tex` дважды (второй пр�
 ## ЗАПОЛНИТЬ ПЕРЕД ПОДАЧЕЙ
 
 - [ ] **Заглушки в `.tex`** (перечислены сборщиком, значит не забудутся):
-      - `audit.tex: [AUTHOR NAME -- fill in]`
-      - `audit.tex: [affiliation, or state there is none]`
-      - `audit.tex: [e-mail]`
-      - `generator.tex: [AUTHOR NAME -- fill in]`
-      - `generator.tex: [affiliation, or state there is none]`
-      - `generator.tex: [e-mail]`
+<<HOLES>>
 - [ ] **Аффилиация** — или явно указать, что её нет.
 - [ ] **Почта** — arXiv её требует.
 - [ ] **ORCID**, если есть.

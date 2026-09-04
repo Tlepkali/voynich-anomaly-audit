@@ -93,18 +93,9 @@ Rewriting the running text in the resulting stems then appeared to remove three 
 
 
 \begin{itemize}\setlength\itemsep{0pt}
-\item the neighbourhood-density ratio (mean edit-distance-1 neighbours at word length
-5 over length 3) fell from 0.73 to 0.40, against a language range of 0.24--0.41
-and Latin's own 0.41. The shift is negative in all six transliterations,
-$-$0.19 to $-$0.33, the smallest in the v101 alphabet, whose unstripped ratio is
-0.44 rather than 0.73;
-\item the excess single-character mutual information across the word boundary fell
-from 0.194 to 0.036, and to 0.021--0.048 across all six files. An earlier version
-added that this converged on Latin's own stripped value "to three decimals";
-measured with the same instrument Latin strips to 0.043, and the coincidence was
-an artefact of comparing two different runs;
-\item the type-level glyph--position association fell from 20.86$\times$ to 5.02$\times$ over a
-within-word shuffle, against Latin's 8.59$\times$ $\to$ 7.04$\times$.
+\item the neighbourhood-density ratio (mean edit-distance-1 neighbours at word length 5 over length 3) fell from 0.73 to 0.40, against a language range of 0.24--0.41 and Latin's own 0.41. The shift is negative in all six transliterations, $-$0.19 to $-$0.33, the smallest in the v101 alphabet, whose unstripped ratio is 0.44 rather than 0.73;
+\item the excess single-character mutual information across the word boundary fell from 0.194 to 0.036, and to 0.021--0.048 across all six files. An earlier version added that this converged on Latin's own stripped value "to three decimals"; measured with the same instrument Latin strips to 0.043, and the coincidence was an artefact of comparing two different runs;
+\item the type-level glyph--position association fell from 20.86$\times$ to 5.02$\times$ over a within-word shuffle, against Latin's 8.59$\times$ $\to$ 7.04$\times$.
 \end{itemize}
 
 
@@ -168,9 +159,13 @@ algorithm & derived, Voynich & derived, Latin & ratio & density & junction & rig
 \end{table}
 
 
+The three are set side by side in Figure~\ref{fig:3}.
+
+
 \begin{figure}[htbp]\centering
 \input{fig/fig3.tex}
 \caption{One quantity, three decompositions: the shift in type-level slot rigidity after stripping affixes. Morfessor's row is a mean of five seeded runs; the bar shows their spread, and Latin's own shift changes sign between them.}
+\label{fig:3}
 \end{figure}
 
 All three rows are measured by one instrument: the same density, junction and rigidity functions, with the within-word shuffle averaged over ten fixed seeds. Morfessor's own training is not seeded, so its row is the mean of five runs; the figures that vary materially between runs are marked where they appear below.
@@ -221,12 +216,13 @@ Measured on types --- the appropriate unit for a claim about how a vocabulary is
 Three qualifications, none of which was in an earlier version of this section.
 
 
-The size of the effect depends on word length, and "roughly half" is the value at length 4. Across lengths 4 to 7 the token measure inflates the gap by 1.86$\times$, 3.71$\times$, 2.27$\times$ and 2.00$\times$. \textbf{At length 3 it reverses}: the type-level gap (2.48$\times$) is larger than the token-level one (2.03$\times$).
+The size of the effect depends on word length, and "roughly half" is the value at length 4. Across lengths 4 to 7 the token measure inflates the gap by 1.86$\times$, 3.71$\times$, 2.27$\times$ and 2.00$\times$. \textbf{At length 3 it reverses}: the type-level gap (2.48$\times$) is larger than the token-level one (2.03$\times$). Figure~\ref{fig:2} shows the two units against each other across word lengths.
 
 
 \begin{figure}[htbp]\centering
 \input{fig/fig2.tex}
 \caption{The gap with Latin on slot rigidity, measured on tokens and on types, across word lengths 3 to 7. At length 3 the order reverses.}
+\label{fig:2}
 \end{figure}
 
 Conditional entropy behaves more regularly and has no exception: the type-level gap is closer to unity at every length --- 0.96 against 0.84 at length 3, then 0.88/0.75, 0.81/0.63, 0.76/0.63, 0.73/0.61.
@@ -253,7 +249,7 @@ Measured as relative spread on tokens, "narrow" holds everywhere: 0.33--0.39 acr
 Two things belong here that we learned by reading rather than measuring, and the first is a limitation of this section.
 
 
-The low conditional entropy we measure against Latin has been measured by Bowern and Lindemann (2021) against 250 languages, and by Lindemann and Bowern (2020) against 294 Wikipedia samples and eighteen historical texts, with the manuscript below every one of them at h2 $\approx$ 2.0--2.2 against a natural-language cloud between 3.0 and 4.0. Our unit argument does not touch that: it says the gap narrows when the vocabulary rather than the text is the unit, not that the gap is ordinary. Where we say "the manuscript's distance from Latin", the field can say "from any of 250 languages", and on this measure our comparison set is an order of magnitude smaller than the best available. The same holds for the type--token ratio, where the moving-average index introduced by Gheuens (2019) has been computed for 101 languages in seven families and places Voynichese in the ordinary range. We record this as a limitation of our comparison set rather than repair it, since building a 250-language set was not in reach here. Those authors also supply a causal account we do not: the low h2 follows from characters and combinations occurring exclusively in one of the three positional fields of a word (Tiltman 1967, Stolfi 2000). And they perform the operation of our \S3 --- deleting affixes and re-measuring entropy --- to show that removing \texttt{qo-} and \texttt{-dy} makes the h2 of Currier A and B nearly identical, 2.23 against 2.24.
+The low conditional entropy we measure against Latin has been measured by Bowern and Lindemann (2021) against 250 languages, and by Lindemann and Bowern (2020) against 294 Wikipedia samples and eighteen historical texts, with the manuscript below every one of them at h2 $\approx$ 2.0--2.2 against a natural-language cloud between 3.0 and 4.0. Our unit argument does not touch that: it says the gap narrows when the vocabulary rather than the text is the unit, not that the gap is ordinary. Where we say "the manuscript's distance from Latin", the field can say "from any of 250 languages", and on this measure our comparison set is an order of magnitude smaller than the best available. The same holds for the type--token ratio, where the moving-average index (Covington \& McFall 2010), applied to this text by Gheuens (2019), has been computed for 101 languages in seven families and places Voynichese in the ordinary range. We record this as a limitation of our comparison set rather than repair it, since building a 250-language set was not in reach here. Those authors also supply a causal account we do not: the low h2 follows from characters and combinations occurring exclusively in one of the three positional fields of a word (Tiltman 1967, Stolfi 2000). And they perform the operation of our \S3 --- deleting affixes and re-measuring entropy --- to show that removing \texttt{qo-} and \texttt{-dy} makes the h2 of Currier A and B nearly identical, 2.23 against 2.24.
 
 
 The second thing is a contribution to theirs, and it is about genre. Those comparison sets are Wikipedia-derived and the manuscript is a book: the same mismatch that defeats the cross-corpus comparison in \S6. Measuring the character-level h2 of five languages for which we hold both a book and a Wikipedia sample, at matched size, the genre shift is consistently positive and sizeable: +0.27 (English), +0.24 (Spanish), +0.39 (French), +0.23 (Italian), +0.39 (Hebrew), a mean of +0.30. The manuscript's distance to the nearest \emph{book} value is 0.61. \textbf{Their conclusion survives this} --- against books alone the manuscript is still below every one of them, by twice the genre effect --- but the size of the gap is inflated by roughly half of itself by the choice of genre. Where the rank correlation of \S6 died because the genre sensitivity exceeded the signal, here the signal is twice the sensitivity, so what needs correcting is the number and not the finding.
@@ -322,9 +318,13 @@ Latin & 1.7\% (17.2$\times$) & 3.5\% (8.1$\times$) \\
 \end{table}
 
 
+Figure~\ref{fig:1} shows both matchings.
+
+
 \begin{figure}[htbp]\centering
 \input{fig/fig1.tex}
 \caption{Chain regeneration under both matchings. All sub-vocabularies are 7,205 types; the gap is four- to seventeen-fold depending on which matching is used.}
+\label{fig:1}
 \end{figure}
 
 Five sampling seeds each, three chain seeds per sample; the intervals do not overlap between the two procedures for Latin or Spanish. The manuscript's own figure is stable --- 28.9\% over twenty seeds, range 28.2--29.5\% --- so the variation is entirely in the comparison set. The result survives either way, but the honest statement of it is a gap of \textbf{four- to seventeen-fold}, not the eighteen-fold the first matching alone suggests. We report the stricter matching in the abstract.
@@ -504,21 +504,10 @@ Five recommendations, each of which we violated at least once in this work.
 
 \begin{enumerate}\setlength\itemsep{0pt}
 \item State the null model, and match it to the unit the claim concerns.
-\item Report types and tokens separately; on this text they differ by a factor of
-two on measures people quote as if the unit were incidental.
-\item Build the comparison set before obtaining the result, matched on both axes ---
-number of corpora and size of each. A claim can die from either, and ours died
-from both, in opposite directions, on the same statistic (\S6).
-\item **If a procedure selects on the quantity it is meant to explain, no control on
-the mechanics of that procedure will catch the circularity.** Only a second
-procedure built on a different principle will, and it must be specified in
-advance.
-\item When a generative account is tested, declare which measures are fitted and
-which are held out \emph{before} the run, and report the held-out ones whatever
-they say. Every result in the companion paper was obtained this way, and the
-claim there we had to withdraw --- that each memory supplies exactly one
-signature --- was caught by a mechanism we had not thought of, not by a held-out
-measure. The discipline is necessary and not sufficient.
+\item Report types and tokens separately; on this text they differ by a factor of two on measures people quote as if the unit were incidental.
+\item Build the comparison set before obtaining the result, matched on both axes --- number of corpora and size of each. A claim can die from either, and ours died from both, in opposite directions, on the same statistic (\S6).
+\item \textbf{If a procedure selects on the quantity it is meant to explain, no control on the mechanics of that procedure will catch the circularity.} Only a second procedure built on a different principle will, and it must be specified in advance.
+\item When a generative account is tested, declare which measures are fitted and which are held out \emph{before} the run, and report the held-out ones whatever they say. Every result in the companion paper was obtained this way, and the claim there we had to withdraw --- that each memory supplies exactly one signature --- was caught by a mechanism we had not thought of, not by a held-out measure. The discipline is necessary and not sufficient.
 \end{enumerate}
 
 \section*{9. Limitations}
@@ -743,17 +732,28 @@ F7 & Kinship with scripture or with the herbal genre & various & profile compari
 
 \noindent\hangindent=1.5em Bennett, W. R. (1976). \emph{Scientific and Engineering Problem-Solving with the Computer.}\par
 \noindent\hangindent=1.5em Bowern, C. \& Lindemann, L. (2021). The linguistics of the Voynich manuscript. \emph{Annual Review of Linguistics} 7, 285--308.\par
+\noindent\hangindent=1.5em Cham, B. (2014). The curve--line system. voynichattacks.wordpress.com.\par
+\noindent\hangindent=1.5em Covington, M. A. \& McFall, J. D. (2010). Cutting the Gordian knot: the moving-average type--token ratio. \emph{Journal of Quantitative Linguistics} 17(2), 94--100.\par
 \noindent\hangindent=1.5em Currier, P. (1976). Papers on the Voynich manuscript.\par
 \noindent\hangindent=1.5em Gaskell, D. \& Bowern, C. (2022). Gibberish after all?\par
+\noindent\hangindent=1.5em Gheuens (2019). Moving-average type--token ratio applied to the Voynich manuscript. [venue to complete]\par
 \noindent\hangindent=1.5em Greshko, M. (2025). The Naibbe cipher. \emph{Cryptologia.}\par
+\noindent\hangindent=1.5em Landini, G. (2001). Evidence of linguistic structure in the Voynich manuscript using spectral analysis. \emph{Cryptologia} 25(4), 275--295.\par
+\noindent\hangindent=1.5em Lindemann, L. \& Bowern, C. (2020). Character-level entropy against 294 Wikipedia samples and 18 historical texts. [venue and title to complete]\par
+\noindent\hangindent=1.5em Lindemann, L. (2022). Analysis of the Voynich manuscript's textual complexity across 160 languages. \emph{CEUR Workshop Proceedings} Vol-3313, paper 9. [title to verify]\par
 \noindent\hangindent=1.5em Matlach, V., Janečková, A. \& Dostál, D. (2022). \emph{PLOS ONE} 17(1), e0260948.\par
 \noindent\hangindent=1.5em Montemurro, M. \& Zanette, D. (2013). Keywords and co-occurrence patterns in the Voynich manuscript. \emph{PLOS ONE} 8(6), e66344.\par
+\noindent\hangindent=1.5em Neal, P. The "Neal keys", described in his notes at philipneal.net. [date to complete]\par
 \noindent\hangindent=1.5em Parisel, C. (2026a). Evidence of layered positional and directional constraints in the Voynich manuscript. arXiv:2604.19762.\par
 \noindent\hangindent=1.5em Parisel, C. (2026b). A quantitative confirmation of the Currier language distinction. arXiv:2604.25979.\par
 \noindent\hangindent=1.5em Reddy, S. \& Knight, K. (2011). What we know about the Voynich manuscript. \emph{ACL LaTeCH.}\par
 \noindent\hangindent=1.5em Rugg, G. (2004). An elegant hoax? \emph{Cryptologia} 28(1).\par
-\noindent\hangindent=1.5em Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.\par
+\noindent\hangindent=1.5em Sazonov (2003). [details to complete]\par
 \noindent\hangindent=1.5em Schinner, A. (2007). The Voynich manuscript: evidence of the hoax hypothesis. \emph{Cryptologia} 31(2), 95--107.\par
+\noindent\hangindent=1.5em Smith, E. M. Agnostic Voynich, agnosticvoynich.wordpress.com; and voynich.ninja thread 734.\par
+\noindent\hangindent=1.5em Sterneck, R., Polish, A. \& Bowern, C. (2021). Topic modeling in the Voynich manuscript. arXiv:2107.02858.\par
+\noindent\hangindent=1.5em Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.\par
+\noindent\hangindent=1.5em Tiltman, J. H. (1967). The Voynich manuscript: the most mysterious manuscript in the world. \emph{NSA Technical Journal} 12(3).\par
 \noindent\hangindent=1.5em Timm, T. \& Schinner, A. (2020). A possible generating algorithm of the Voynich manuscript. \emph{Cryptologia} 44(1), 1--19. Generated text and source: github.com/TorstenTimm/SelfCitationTextgenerator.\par
 \noindent\hangindent=1.5em Zandbergen, R. (2025). Transliteration files, voynich.nu.\par
 \noindent\hangindent=1.5em Zattera, M. (2022). A twelve-slot positional structure for Voynichese words.\par

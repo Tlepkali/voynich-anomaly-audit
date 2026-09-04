@@ -21,11 +21,13 @@ def esc(t):
     t = t.replace("—", "---").replace("–", "--").replace("−", "$-$")
     t = t.replace("“", "``").replace("”", "''").replace("‘", "`").replace("’", "'")
     t = t.replace("§", r"\S").replace("±", r"$\pm$").replace("…", r"\ldots{}")
+    t = re.sub(r"(?<!\.)\.\.\.(?!\.)", r"\\ldots{}", t)
     return t
 
 def inline(t):
     """разметка внутри абзаца; вызывается ПОСЛЕ esc()"""
-    t = re.sub(r"\*\*([^*]+)\*\*", r"\\textbf{\1}", t)
+    t = re.sub(r"\bFigure (\d+)\b", r"Figure~\\ref{fig:\1}", t)
+    t = re.sub(r"\*\*(.+?)\*\*", r"\\textbf{\1}", t)   # .+? — внутри бывает *курсив*
     t = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"\\emph{\1}", t)
     t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", lambda m: r"\href{%s}{%s}" % (m.group(2).replace("%","\\%"), m.group(1)), t)
     return t
@@ -72,7 +74,8 @@ def convert(md):
                 i = j
             out += [r"\begin{figure}[htbp]\centering",
                     r"\input{fig/fig%s.tex}" % m.group(2),
-                    r"\caption{%s}" % para(cap) if cap else "",
+                    (r"\caption{%s}" % para(cap)) if cap else "",
+                    r"\label{fig:%s}" % m.group(2),
                     r"\end{figure}", ""]
             i += 1
             continue
@@ -88,13 +91,17 @@ def convert(md):
         if re.match(r"^[-*] ", ln) or re.match(r"^\d+\. ", ln):
             env = "itemize" if re.match(r"^[-*] ", ln) else "enumerate"
             out.append(r"\begin{%s}\setlength\itemsep{0pt}" % env)
+            item = []
+            def flush():
+                if item: out.append(r"\item " + para(" ".join(item))); item.clear()
             while i < len(src) and (re.match(r"^[-*] ", src[i]) or re.match(r"^\d+\. ", src[i]) or
                                     (src[i].startswith("  ") and src[i].strip())):
                 if re.match(r"^[-*] |^\d+\. ", src[i]):
-                    out.append(r"\item " + para(re.sub(r"^([-*]|\d+\.) ", "", src[i])))
+                    flush(); item.append(re.sub(r"^([-*]|\d+\.) ", "", src[i]))
                 else:
-                    out.append(para(src[i].strip()))
+                    item.append(src[i].strip())      # продолжение пункта: жирный может идти ЧЕРЕЗ перенос
                 i += 1
+            flush()
             out += [r"\end{%s}" % env, ""]; continue
         # ── обычный абзац ──────────────────────────────────────────────────
         if not ln.strip():

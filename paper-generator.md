@@ -337,6 +337,8 @@ everything.
 | memory *filtered* for legality | 55% |
 | **memory *weighted* by transition frequency** | **82%** |
 
+Figure 4 sets the four architectures side by side.
+
 ![Figure 4](img/fig/fig4-architectures.svg)
 
 *Figure 4. The best three-character junction each architecture attains while the
@@ -365,7 +367,7 @@ Eighteen configurations at 70% become six at 75%, two at 80%, and none at 85%. T
 claim is therefore better made without a threshold at all: taking each
 configuration's worst of the four ratios, the best value anywhere on the grid is
 82%, with a median of 58%. The architecture reproduces the four signatures to about
-four fifths each and no better.
+four fifths each and no better. Figure 5 shows how the count falls with the threshold.
 
 ![Figure 5](img/fig/fig5-threshold.svg)
 
@@ -521,6 +523,8 @@ substitution 0.6 over three seeds:
 | first-character divergence *(fitted)* | 0.385 | 0.421 | 109% |
 | Grove fraction *(held out)* | 0.749 | 0.633 | 85% |
 | stem divergence *(held out)* | 0.265 | 0.259 | 98% |
+
+Figure 6 breaks the line start down by character.
 
 ![Figure 6](img/fig/fig6-line-start.svg)
 
@@ -687,18 +691,28 @@ numbers for each row, in `scripts/inventory.py`.
 Amancio, D. R. et al. (2013). Probing the statistical properties of unknown texts. *PLOS ONE* 8(7), e67310.
 Bennett, W. R. (1976). *Scientific and Engineering Problem-Solving with the Computer.*
 Bowern, C. & Lindemann, L. (2021). The linguistics of the Voynich manuscript. *Annual Review of Linguistics* 7, 285–308.
+Cham, B. (2014). The curve--line system. voynichattacks.wordpress.com.
+Covington, M. A. & McFall, J. D. (2010). Cutting the Gordian knot: the moving-average type--token ratio. *Journal of Quantitative Linguistics* 17(2), 94–100.
 Currier, P. (1976). Papers on the Voynich manuscript.
 Gaskell, D. & Bowern, C. (2022). Gibberish after all?
+Gheuens (2019). Moving-average type--token ratio applied to the Voynich manuscript. [venue to complete]
 Greshko, M. (2025). The Naibbe cipher. *Cryptologia.*
+Landini, G. (2001). Evidence of linguistic structure in the Voynich manuscript using spectral analysis. *Cryptologia* 25(4), 275–295.
+Lindemann, L. & Bowern, C. (2020). Character-level entropy against 294 Wikipedia samples and 18 historical texts. [venue and title to complete]
+Lindemann, L. (2022). Analysis of the Voynich manuscript's textual complexity across 160 languages. *CEUR Workshop Proceedings* Vol-3313, paper 9. [title to verify]
 Matlach, V., Janečková, A. & Dostál, D. (2022). *PLOS ONE* 17(1), e0260948.
 Montemurro, M. & Zanette, D. (2013). Keywords and co-occurrence patterns in the Voynich manuscript. *PLOS ONE* 8(6), e66344.
+Neal, P. The "Neal keys", described in his notes at philipneal.net. [date to complete]
 Parisel, C. (2026a). Evidence of layered positional and directional constraints in the Voynich manuscript. arXiv:2604.19762.
 Parisel, C. (2026b). A quantitative confirmation of the Currier language distinction. arXiv:2604.25979.
 Reddy, S. & Knight, K. (2011). What we know about the Voynich manuscript. *ACL LaTeCH.*
 Rugg, G. (2004). An elegant hoax? *Cryptologia* 28(1).
-Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.
+Sazonov (2003). [details to complete]
 Schinner, A. (2007). The Voynich manuscript: evidence of the hoax hypothesis. *Cryptologia* 31(2), 95–107.
+Smith, E. M. Agnostic Voynich, agnosticvoynich.wordpress.com; and voynich.ninja thread 734.
 Sterneck, R., Polish, A. & Bowern, C. (2021). Topic modeling in the Voynich manuscript. arXiv:2107.02858.
+Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.
+Tiltman, J. H. (1967). The Voynich manuscript: the most mysterious manuscript in the world. *NSA Technical Journal* 12(3).
 Timm, T. & Schinner, A. (2020). A possible generating algorithm of the Voynich manuscript. *Cryptologia* 44(1), 1–19. Generated text and source: github.com/TorstenTimm/SelfCitationTextgenerator.
 Zandbergen, R. (2025). Transliteration files, voynich.nu.
 Zattera, M. (2022). A twelve-slot positional structure for Voynichese words.

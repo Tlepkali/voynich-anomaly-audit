@@ -99,10 +99,24 @@ def check(path):
                 bad.append(f"строка таблицы на {k} полей при {cols} колонках: {row.strip()[:48]}")
     return bad
 
+def submit_md(files):
+    """чеклист подачи РЯДОМ с пакетом и с живыми числами — руками он терялся при
+    чистой пересборке (make arxiv сносит каталог целиком)"""
+    src = open("SUBMIT-template.md", encoding="utf-8").read()
+    figs = sorted(f for f in os.listdir(f"{OUT}/fig") if f.endswith(".tex"))
+    holes = []
+    for f in files:
+        t = open(f"{OUT}/{f}", encoding="utf-8").read()
+        holes += [f"{f}: {m}" for m in re.findall(r"\[[^\]]*?(?:fill in|there is none|e-mail|ORCID)[^\]]*\]", t)]
+    inv = "\n".join(f"    {f}" for f in files + [f"fig/{x}" for x in figs])
+    open(f"{OUT}/SUBMIT.md", "w", encoding="utf-8").write(
+        src.replace("<<FILES>>", inv).replace("<<HOLES>>", "\n".join(f"      - `{h}`" for h in holes)))
+
 if __name__ == "__main__":
     subprocess.run([sys.executable, "scripts/figures_tex.py"], check=True)
     files = [build("paper-audit.md", "audit.tex"),
              build("paper-generator.md", "generator.tex")]
+    submit_md(files)
     print("\nСИНТАКСИЧЕСКАЯ ПРОВЕРКА (компиляции нет — LaTeX на машине не установлен)")
     fail = 0
     for f in files:

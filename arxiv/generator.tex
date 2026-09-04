@@ -61,7 +61,7 @@ Throughout, the measures fitted for each experiment were declared before the run
 \section*{2. Four signatures a memoryless generator loses}
 
 
-The question comes from Michael Greshko, replying on voynich.ninja to an earlier version of this work. The statistical limitation of the Naibbe cipher, he wrote, is that "each draw of a word... or of a prefix/suffix... is memoryless and independent... To get the VMS's long-range correlations and other observed features, there has to be some kind of memory at play when generating Voynichese tokens." Our own generator failed in the same place. The obvious next question is \emph{which} memory, and how much.
+The question comes from Michael Greshko, replying on voynich.ninja to an earlier version of this work. The statistical limitation of the Naibbe cipher, he wrote, is that "each draw of a word\ldots{} or of a prefix/suffix\ldots{} is memoryless and independent\ldots{} To get the VMS's long-range correlations and other observed features, there has to be some kind of memory at play when generating Voynichese tokens." Our own generator failed in the same place. The obvious next question is \emph{which} memory, and how much.
 
 
 Throughout this section the fit targets were declared before each run and the remaining measures reported as held out. Configurations run on three to five seeds; the spread is 0.005--0.11, so differences below about 10\% should not be read.
@@ -255,15 +255,19 @@ architecture & best junction with three signatures held \\
 selection of whole words (503 grid points) & 26\% \\
 hybrid: construction, memory ignores the boundary & 41\% \\
 memory \emph{filtered} for legality & 55\% \\
-**memory \emph{weighted} by transition frequency** & \textbf{82\%} \\
+\textbf{memory \emph{weighted} by transition frequency} & \textbf{82\%} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 
+Figure~\ref{fig:4} sets the four architectures side by side.
+
+
 \begin{figure}[htbp]\centering
 \input{fig/fig4.tex}
 \caption{The best three-character junction each architecture attains while the other three signatures are held.}
+\label{fig:4}
 \end{figure}
 
 Filtering preserves which transitions are possible; weighting preserves their frequencies. The junction lives in the distribution of boundary transitions, not in its support, and the gap between the two forms of subordination demonstrates it.
@@ -289,12 +293,13 @@ junction & 0.157 $\pm$ 0.006 & \textbf{81\%} \\
 And not only there: across a grid of 54 configurations, \textbf{eighteen reach all four} at the 70\% threshold declared in advance. In the winning region the junction holds between 71\% and 82\% across quite different memory shares, so it is not tracking a single parameter.
 
 
-\textbf{The threshold is load-bearing, however, and we should have checked it sooner.} Eighteen configurations at 70\% become six at 75\%, two at 80\%, and none at 85\%. The claim is therefore better made without a threshold at all: taking each configuration's worst of the four ratios, the best value anywhere on the grid is 82\%, with a median of 58\%. The architecture reproduces the four signatures to about four fifths each and no better.
+\textbf{The threshold is load-bearing, however, and we should have checked it sooner.} Eighteen configurations at 70\% become six at 75\%, two at 80\%, and none at 85\%. The claim is therefore better made without a threshold at all: taking each configuration's worst of the four ratios, the best value anywhere on the grid is 82\%, with a median of 58\%. The architecture reproduces the four signatures to about four fifths each and no better. Figure~\ref{fig:5} shows how the count falls with the threshold.
 
 
 \begin{figure}[htbp]\centering
 \input{fig/fig5.tex}
 \caption{Configurations of 54 reaching all four signatures, by the threshold called "reached". The 70\% column is the threshold we declared in advance.}
+\label{fig:5}
 \end{figure}
 
 This is a weakening and not a retraction. The differences between architectures survive it intact: selection of whole words never lifts the junction above 26\% at any of 503 configurations, and construction alone supplies nothing but the junction. What weakens is the estimate of how well the best architecture does, not the comparison between them. The measure that limits it is usually the rank correlation (27 configurations of 54), then the junction (18) --- the same two that constrained the earlier architectures.
@@ -410,9 +415,13 @@ stem divergence \emph{(held out)} & 0.265 & 0.259 & 98\% \\
 \end{table}
 
 
+Figure~\ref{fig:6} breaks the line start down by character.
+
+
 \begin{figure}[htbp]\centering
 \input{fig/fig6.tex}
 \caption{First character of the first word of a line, against mid-line words and against a prepending-only model at the rate the observed length gain implies. The residual is structured: \texttt{y}, \texttt{p} and \texttt{t} in excess, \texttt{c} and \texttt{o} in deficit.}
+\label{fig:6}
 \end{figure}
 
 The two held-out measures are where prepending alone left them, so the second operation buys the divergence without costing anything. \textbf{The line start is two operations, not one: a character is added about two fifths of the time, and about three fifths of the rest have their opening character replaced.} Both draw from the same small pool.
@@ -524,18 +533,28 @@ G22 & The self-citation generator reproduces the manuscript's profile & Timm \& 
 \noindent\hangindent=1.5em Amancio, D. R. et al. (2013). Probing the statistical properties of unknown texts. \emph{PLOS ONE} 8(7), e67310.\par
 \noindent\hangindent=1.5em Bennett, W. R. (1976). \emph{Scientific and Engineering Problem-Solving with the Computer.}\par
 \noindent\hangindent=1.5em Bowern, C. \& Lindemann, L. (2021). The linguistics of the Voynich manuscript. \emph{Annual Review of Linguistics} 7, 285--308.\par
+\noindent\hangindent=1.5em Cham, B. (2014). The curve--line system. voynichattacks.wordpress.com.\par
+\noindent\hangindent=1.5em Covington, M. A. \& McFall, J. D. (2010). Cutting the Gordian knot: the moving-average type--token ratio. \emph{Journal of Quantitative Linguistics} 17(2), 94--100.\par
 \noindent\hangindent=1.5em Currier, P. (1976). Papers on the Voynich manuscript.\par
 \noindent\hangindent=1.5em Gaskell, D. \& Bowern, C. (2022). Gibberish after all?\par
+\noindent\hangindent=1.5em Gheuens (2019). Moving-average type--token ratio applied to the Voynich manuscript. [venue to complete]\par
 \noindent\hangindent=1.5em Greshko, M. (2025). The Naibbe cipher. \emph{Cryptologia.}\par
+\noindent\hangindent=1.5em Landini, G. (2001). Evidence of linguistic structure in the Voynich manuscript using spectral analysis. \emph{Cryptologia} 25(4), 275--295.\par
+\noindent\hangindent=1.5em Lindemann, L. \& Bowern, C. (2020). Character-level entropy against 294 Wikipedia samples and 18 historical texts. [venue and title to complete]\par
+\noindent\hangindent=1.5em Lindemann, L. (2022). Analysis of the Voynich manuscript's textual complexity across 160 languages. \emph{CEUR Workshop Proceedings} Vol-3313, paper 9. [title to verify]\par
 \noindent\hangindent=1.5em Matlach, V., Janečková, A. \& Dostál, D. (2022). \emph{PLOS ONE} 17(1), e0260948.\par
 \noindent\hangindent=1.5em Montemurro, M. \& Zanette, D. (2013). Keywords and co-occurrence patterns in the Voynich manuscript. \emph{PLOS ONE} 8(6), e66344.\par
+\noindent\hangindent=1.5em Neal, P. The "Neal keys", described in his notes at philipneal.net. [date to complete]\par
 \noindent\hangindent=1.5em Parisel, C. (2026a). Evidence of layered positional and directional constraints in the Voynich manuscript. arXiv:2604.19762.\par
 \noindent\hangindent=1.5em Parisel, C. (2026b). A quantitative confirmation of the Currier language distinction. arXiv:2604.25979.\par
 \noindent\hangindent=1.5em Reddy, S. \& Knight, K. (2011). What we know about the Voynich manuscript. \emph{ACL LaTeCH.}\par
 \noindent\hangindent=1.5em Rugg, G. (2004). An elegant hoax? \emph{Cryptologia} 28(1).\par
-\noindent\hangindent=1.5em Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.\par
+\noindent\hangindent=1.5em Sazonov (2003). [details to complete]\par
 \noindent\hangindent=1.5em Schinner, A. (2007). The Voynich manuscript: evidence of the hoax hypothesis. \emph{Cryptologia} 31(2), 95--107.\par
+\noindent\hangindent=1.5em Smith, E. M. Agnostic Voynich, agnosticvoynich.wordpress.com; and voynich.ninja thread 734.\par
 \noindent\hangindent=1.5em Sterneck, R., Polish, A. \& Bowern, C. (2021). Topic modeling in the Voynich manuscript. arXiv:2107.02858.\par
+\noindent\hangindent=1.5em Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.\par
+\noindent\hangindent=1.5em Tiltman, J. H. (1967). The Voynich manuscript: the most mysterious manuscript in the world. \emph{NSA Technical Journal} 12(3).\par
 \noindent\hangindent=1.5em Timm, T. \& Schinner, A. (2020). A possible generating algorithm of the Voynich manuscript. \emph{Cryptologia} 44(1), 1--19. Generated text and source: github.com/TorstenTimm/SelfCitationTextgenerator.\par
 \noindent\hangindent=1.5em Zandbergen, R. (2025). Transliteration files, voynich.nu.\par
 \noindent\hangindent=1.5em Zattera, M. (2022). A twelve-slot positional structure for Voynichese words.\par

@@ -215,6 +215,8 @@ Voynichese; `s`, `que`, `m`, `rum`, `tur`, `tum` for Latin.
 | 2: Goldsmith signatures (ours) | 24.9% | 28.7% | 0.87× | −0.05 | −0.014 | −1.02 |
 | **3: Morfessor Baseline** | **88.1%** | **62.5%** | **1.41×** | **−0.02** | **−0.070** | **−10.8** |
 
+The three are set side by side in Figure 3.
+
 ![Figure 3](img/fig/fig3-three-algorithms.svg)
 
 *Figure 3. One quantity, three decompositions: the shift in type-level slot
@@ -296,7 +298,7 @@ Three qualifications, none of which was in an earlier version of this section.
 The size of the effect depends on word length, and "roughly half" is the value at
 length 4. Across lengths 4 to 7 the token measure inflates the gap by 1.86×,
 3.71×, 2.27× and 2.00×. **At length 3 it reverses**: the type-level gap (2.48×) is
-larger than the token-level one (2.03×).
+larger than the token-level one (2.03×). Figure 2 shows the two units against each other across word lengths.
 
 ![Figure 2](img/fig/fig2-type-token.svg)
 
@@ -352,7 +354,8 @@ the vocabulary rather than the text is the unit, not that the gap is ordinary.
 Where we say "the manuscript's distance from Latin", the field can say "from any of
 250 languages", and on this measure our comparison set is an order of magnitude
 smaller than the best available. The same holds for the type–token ratio, where the
-moving-average index introduced by Gheuens (2019) has been computed for 101
+moving-average index (Covington & McFall 2010), applied to this text by Gheuens
+(2019), has been computed for 101
 languages in seven families and places Voynichese in the ordinary range. We record
 this as a limitation of our comparison set rather than repair it, since building a
 250-language set was not in reach here. Those authors also supply a causal account
@@ -463,6 +466,8 @@ languages:
 | Italian | 5.9% (4.9×) | 6.6% (4.4×) |
 | Spanish | 2.6% (10.9×) | 5.7% (5.1×) |
 | Latin | 1.7% (17.2×) | 3.5% (8.1×) |
+
+Figure 1 shows both matchings.
 
 ![Figure 1](img/fig/fig1-regeneration.svg)
 
@@ -1045,17 +1050,28 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 
 Bennett, W. R. (1976). *Scientific and Engineering Problem-Solving with the Computer.*
 Bowern, C. & Lindemann, L. (2021). The linguistics of the Voynich manuscript. *Annual Review of Linguistics* 7, 285–308.
+Cham, B. (2014). The curve--line system. voynichattacks.wordpress.com.
+Covington, M. A. & McFall, J. D. (2010). Cutting the Gordian knot: the moving-average type--token ratio. *Journal of Quantitative Linguistics* 17(2), 94–100.
 Currier, P. (1976). Papers on the Voynich manuscript.
 Gaskell, D. & Bowern, C. (2022). Gibberish after all?
+Gheuens (2019). Moving-average type--token ratio applied to the Voynich manuscript. [venue to complete]
 Greshko, M. (2025). The Naibbe cipher. *Cryptologia.*
+Landini, G. (2001). Evidence of linguistic structure in the Voynich manuscript using spectral analysis. *Cryptologia* 25(4), 275–295.
+Lindemann, L. & Bowern, C. (2020). Character-level entropy against 294 Wikipedia samples and 18 historical texts. [venue and title to complete]
+Lindemann, L. (2022). Analysis of the Voynich manuscript's textual complexity across 160 languages. *CEUR Workshop Proceedings* Vol-3313, paper 9. [title to verify]
 Matlach, V., Janečková, A. & Dostál, D. (2022). *PLOS ONE* 17(1), e0260948.
 Montemurro, M. & Zanette, D. (2013). Keywords and co-occurrence patterns in the Voynich manuscript. *PLOS ONE* 8(6), e66344.
+Neal, P. The "Neal keys", described in his notes at philipneal.net. [date to complete]
 Parisel, C. (2026a). Evidence of layered positional and directional constraints in the Voynich manuscript. arXiv:2604.19762.
 Parisel, C. (2026b). A quantitative confirmation of the Currier language distinction. arXiv:2604.25979.
 Reddy, S. & Knight, K. (2011). What we know about the Voynich manuscript. *ACL LaTeCH.*
 Rugg, G. (2004). An elegant hoax? *Cryptologia* 28(1).
-Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.
+Sazonov (2003). [details to complete]
 Schinner, A. (2007). The Voynich manuscript: evidence of the hoax hypothesis. *Cryptologia* 31(2), 95–107.
+Smith, E. M. Agnostic Voynich, agnosticvoynich.wordpress.com; and voynich.ninja thread 734.
+Sterneck, R., Polish, A. & Bowern, C. (2021). Topic modeling in the Voynich manuscript. arXiv:2107.02858.
+Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.
+Tiltman, J. H. (1967). The Voynich manuscript: the most mysterious manuscript in the world. *NSA Technical Journal* 12(3).
 Timm, T. & Schinner, A. (2020). A possible generating algorithm of the Voynich manuscript. *Cryptologia* 44(1), 1–19. Generated text and source: github.com/TorstenTimm/SelfCitationTextgenerator.
 Zandbergen, R. (2025). Transliteration files, voynich.nu.
 Zattera, M. (2022). A twelve-slot positional structure for Voynichese words.
