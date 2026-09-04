@@ -15,10 +15,10 @@ word boundary, an exceptionally dense vocabulary. They are normally treated as
 separate facts, and any proposed account of the text is expected to reproduce all
 of them.
 
-We re-examine sixty-six such claims, each against a null model matched on the
+We re-examine seventy-one such claims, each against a null model matched on the
 unit the claim concerns, on six independent transliterations and against eighteen
-reference corpora each at least as large as the manuscript. **Twenty-one survive as
-stated.** Of the remainder, twenty-six dissolve under a matched control, eleven
+reference corpora each at least as large as the manuscript. **Twenty-two survive as
+stated.** Of the remainder, twenty-seven dissolve under a matched control, fourteen
 shrink to a magnitude that decides nothing, two are consequences of something else
 already in the inventory, and six are retractions — five of them of claims we made
 ourselves in the course of this work.
@@ -290,6 +290,20 @@ families and places Voynichese in the ordinary range. We record this as a
 limitation of our comparison set rather than repair it, since building a
 250-language set was not in reach here.
 
+We can, however, contribute one thing to theirs. Their comparison set is 294
+Wikipedia samples and eighteen historical texts, and the manuscript is a book —
+the same genre mismatch that defeats the cross-corpus comparison in §6. Measuring
+the character-level h2 of five languages for which we hold both a book and a
+Wikipedia sample, at matched size, the genre shift is consistently positive and
+sizeable: +0.27 (English), +0.24 (Spanish), +0.39 (French), +0.23 (Italian), +0.39
+(Hebrew), a mean of +0.30. The manuscript's distance to the nearest *book* value is
+0.61. **Their conclusion survives this** — against books alone the manuscript is
+still below every one of them, by twice the genre effect — but the size of the gap
+is inflated by roughly half of itself by the choice of genre. Where the rank
+correlation of §6 died because the genre sensitivity exceeded the signal, here the
+signal is twice the sensitivity, so what needs correcting is the number and not the
+finding.
+
 Those authors also supply a causal account we do not: the low h2 follows from
 characters and combinations occurring exclusively in one of the three positional
 fields of a word (Tiltman 1967, Stolfi 2000). And they perform the operation of our
@@ -485,6 +499,14 @@ other corpus, the herbal highest at 22.98%, and at four words 0.01% against
 0.82–8.50%. Against its own within-line shuffle the bigram figure is only 1.29×,
 the trigram figure 4.3×.
 
+One refinement belongs here, and it is not ours. Ponzi (curated Graph Thread,
+2018) compared observed against expected counts of the case where a word's last
+letter equals the next word's first. The manuscript *avoids* it: 2.36% against
+4.03% expected, a ratio of 0.59. So the excess of boundary information on one
+character is not repetition of the same character — that particular pairing is
+suppressed. Nor is the suppression unique: Italian gives 0.51, more strongly than
+the manuscript, while Latin, English and the Vulgate sit between 0.89 and 0.98.
+
 The shape is worth naming, because we have now met it twice at different scales. On
 the character scale the manuscript is in *excess* of every language across one
 character of the word boundary and in *deficit* across three. On the word scale it
@@ -586,11 +608,11 @@ sets of numbers are not directly comparable, and anyone combining them should be
 aware of it. We would welcome the correction.
 ## 7. The inventory
 
-Sixty-six claims examined. **Twenty-one survive as stated.** Of the other
-forty-five: twenty-six dissolve under a matched control, eleven shrink to a
+Seventy-one claims examined. **Twenty-two survive as stated.** Of the other
+forty-nine: twenty-seven dissolve under a matched control, fourteen shrink to a
 magnitude that decides nothing, two are consequences of something else in the
-inventory, and six are retractions. Twenty-seven of the sixty-six are claims we
-advanced ourselves; thirty-nine are other people's, and in most of those cases the control confirms
+inventory, and six are retractions. Twenty-nine of the seventy-one are claims we
+advanced ourselves; forty-two are other people's, and in most of those cases the control confirms
 the observation while changing its statement.
 
 Five of the six retractions are of our own claims, and five retractions out of
@@ -638,6 +660,35 @@ judged by the rank of the most frequent word it fails to generate, and the
 published models reach rank 89 (Zattera 2022) and 112 (Stolfi), where our automatic
 slot assignment fails at rank 1. Hand-built slot alphabets, with characters allowed
 in several slots, are not something an automatic procedure reproduces.
+
+So we implemented Zattera's, which is stated completely enough in his paper to be
+rebuilt. It reproduces: his twelve-slot model classifies 83.1% of our running-text
+tokens as regular against the 86.6% he reports, and the first word it fails to
+generate is rank 95 against the 89 reported, the difference being that we use
+running text in one transliteration and he a majority transcription across all
+loci. His pruned grammar, which trades coverage for precision, generates 1,140 of
+our types against the 1,113 he reports.
+
+That gives the measurement neither side had. The field reports coverage without a
+null; we had a null with a model too crude to use it. **Under his model, 46.5% of
+the manuscript's types are regular, against 8.2% of the same vocabulary with the
+glyphs shuffled within each word — a factor of 5.7.** The slot structure is real
+at that magnitude, and it is not a consequence of the glyph inventory alone.
+
+The same null makes two published accounts comparable for the first time. Cham's
+curve-line system (2014), which Zattera reports his grammar independently
+confirms, sorts glyphs into curves and lines and requires that a word not mix them
+except through the glyph `a`. Reported coverage is 96.63% with its two patches
+against 86.6% for the slot model, which makes the two look level. Against the
+shuffle they are not: the curve-line system covers 76.8% of types where the
+shuffled vocabulary gets 33.5%, a factor of 2.3, while the slot model's factor is
+5.7. **Coverage without a null does not compare models, because a permissive model
+covers more of anything.** We should add that our implementation of the curve-line
+system does not reproduce its author's figures exactly — our base coverage is
+44.7% against his 71.49%, and our base-plus-first-patch figure of 71.4% coincides
+with his base, which suggests his glyph classification differs from ours in
+precisely what that patch supplies. The comparison of factors is robust to that;
+the absolute coverages are not.
 
 One column of the table changed after we read the literature rather than the data.
 Of the claims we had marked as ours, four are not. The deficit of three-character
@@ -767,7 +818,7 @@ Morfessor Baseline 2.0.6. A reader who trusts none of them should read §3 only 
 a demonstration that the attribution is algorithm-dependent, which is all we now
 claim for it.
 
-Sixty-six claims are audited here; twenty-two further claims arising from
+Seventy-one claims are audited here; twenty-two further claims arising from
 generative modelling are in the companion paper, which is why its count differs.
 
 All measurements are by one author with no independent replication. What we can
@@ -806,7 +857,7 @@ and the voynich.ninja community. Where a result is a control under someone else'
 observation, we have tried to say whose it is.
 ## Appendix. The inventory
 
-Sixty-six claims, each with its source, the null model applied, and the outcome.
+Seventy-one claims, each with its source, the null model applied, and the outcome.
 Machine-readable version, with the numbers for each row, in `scripts/inventory.py`.
 ### Vocabulary and word structure
 
@@ -814,6 +865,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 |---|---|---|---|---|
 | A1 | Words are built from ordered positional slots | Stolfi 1997/2000; Zattera 2022; Greshko 2025 | within-word glyph shuffle; same glyph classes on Latin | weakened |
 | A1b | The characters of a word follow a stable left-to-right order | Tiltman 1967; Stolfi 2000; Zattera 2022 | order by mean relative position, against a within-word shuffle | survives |
+| A1c | The curve-line system describes word structure | Cham 2014; independently confirmed by Zattera's grammar | the rule implemented with both patches, plus a within-word shuffle null that the field does not report | weakened |
 | A2 | Voynichese is more decomposable into affixes than languages are | ours (strengthening Stolfi 1997) | two decompositions: affix-plus-vocabulary-word, and Goldsmith signatures; combinatorial baseline | **retracted** |
 | A3 | Affix stacking is the distinctive property | ours | reduction depth, but only under the density-biased algorithm 1 | **retracted** |
 | A3b | Algorithm 1's figures are independent of its free parameters | ours (methodological premise) | settings swept: full vocabulary against the 5,000 most frequent types, 15 against 20 affixes, minimum remainder 2 against 3 | dissolves |
@@ -851,6 +903,8 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | B11 | The manuscript has no repeated phrases longer than two words | Zandbergen, who calls it one of the main anomalies | share of repeated word n-grams across eight corpora at 34,024 tokens, including a genre-matched herbal; within-line shuffle | survives |
 | B12 | Characters correlate at long range, especially beyond 72 characters | Schinner 2007 | character autocorrelation at lags 1–150 against a shuffle of the same stream | weakened |
 | B13 | Distances between similar words are geometrically distributed | Schinner 2007 | distance to the nearest edit-distance-1 word, 21,550 cases; fit compared with a word-shuffled control | survives |
+| B14 | A word's last letter avoids matching the next word's first | Marco Ponzi, curated Graph Thread 2018 | word-order shuffle within lines, 20 repetitions, seven corpora | weakened |
+| E5 | The manuscript obeys Heaps' law | David Jackson, curated Graph Thread 2018 | exponent fitted over 0.5–34k tokens against seven corpora of the same length | survives |
 | B9 | Word-length autocorrelation exceeds that of all eighteen reference corpora | Matlach et al. 2022; Gaskell & Bowern | 18 corpora at 34,024 tokens; within-line shuffle, 200 repetitions | survives |
 ### Position in the line
 
@@ -874,6 +928,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | D3 | The balneological section is markedly repetitive | Currier | matched samples; per-page; placement among 31 corpora | survives |
 | D4 | That repetitiveness is local clustering | ours (hypothesis) | repetition within a 10-word window against the section's own shuffle | dissolves |
 | D5 | The five scribes differ in decorated initials | ours | split by hand | survives |
+| D5b | Scribal hands differ in the text beyond the Currier language | ours (question raised by Davis 2020) | hands compared within language B on the file's own labels, then controlled for section | dissolves |
 | D6 | Labelese is a distinct vocabulary | Pelling, ReneZ, Koen G | page-matched control; manual cleaning of the locus | survives |
 | D7 | Zodiac labels are shorter than ordinary words | attributed to the community | median against running text on the same pages | dissolves |
 | D8 | Zodiac labels favour ot-/ok- | Pelling | page-matched control | survives |
@@ -883,6 +938,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 |---|---|---|---|---|
 | E1 | Conditional entropy is anomalously low | Bennett 1976 onward | types vs tokens; fixed word length; merged EVA digraphs | attributed |
 | E1b | Our comparison set of 18 corpora suffices for character-level measures | ours (methodological premise) | comparison with the sets the field uses: 250 languages for h2, 101 for MATTR | dissolves |
+| E1c | The entropy gap is independent of the comparison texts' genre | ours (test of Lindemann & Bowern's set) | h2 for five languages having both a book and a Wikipedia sample, at matched size | weakened |
 | E2 | The text follows Zipf's law | commonplace | slope across 18 corpora at 34,024 tokens each | survives |
 | E3 | The hapax rate is language-like | ours | 18 corpora at 34,024 tokens, replacing a comparison with Latin alone | weakened |
 | E4 | The space is a real word boundary | commonplace | comparison against random boundaries | survives |

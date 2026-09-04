@@ -635,7 +635,7 @@ observation, we have tried to say whose it is.
 ## Appendix. Claims audited in this paper
 
 Twenty-two claims, each with its source, the null model applied, and the outcome.
-The other sixty-six are in the companion paper. Machine-readable version, with the
+The other seventy-one are in the companion paper. Machine-readable version, with the
 numbers for each row, in `scripts/inventory.py`.
 
 | # | Claim | Source | Control applied | Outcome |
