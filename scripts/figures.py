@@ -65,9 +65,9 @@ def fig1():
     s = Svg(560, 372)
     voy = n("regen_voy_head", 28.8)
     rows = [("Voynichese", voy, None),
-            ("Italian",  n("regen_ita_meanlen", 5.9),  n("regen_ita_lendist", 6.5)),
+            ("Italian",  n("regen_ita_meanlen", 5.9),  n("regen_ita_lendist", 6.6)),
             ("Spanish",  n("regen_spa_meanlen", 2.6),  n("regen_spa_lendist", 5.7)),
-            ("Latin",    n("regen_lat_meanlen", 1.7),  n("regen_lat_lendist", 3.6))]
+            ("Latin",    n("regen_lat_meanlen", 1.7),  n("regen_lat_lendist", 3.5))]
     x0, y0, bw, gap = 132, 58, 300, 52
     mx = 32.0
     s.txt(0, 18, "Chain regeneration of the vocabulary", 13, INK, weight="600")
