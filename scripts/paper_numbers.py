@@ -105,10 +105,10 @@ for fn, lab in [("latin.clean", "lat"), ("bk_es.clean", "spa"), ("bk_it.clean", 
 
 # ── §5.2 что осталось ───────────────────────────────────────────────────────
 print("§5.2 стык по 3 знакам…", file=sys.stderr)
-rec("junc3_voy", M.junction(VL, 3), "{:.3f}", A, "three-character information across the word boundary")
+rec("junc3_voy", M.junction(VL, 3), "{:.3f}", A, "of a language's value")
 for fn, lab in [("latin.clean", "lat"), ("bk_it.clean", "ita"), ("bk_es.clean", "spa"),
                 ("scr_vulgata.clean", "vul"), ("english.clean", "eng"), ("bk_fr1.clean", "fra")]:
-    rec(f"junc3_{lab}", M.junction(M.ref_lines(fn, LENS), 3), "{:.3f}", A, "three-character")
+    rec(f"junc3_{lab}", M.junction(M.ref_lines(fn, LENS), 3), "{:.3f}", A, "of a language's value")
 
 # ── §6 ранг-корреляция ──────────────────────────────────────────────────────
 print("§6 ранг-корреляция…", file=sys.stderr)

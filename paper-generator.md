@@ -210,6 +210,52 @@ table cipher. Such a design can be given memory, and with enough of it will
 reproduce three of the four signatures — but not the fourth, and not because the
 memory is insufficient.
 
+### 4.2 The prediction, tested on a published generator
+
+The most developed published generator of this family is the self-citation
+process of Timm and Schinner (2020): the scribe takes a token already written,
+preferring the same page and with probability 0.28 the same writing position in
+the previous line, and modifies it by adding or removing a glyph (0.20),
+combining or splitting (0.30), or replacing one (0.50), under a constraint on
+which glyphs may follow which *within* a token. Suggestions keep the shares of
+`-in`, `-ol` and `-dy` tokens above thresholds. That is four memories of the kind
+tested above — neighbour, positional, page-local, frequency-class — and no
+constraint across the word boundary. Our claim therefore makes a prediction about
+it, and their repository publishes the generated text, so the prediction can be
+checked without running anything.
+
+| signature | manuscript, size-matched | Timm & Schinner | % |
+|---|---|---|---|
+| recurrence d1–5 | 2.05 | 2.04 | 99% |
+| recurrence d6–20 | 1.46 | 1.84 | 126% |
+| length autocorrelation | +0.081 | +0.001 | **1%** |
+| rank correlation | +0.073 | +0.017 | 24% |
+| junction, 1 character | 0.131 | 0.013 | **10%** |
+
+Their output is 10,810 tokens in 1,189 lines, so the manuscript column is cut to
+the same line lengths. **The junction fails at 10%, as predicted.** The
+length autocorrelation also fails, at 1%, which we did not predict and which is
+mechanically informative: their source token is drawn from the page, not from the
+immediately preceding word, so adjacent words are not coupled in length. Drawing
+the source from the previous word — our near-neighbour rule — supplies that
+signature in full. Self-citation from the page and self-citation from the
+neighbour are not the same mechanism.
+
+Two things should be said for their generator against ours. On the vocabulary it
+does well: 8.63 edit-distance-1 neighbours per type against the manuscript's 9.48
+at matched size, 93.1% of types having a neighbour against 81.0%, slot rigidity
+15.80 against 13.97. And only 35.9% of its types are actual manuscript words,
+against 88.9% for the architecture of §6 — so the objection we raise against
+ourselves in §7, that vocabulary measures test identity rather than architecture,
+applies to our generator far more than to theirs. Theirs is a model of the
+vocabulary; the four signatures are properties of the sequence.
+
+The caveat is the one our own method demands. We tested the configuration and
+seed they published, not their parameter space, and by the standard we applied to
+ourselves — a grid of 503 points — one configuration is not a family. What the
+test establishes is that the published instance behaves as the structural claim
+says it must, not that no setting of their parameters could do better.
+
 ## 5. Construction instead of selection
 
 An earlier version of this section ended by saying that a mechanism constructing
@@ -386,9 +432,12 @@ load-bearing, and the claim is better stated without it.
 
 The generator of §6 has no notion of a line, and §7 showed what that costs: a
 whole family of the manuscript's best-documented peculiarities — LAAFU, Grove
-words, words occurring only line-initially — is out of reach. The mechanism is not
-a guess; our own audit found these to be largely one operation, prepending a
-character to an ordinary word. We added it as a single rule, prepending with
+words, words occurring only line-initially — is out of reach. Neither the phenomenon nor the control we use on it is
+ours: Currier (1976) observed that particular characters sit almost only at line
+edges, and Reddy and Knight (2011, fig. 7) showed the biased distribution
+flattening when words are scrambled *within* lines — the same null we use below.
+The mechanism is not a guess either; our own audit found these to be largely one
+operation, prepending a character to an ordinary word. We added it as a single rule, prepending with
 probability *p* at the start of each line, the character drawn from the observed
 distribution of prepended ones (`d` 580, `q` 472, `y` 465, `o` 379, `s` 360).
 Fitted on line-start divergence alone; everything else held out.
@@ -574,8 +623,8 @@ observation, we have tried to say whose it is.
 
 ## Appendix. Claims audited in this paper
 
-Twenty-one claims, each with its source, the null model applied, and the outcome.
-The other fifty-three are in the companion paper. Machine-readable version, with the
+Twenty-two claims, each with its source, the null model applied, and the outcome.
+The other fifty-seven are in the companion paper. Machine-readable version, with the
 numbers for each row, in `scripts/inventory.py`.
 
 | # | Claim | Source | Control applied | Outcome |
@@ -601,6 +650,7 @@ numbers for each row, in `scripts/inventory.py`.
 | G19 | The line start is one operation, prepending a character | ours (audit conclusion tested by generation) | fit on two measures (length gain and first-character divergence), Grove fraction and stem divergence held out; competing family with the most favourable character pool | dissolves |
 | G20 | The stem of a line-initial word is a different word, so a second selection mechanism exists | ours (claimed and withdrawn the same day) | null model that contains prepending rather than destroying it | **retracted** |
 | G21 | Paragraph-first lines and continuation lines behave alike | ours (methodological premise) | separate analysis by the IVTFF paragraph marker, 252 against 3,725 lines | dissolves |
+| G22 | The self-citation generator reproduces the manuscript's profile | Timm & Schinner 2020 | the four signatures on their published output, manuscript cut to the same 1,189 lines | weakened |
 
 ## References
 
@@ -616,5 +666,6 @@ Parisel, C. (2026b). A quantitative confirmation of the Currier language distinc
 Reddy, S. & Knight, K. (2011). What we know about the Voynich manuscript. *ACL LaTeCH.*
 Rugg, G. (2004). An elegant hoax? *Cryptologia* 28(1).
 Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.
+Timm, T. & Schinner, A. (2020). A possible generating algorithm of the Voynich manuscript. *Cryptologia* 44(1), 1–19. Generated text and source: github.com/TorstenTimm/SelfCitationTextgenerator.
 Zandbergen, R. (2025). Transliteration files, voynich.nu.
 Zattera, M. (2022). A twelve-slot positional structure for Voynichese words.

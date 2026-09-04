@@ -15,10 +15,10 @@ word boundary, an exceptionally dense vocabulary. They are normally treated as
 separate facts, and any proposed account of the text is expected to reproduce all
 of them.
 
-We re-examine fifty-three such claims, each against a null model matched on the
+We re-examine fifty-seven such claims, each against a null model matched on the
 unit the claim concerns, on six independent transliterations and against eighteen
-reference corpora each at least as large as the manuscript. **Fourteen survive as
-stated.** Of the remainder, twenty-two dissolve under a matched control, nine
+reference corpora each at least as large as the manuscript. **Sixteen survive as
+stated.** Of the remainder, twenty-four dissolve under a matched control, nine
 shrink to a magnitude that decides nothing, two are consequences of something else
 already in the inventory, and six are retractions — five of them of claims we made
 ourselves in the course of this work.
@@ -153,7 +153,11 @@ decisive.
 
 **Algorithm 2.** A second decomposition, structurally unlike the first:
 Goldsmith-style signatures, in which stems are grouped by the *set* of suffixes
-they occur with, and no reference to the vocabulary is made at all. It recovers
+they occur with, and no reference to the vocabulary is made at all. Applying
+Goldsmith's method to this text is not new — Reddy and Knight (2011) ran
+Linguistica on the manuscript and reported the signatures it finds. What is new
+here is its use as a control on algorithm 1 rather than as a description in its
+own right. It recovers
 sensible affixes in both corpora without supervision — `y`, `r`, `l`, `in`, `dy`,
 `iin`, `aiin`, `ar` for Voynichese; `s`, `m`, `is`, `um`, `que`, `us`, `rum` for
 Latin, which are the correct Latin inflections. It is not badly suited to either.
@@ -270,6 +274,26 @@ shuffle, hence the different figures.) To this should be added the
 transcription effect, on our own files: the character-level h2 of the running text
 is 1.86 in EVA's 25 symbols, 2.05 in FSG's 23 and 2.29 in Claston's 68-symbol
 v101, where EVA's `ch`, `sh` and `cth` are single characters.
+
+One qualification precedes the three below and was added only after reading the
+literature. The low conditional entropy this section measures against Latin has
+been measured by Bowern and Lindemann (2021) against **250 languages**, and the
+manuscript falls below every one of them, at h2 ≈ 2.0–2.2 against a natural-language
+cloud between 3.0 and 4.0. Our unit argument does not touch that: it says the gap
+narrows when the vocabulary rather than the text is the unit, not that the gap is
+ordinary. Where we say "the manuscript's distance from Latin", the field can say
+"from any of 250 languages", and on this measure our comparison set is an order of
+magnitude smaller than the best available. The same holds for type–token ratio,
+where Gheuens's moving-average index has been computed for 101 languages in seven
+families and places Voynichese in the ordinary range. We record this as a
+limitation of our comparison set rather than repair it, since building a
+250-language set was not in reach here.
+
+Those authors also supply a causal account we do not: the low h2 follows from
+characters and combinations occurring exclusively in one of the three positional
+fields of a word (Tiltman 1967, Stolfi 2000). And they perform the operation of our
+§3 — deleting affixes and re-measuring entropy — to show that removing `qo-` and
+`-dy` makes the h2 of Currier A and B nearly identical, 2.23 against 2.24.
 
 Three qualifications, none of which was in an earlier version of this section.
 
@@ -409,7 +433,14 @@ English 0.08×. Thread 61 of voynich.ninja states the general point — sequenti
 repetition is an aspect of local repetition, which is an aspect of local
 similarity; our contribution is the matched null and the cross-language range.
 
-**A deficit of three-character information across the word boundary.** On the raw
+**A deficit of three-character information across the word boundary** — not ours.
+Currier (1976) observed that a word's initial characters are affected by the final
+characters of the word before it, and Reddy and Knight (2011) measured the
+asymmetry we rediscovered: using the last character of the previous word to
+predict the first character of the next improves on no context by 31.8% in the
+manuscript against 31.1% in English — level — while using two characters gives
+16.0% against English's 42.8%. Excess on one character, deficit on more. Our
+contribution is the measure and the comparison set, not the observation. On the raw
 text the manuscript gives 0.245 against 0.435 (Latin), 0.554 (Italian), 0.568
 (Spanish), 0.643 (Vulgate), 0.744 (English) and 0.867 (French) — between 28% and
 56% of a language's value, measured against the same word-order shuffle. The
@@ -517,15 +548,15 @@ sets of numbers are not directly comparable, and anyone combining them should be
 aware of it. We would welcome the correction.
 ## 7. The inventory
 
-Fifty-three claims examined. **Fourteen survive as stated.** Of the other
-thirty-nine: twenty-two dissolve under a matched control, nine shrink to a
-magnitude that decides nothing, two are consequences of something else in the
-inventory, and six are retractions. Twenty-four of the fifty-three are claims we
-advanced ourselves; twenty-nine are other people's, and in most of those cases the control confirms
+Fifty-seven claims examined. **Sixteen survive as stated.** Of the other
+forty-one: twenty-four dissolve under a matched control, nine shrink to a magnitude
+that decides nothing, two are consequences of something else in the inventory, and
+six are retractions. Twenty-six of the fifty-seven are claims we advanced
+ourselves; thirty-one are other people's, and in most of those cases the control confirms
 the observation while changing its statement.
 
 Five of the six retractions are of our own claims, and five retractions out of
-twenty-four is a poor ratio. We report it rather than quietly dropping the
+twenty-six is a poor ratio. We report it rather than quietly dropping the
 failures, because the shape of the failures is the paper's content. Four of the
 six died the same death: a comparison set or a selection criterion that was not
 independent of the quantity being explained.
@@ -557,6 +588,21 @@ vocabulary whose glyphs are shuffled within each word recovers 5.9 of the 16
 canonical affixes on average against 16 of 16 from the real vocabulary, and every
 one it finds is a single glyph: the multi-character suffixes (`dy`, `iin`, `edy`)
 it never finds at all. The claim survives, and now it is not a tautology.
+
+One column of the table changed after we read the literature rather than the data.
+Of the claims we had marked as ours, four are not. The deficit of three-character
+information across the word boundary was observed by Currier (1976) and quantified
+by Reddy and Knight (2011), who found the same one-character/two-character
+asymmetry fifteen years before us by a different measure. Applying Goldsmith's
+unsupervised morphology to this text, which we use as the control that forces the
+retraction in §3, was done by the same authors in the same paper. The line-edge
+character bias and the within-line scramble that controls it are theirs as well,
+confirming Currier. And the weak word order we establish in the appendix as
+existing at all was measured by them as an 8.85% improvement in word predictability
+from bigram context, against 151% for English and 123% for Hungarian — so it
+exists, and it is an order of magnitude weaker than any language they tested. We
+had cited that paper without having read it. The corrections are recorded in the
+inventory rows rather than hidden in this paragraph.
 
 The full table, with the null model applied to each claim, is in the appendix and
 in machine-readable form in the accompanying code.
@@ -623,6 +669,23 @@ all. Two alternative segmentations are not all of them, and a systematically
 wrong segmentation of some third kind would not be caught by this, but arbitrary
 re-segmentation does not threaten the results.
 
+The sharpest version of that third kind is the position that the glyphs are not a
+writing system at all — for instance the proposal of García Jiménez
+(voynich.ninja thread 2384) that they encode an astronomical rather than a
+phonetic system. Nothing we measure refutes it: low conditional entropy, rigid
+positional structure and a chain-regenerable vocabulary are all compatible with a
+non-linguistic symbol inventory, and this paper makes no claim about meaning. What
+our measurements are statistics *of*, on that reading, is the transliteration
+rather than a language. We record it as the limit of the method rather than as a
+result, with one observation that is in our reach: the specific quantitative
+prediction that folio f70r1 carries sequences of the glyph `o` used as a counter
+does not hold in the transliteration. On that page the longest run of consecutive
+`o` inside a word is one, and across the whole manuscript runs of length two
+occur 79 times and longer runs never. Nor does `o` behave like a free counter
+anywhere: 97.8% of the 5,344 occurrences of `q` are followed by it. That folio is
+radial and circular text, which our analysis excludes throughout, so the check is
+of the prediction on its own ground and not a defence of our scope.
+
 Incidentally, the transcriber's uncertainty is informative: joining exactly the
 spaces he marked preserves more structure than joining random ones (rank
 correlation +0.089 against +0.048, density 10.60 against 7.40, regeneration 26.4%
@@ -640,7 +703,7 @@ Morfessor Baseline 2.0.6. A reader who trusts none of them should read §3 only 
 a demonstration that the attribution is algorithm-dependent, which is all we now
 claim for it.
 
-Fifty-three claims are audited here; twenty-one further claims arising from
+Fifty-seven claims are audited here; twenty-two further claims arising from
 generative modelling are in the companion paper, which is why its count differs.
 
 All measurements are by one author with no independent replication. What we can
@@ -679,7 +742,7 @@ and the voynich.ninja community. Where a result is a control under someone else'
 observation, we have tried to say whose it is.
 ## Appendix. The inventory
 
-Fifty-three claims, each with its source, the null model applied, and the outcome.
+Fifty-seven claims, each with its source, the null model applied, and the outcome.
 Machine-readable version, with the numbers for each row, in `scripts/inventory.py`.
 ### Vocabulary and word structure
 
@@ -691,6 +754,8 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | A3b | Algorithm 1's figures are independent of its free parameters | ours (methodological premise) | settings swept: full vocabulary against the 5,000 most frequent types, 15 against 20 affixes, minimum remainder 2 against 3 | dissolves |
 | A4 | Unsupervised affixes coincide with the canonical ones | community | the same selection on a within-word-shuffled vocabulary, 20 seeds; positive control on Latin | survives |
 | A5 | Latin is equally decomposable given enough affixes | ours (test) | affix inventory raised to 400 | dissolves |
+| A13 | A hard within-word rule: `i` is followed by `i` or `n`, and `n` is almost always preceded by `i` | community; davidjackson's summary, curated thread 4779 | direct bigram count on running text against the stated 90% | survives |
+| A14 | Edit-distance-1 neighbourhood reduces to the known substitution classes | ours (test of a community claim) | the six classes of thread 4779 against the full edge set | dissolves |
 | A6 | Word types have anomalously many edit-distance-1 neighbours | close to Timm | two nulls: positional (char by length and position), and a character Markov chain | weakened |
 | A6b | The chain-regeneration gap is independent of how the vocabularies are matched | ours (methodological premise) | two defensible matchings: on mean type length, and on the whole length distribution; 5 sampling seeds x 3 chain seeds | dissolves |
 | A7 | The flat density profile is attributable to the affix layer | ours | affix stripping plus three controls -- insufficient; a second algorithm gives no effect | **retracted** |
@@ -715,6 +780,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | B7 | A deficit of three-character boundary information | ours | affix stripping, matched samples | survives |
 | B7b | Each quantity in the project has one definition | ours (methodological premise) | canonical module against what individual scripts print; negative test on altered figures | dissolves |
 | B8 | Word recurrence decay is language-like | close to Montemurro & Zanette 2013 | full distance range rather than the first six points | survives |
+| B10 | Adjacent word order is asymmetric: a given pair runs almost only one way | community; davidjackson's summary, curated thread 4779 | direct count of both orders on running text | survives |
 | B9 | Word-length autocorrelation exceeds that of all eighteen reference corpora | Matlach et al. 2022; Gaskell & Bowern | 18 corpora at 34,024 tokens; within-line shuffle, 200 repetitions | survives |
 ### Position in the line
 
@@ -744,6 +810,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | # | Claim | Source | Control applied | Outcome |
 |---|---|---|---|---|
 | E1 | Conditional entropy is anomalously low | Bennett 1976 onward | types vs tokens; fixed word length; merged EVA digraphs | attributed |
+| E1b | Our comparison set of 18 corpora suffices for character-level measures | ours (methodological premise) | comparison with the sets the field uses: 250 languages for h2, 101 for MATTR | dissolves |
 | E2 | The text follows Zipf's law | commonplace | slope across 18 corpora at 34,024 tokens each | survives |
 | E3 | The hapax rate is language-like | ours | 18 corpora at 34,024 tokens, replacing a comparison with Latin alone | weakened |
 | E4 | The space is a real word boundary | commonplace | comparison against random boundaries | survives |
@@ -772,5 +839,6 @@ Parisel, C. (2026b). A quantitative confirmation of the Currier language distinc
 Reddy, S. & Knight, K. (2011). What we know about the Voynich manuscript. *ACL LaTeCH.*
 Rugg, G. (2004). An elegant hoax? *Cryptologia* 28(1).
 Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.
+Timm, T. & Schinner, A. (2020). A possible generating algorithm of the Voynich manuscript. *Cryptologia* 44(1), 1–19. Generated text and source: github.com/TorstenTimm/SelfCitationTextgenerator.
 Zandbergen, R. (2025). Transliteration files, voynich.nu.
 Zattera, M. (2022). A twelve-slot positional structure for Voynichese words.

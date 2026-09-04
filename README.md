@@ -1,8 +1,8 @@
 # Voynich anomaly audit
 
 Code and working materials for an audit of claimed statistical peculiarities of
-the Voynich manuscript. Seventy-four claims — other people's and our own — each
-re-tested against a null model matched to the unit the claim concerns. 21
+the Voynich manuscript. Seventy-nine claims — other people's and our own — each
+re-tested against a null model matched to the unit the claim concerns. 23
 survive as stated; 11 are retractions, 10 of them of claims we made ourselves.
 
 Two draft write-ups: `paper-audit.md` (what survives the controls) and
@@ -13,7 +13,7 @@ Neither is submitted anywhere and we would rather be corrected than not.
 
     scripts/            ~218 files, standard library only (one exception below)
     scripts/measures.py     one definition per quantity, seeds in the signatures
-    scripts/inventory.py    the audit itself: 74 machine-readable records with
+    scripts/inventory.py    the audit itself: 79 machine-readable records with
                             claim / source / control applied / numbers / outcome
     scripts/fetch_data.sh   downloads the data, which is not in this repository
     paper-audit.md      draft: the audit, ~7,300 words
@@ -110,6 +110,27 @@ each and no better.
 Everything is computed on six transliterations parsed with identical rules, two
 of them in non-EVA alphabets, against eighteen reference corpora each at least as
 large as the manuscript, and under two alternative word segmentations.
+
+## What reading the literature changed
+
+A prior-art sweep in September 2026 found that several results marked as ours are
+not. The deficit of information across the word boundary at three characters was
+observed by Currier (1976) and measured by Reddy and Knight (2011), who found the
+same one-versus-two-character asymmetry by a different route. Applying Goldsmith's
+unsupervised morphology to this text — the control that forces our central
+retraction — was done in that same paper. The line-edge character bias and the
+within-line scramble that controls it are theirs as well. And our comparison set of
+18 corpora is an order of magnitude smaller than the field's for character-level
+measures: Bowern and Lindemann (2021) place the manuscript's conditional entropy
+below all of 250 languages, and the moving-average type-token ratio has been
+computed for 101. Those corrections are recorded in the inventory rows.
+
+The sweep also tested the most developed published generator of the family this
+work argues against — the self-citation process of Timm and Schinner (2020) — on
+their own published output. It reaches the recurrence profile and fails the word
+boundary at 10%, as predicted; it also fails length autocorrelation, which was not
+predicted, because its source token is drawn from the page rather than from the
+preceding word.
 
 ## Credit
 
