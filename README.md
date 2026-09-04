@@ -65,6 +65,17 @@ things: an ours-or-not flag, and a map of thirty surnames, where a name counts a
 a source if it carries a year or follows a survey reference. On its first run it
 found seven rows that had lost a credit in translation.
 
+The same drift turned out to affect the column next to it. The control column is
+what this whole audit rests on, and two appendix rows had dropped Morfessor from
+it — the one third-party tool in the procedure, and so the most valuable thing
+that column can name, since our own two algorithms can be suspected of fitting
+and an established tool cannot. The prose said "three decompositions" in four
+places; the appendix row said two. A map of eleven instrument names now guards
+that column, with abbreviations and their expansions treated as equivalent. A
+numeric check on the same column was tried and abandoned: it fired on 30 rows of
+97, almost all of it formatting noise, and a check that cries wolf teaches you to
+ignore it.
+
 This is a check on arithmetic, bookkeeping and credit, not on judgement. It
 misses, by construction, the kind of error that matters most: a defensible
 alternative procedure giving a different answer.

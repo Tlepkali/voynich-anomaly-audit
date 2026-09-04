@@ -112,7 +112,7 @@ for paper, pred, name in [("paper-audit.md", lambda d: not d["id"].startswith("G
         elif MARK[d["verdict"]] not in m.group(0):
             bad(f"{name}: {d['id']} в инвентаре {d['verdict']}, в приложении иначе")
 
-print("=" * 78); print("3. АТРИБУЦИЯ: ЧЬЁ УТВЕРЖДЕНИЕ"); print("=" * 78)
+print("=" * 78); print("3. АТРИБУЦИЯ И КОНТРОЛЬ: ЧЬЁ УТВЕРЖДЕНИЕ И ЧЕМ ПРОВЕРЕНО"); print("=" * 78)
 # Заведено 04.09.2026. Раздел 2 сличал приложение с инвентарём построчно и
 # повердиктно, но колонку «чьё» не сравнивал ВОВСЕ. Из-за этого пять
 # переатрибуций после разбора приор-арта легли в inventory.py и не доехали до
@@ -167,6 +167,32 @@ ok(f"атрибуция сверена по {checked} строкам: флаг �
 for x in soft: print(f"  ~ {x}")
 if unmapped:
     print(f"  ~ не в карте имён (дополнить NAMES, если это фамилии): {', '.join(sorted(unmapped))}")
+
+# ИНСТРУМЕНТЫ И НАЗВАННЫЕ МЕТОДЫ в колонке «контроль». Та же болезнь, что с
+# атрибуцией, одной колонкой правее, и найдена ею же по следу: приложение
+# роняло Morfessor у A2 и A11 — единственный СТОРОННИЙ инструмент во всей
+# процедуре, и потому самое ценное, что в этой колонке может стоять. В прозе он
+# был, в строке приложения — нет, а читатель смотрит именно строку.
+# Значения списком: сокращение и его расшифровка равноправны, иначе «MCW»
+# против «most-common-word share» даёт ложное срабатывание.
+TOOLS = {"Morfessor":["Morfessor"], "Linguistica":["Linguistica"], "Голдсмит":["Goldsmith"],
+ "MATTR":["MATTR","moving-average type-token"], "MCW":["MCW","most-common-word"],
+ "Жаккар":["Jaccard"], "Спирмен":["Spearman"], "Гроув":["Grove"], "Танах":["Tanakh"],
+ "Википеди":["Wikipedia"], "IVTFF":["IVTFF"]}
+CTRL = {}
+for _p in ("paper-audit.md", "paper-generator.md"):
+    for _ln in open(_p, encoding="utf-8"):
+        if re.match(r"^\| [A-G]\d", _ln):
+            _f = _ln.split("|")
+            if len(_f) > 5: CTRL[_f[1].strip()] = _f[4].strip()
+for d in INV:
+    en = CTRL.get(d["id"])
+    if en is None: continue
+    for stem, forms in TOOLS.items():
+        if stem in d["control"] and not any(f.lower() in en.lower() for f in forms):
+            bad(f"{d['id']}: {forms[0]} назван контролем в инвентаре, но не в строке статьи")
+ok(f"инструменты сверены: {len(TOOLS)} названий в колонке «контроль»")
+
 
 print("=" * 78); print("4. ССЫЛКИ И ОСТАТКИ РАЗДЕЛЕНИЯ"); print("=" * 78)
 for paper in ("paper-audit.md", "paper-generator.md"):

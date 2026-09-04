@@ -949,7 +949,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | A1 | Words are built from ordered positional slots | Stolfi 1997/2000; Zattera 2022; Greshko 2025 | within-word glyph shuffle; same glyph classes on Latin | weakened |
 | A1b | The characters of a word follow a stable left-to-right order | Tiltman 1967; Stolfi 2000; Zattera 2022; Zandbergen's survey at voynich.nu/a3_para | order by mean relative position, against a within-word shuffle | survives |
 | A1c | The curve-line system describes word structure | Cham 2014; independently confirmed by Zattera's grammar | the rule implemented with both patches, plus a within-word shuffle null that the field does not report | weakened |
-| A2 | Voynichese is more decomposable into affixes than languages are | ours (strengthening Stolfi 1997) | two decompositions: affix-plus-vocabulary-word, and Goldsmith signatures; combinatorial baseline | **retracted** |
+| A2 | Voynichese is more decomposable into affixes than languages are | ours (strengthening Stolfi 1997) | three decompositions: affix-plus-vocabulary-word, Goldsmith signatures, and Morfessor Baseline 2.0.6; combinatorial baseline with glyphs shuffled within words | **retracted** |
 | A3 | Affix stacking is the distinctive property | ours | reduction depth, but only under the density-biased algorithm 1 | **retracted** |
 | A3b | Algorithm 1's figures are independent of its free parameters | ours (methodological premise) | settings swept: full vocabulary against the 5,000 most frequent types, 15 against 20 affixes, minimum remainder 2 against 3 | dissolves |
 | A4 | Unsupervised affixes coincide with the canonical ones | community | the same selection on a within-word-shuffled vocabulary, 20 seeds; positive control on Latin | survives |
@@ -964,7 +964,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | A8 | Glyph-position rigidity is a property of the vocabulary | Bennett; Landini; many | types vs tokens on raw text, fixed word length, within-word shuffle | weakened |
 | A9 | The stem vocabulary is a combinatorial grid | ours | grid built on half the stems, coverage measured on the other half | dissolves |
 | A10 | Word length is stable; labels do not differ in it | ours | manual inspection of locus composition | **retracted** |
-| A11 | The affix attribution is robust to the choice of decomposition algorithm | ours (methodological premise) | second decomposition by Goldsmith signatures, no vocabulary reference; 12 parameter settings | dissolves |
+| A11 | The affix attribution is robust to the choice of decomposition algorithm | ours (methodological premise) | two independent decompositions: Goldsmith signatures with no vocabulary reference, 12 parameter settings, and Morfessor Baseline 2.0.6, an established tool segmenting by minimum description length | dissolves |
 | A12 | The vocabulary is very nearly determined by its character transitions | ours | share of chain-generated words that are real vocabulary words; same measure on Latin | survives |
 ### Sequence and order
 
@@ -1005,7 +1005,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 
 | # | Claim | Source | Control applied | Outcome |
 |---|---|---|---|---|
-| D1 | Currier A and B are statistically distinct languages | Currier 1976 | Jaccard with a within-section split-half baseline | survives |
+| D1 | Currier A and B are statistically distinct languages | Currier 1976 | Jaccard with a section-against-itself baseline (pages split in half), recomputed on the IVTFF file's own $L labels, which our parser had been discarding | survives |
 | D1b | Language and hand labels have to be inferred; the file does not carry them | ours (methodological premise) | reading the IVTFF page headers | dissolves |
 | D2 | The manuscript's sections differ in their text | commonplace | same within-section baseline; matched sample size | dissolves |
 | D3 | The balneological section is markedly repetitive | Currier | matched samples; per-page; placement among 31 corpora | survives |
@@ -1015,7 +1015,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | D6 | Labelese is a distinct vocabulary | Pelling, ReneZ, Koen G | page-matched control; manual cleaning of the locus | survives |
 | D7 | Zodiac labels are shorter than ordinary words | attributed to the community | median against running text on the same pages | dissolves |
 | D8 | Zodiac labels favour ot-/ok- | Pelling | page-matched control | survives |
-| D9 | The f57v ring is a written-out alphabet, and so an internal key to glyph order | community commonplace, discussed by Pelling and on voynich.ninja; priority not verified against sources | rank correlation of ring position against mean position-in-word and against glyph frequency; 10,000 ring permutations; threshold fixed before the run | dissolves |
+| D9 | The f57v ring is a written-out alphabet, and so an internal key to glyph order | community commonplace, discussed by Pelling and on voynich.ninja; priority not verified against sources | Spearman rank correlation of ring position against mean position-in-word and against glyph frequency; 10,000 ring permutations; threshold fixed before the run | dissolves |
 | D10 | The zodiac nymph labels are a counting sequence (degrees of the sign, or days) | community conjecture | four pre-registered signatures, the primary one cross-page agreement by position; nulls include running text from the same pages; sensitivity checked on synthetic counting sequences | dissolves |
 | D11 | The pharmaceutical labels are plant names, and a successful glyph-to-letter fit is evidence | the crib method at large | the resolving power of the method itself: one fitting budget against plant names, Latin, English and random letter strings, with a positive control on a known substitution | dissolves |
 ### Whole-text: entropy, Zipf, size
