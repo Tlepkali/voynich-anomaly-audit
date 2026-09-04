@@ -15,10 +15,10 @@ word boundary, an exceptionally dense vocabulary. They are normally treated as
 separate facts, and any proposed account of the text is expected to reproduce all
 of them.
 
-We re-examine seventy-two such claims, each against a null model matched on the
+We re-examine seventy-five such claims, each against a null model matched on the
 unit the claim concerns, on six independent transliterations and against eighteen
 reference corpora each at least as large as the manuscript. **Twenty-two survive as
-stated.** Of the remainder, twenty-seven dissolve under a matched control, fifteen
+stated.** Of the remainder, thirty dissolve under a matched control, fifteen
 shrink to a magnitude that decides nothing, two are consequences of something else
 already in the inventory, and six are retractions — five of them of claims we made
 ourselves in the course of this work.
@@ -648,18 +648,37 @@ sets of numbers are not directly comparable, and anyone combining them should be
 aware of it. We would welcome the correction.
 ## 7. The inventory
 
-Seventy-two claims examined. **Twenty-two survive as stated.** Of the other
-fifty: twenty-seven dissolve under a matched control, fifteen shrink to a magnitude
+Seventy-five claims examined. **Twenty-two survive as stated.** Of the other
+fifty-three: thirty dissolve under a matched control, fifteen shrink to a magnitude
 that decides nothing, two are consequences of something else in the inventory, and
-six are retractions. Thirty of the seventy-two are claims we advanced ourselves;
-forty-two are other people's, and in most of those cases the control confirms
-the observation while changing its statement.
+six are retractions. Twenty-eight of the seventy-five are claims we advanced
+ourselves; forty-seven are other people's, and in most of those cases the control
+confirms the observation while changing its statement.
 
-Five of the six retractions are of our own claims, and five out of thirty is a poor
+Five of the six retractions are of our own claims, and five out of twenty-eight is a poor
 ratio. We report it rather than quietly dropping the failures, because the shape of
 the failures is the paper's content. Four of the six died the same death: a
 comparison set or a selection criterion that was not independent of the quantity
 being explained.
+
+The last three rows were added together, on targets picked by a criterion worth
+stating: a small hypothesis space, key material internal to the artifact, and a
+verdict a pre-registered null can actually deliver. The f57v ring — seventeen
+glyphs written out four times, and so a deliberate list rather than text — bears
+no relation either to the glyph order the text itself implies (ρ = −0.06) or to
+glyph frequency (ρ = −0.10); the glyph *r* also occupies two of its seventeen
+places, which alphabets do not do. The zodiac nymph labels, whose markup admits
+the counting hypothesis unusually well — fifteen or thirty labels on every one of
+the twelve pages, clock angles monotone within each ring — show no agreement by
+position across pages: 0.3582 against a null of 0.3577, where the same test
+detects a counting sequence with sixty per cent of its positions corrupted. The
+third row is not about the manuscript but about a method. Pharmaceutical labels
+fit plant names no better (0.690) than they fit random letter strings (0.676),
+while the same fitter under the same budget recovers a known substitution of
+plant names exactly (1.000); the high score against Latin (0.807) is the density
+of that comparison pool, since genuine ciphertext scores 0.834 against it with
+Latin the wrong target. A crib fit at that level is not evidence, and the point
+holds for a class of published attempts rather than for any one of them.
 
 Of the four most-cited peculiarities — low entropy, rigid slots, adjacent
 repetition, boundary behaviour — the first two are roughly halved by measuring
@@ -960,7 +979,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | B3b | The measure discriminates the manuscript at 6,000-word samples | ours (interim conclusion) | same corpora compared at 6k and 34k | **retracted** |
 | B5 | Word order carries no information at all | ours (hypothesis) | shuffle within a sliding window, preserving local composition | dissolves |
 | B6 | Word-boundary structure is attributable to the affix layer | E. M. Smith (End-End); Sazonov 2003; Parisel 2026a | affix stripping -- but the second algorithm shifts it by only -0.014 | **retracted** |
-| B7 | A deficit of three-character boundary information | ours | affix stripping, matched samples | survives |
+| B7 | A deficit of three-character boundary information | Currier 1976 (the observation); Reddy & Knight 2011 (the asymmetry between one and two characters) | affix stripping, matched samples | survives |
 | B7b | Each quantity in the project has one definition | ours (methodological premise) | canonical module against what individual scripts print; negative test on altered figures | dissolves |
 | B8 | Word recurrence decay is language-like | close to Montemurro & Zanette 2013 | full distance range rather than the first six points | survives |
 | B10 | Adjacent word order is asymmetric: a given pair runs almost only one way | community; davidjackson's summary, curated thread 4779 | direct count of both orders on running text | survives |
@@ -975,7 +994,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | # | Claim | Source | Control applied | Outcome |
 |---|---|---|---|---|
 | C1 | Grove words: special words at line starts | community | matched on word length and on the base word | survives |
-| C2 | LAAFU is a single line-start phenomenon | ours | null model containing the mechanism under test: a prepending-only generator fitted on word length alone | weakened |
+| C2 | LAAFU is a single line-start phenomenon | the community | null model containing the mechanism under test: a prepending-only generator fitted on word length alone | weakened |
 | C3 | An s- prefix at line starts | E. M. Smith, thread 734 (with a better argument, from the ban on a-initials) | comparison against a homogeneous class, sh-words excluded | weakened |
 | C4 | The line end is the same mechanism as the line start | ours (hypothesis) | same decomposition rule applied to m-final words | dissolves |
 | C5 | Neal keys: single-leg gallows pair on the paragraph's top line | Neal; Tiltman; Pelling | permutation of labels within the line, preserving their count | dissolves |
@@ -996,6 +1015,9 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | D6 | Labelese is a distinct vocabulary | Pelling, ReneZ, Koen G | page-matched control; manual cleaning of the locus | survives |
 | D7 | Zodiac labels are shorter than ordinary words | attributed to the community | median against running text on the same pages | dissolves |
 | D8 | Zodiac labels favour ot-/ok- | Pelling | page-matched control | survives |
+| D9 | The f57v ring is a written-out alphabet, and so an internal key to glyph order | community commonplace | rank correlation of ring position against mean position-in-word and against glyph frequency; 10,000 ring permutations; threshold fixed before the run | dissolves |
+| D10 | The zodiac nymph labels are a counting sequence (degrees of the sign, or days) | community conjecture | four pre-registered signatures, the primary one cross-page agreement by position; nulls include running text from the same pages; sensitivity checked on synthetic counting sequences | dissolves |
+| D11 | The pharmaceutical labels are plant names, and a successful glyph-to-letter fit is evidence | the crib method at large | the resolving power of the method itself: one fitting budget against plant names, Latin, English and random letter strings, with a positive control on a known substitution | dissolves |
 ### Whole-text: entropy, Zipf, size
 
 | # | Claim | Source | Control applied | Outcome |
