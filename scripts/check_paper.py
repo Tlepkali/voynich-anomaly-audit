@@ -194,7 +194,73 @@ for d in INV:
 ok(f"инструменты сверены: {len(TOOLS)} названий в колонке «контроль»")
 
 
-print("=" * 78); print("4. ССЫЛКИ И ОСТАТКИ РАЗДЕЛЕНИЯ"); print("=" * 78)
+print("=" * 78); print("4. ОТОЗВАННОЕ В ПРОЗЕ"); print("=" * 78)
+# Последняя из проверок, которые делались глазами. Отозванное утверждение
+# ОБЯЗАНО встречаться в прозе — там, где его отзывают; ловить надо другое: его
+# числа, стоящие в разделе, который об отзыве не говорит.
+#
+# Единица — РАЗДЕЛ, а не абзац: §3 аудита целиком об отзыве алгоритма 1, и
+# требовать слова «retract» в каждом его абзаце бессмысленно.
+#
+# Число берётся, только если оно есть у отозванной записи и ОТСУТСТВУЕТ у всех
+# уцелевших: общее число законно стоит в прозе как живой результат (так 12,06,
+# плотность окрестности, принадлежит выжившей записи и из отбора выпадает).
+#
+# Два порога, потому что развилка честная. ЖЁСТКИЙ — три знака после запятой
+# либо четыре значащих цифры: ноль ложных, но покрывает 2 записи из 11.
+# МЯГКИЙ — все числа от четырёх знаков: покрывает шесть, но путает значения
+# (28,7 у Паризеля это иврит, 88,1 покрытие чужой модели, 0,24 испанский).
+# Мягкое печатается списком и прогон не роняет. Охват печатается всегда:
+# проверка, молчащая о своей слепоте, хуже шумной.
+def _dec(t): return {x.replace(",", ".") for x in re.findall(r"\d+[.,]\d+", t)}
+def _sharp(n):
+    a, b = n.split(".")
+    return len(b) >= 3 or len(a) + len(b) >= 4
+_LIVE = set()
+for d in INV:
+    if d["verdict"] != "RETRACT": _LIVE |= _dec(d["nums"]) | _dec(d["control"])
+_MARK = re.compile(r"retract|withdraw|no longer|was wrong|were wrong|abandon", re.I)
+def _sections(pth):
+    """разделы с ЦЕПЬЮ ЗАГОЛОВКОВ: (## родитель, ### свой, тело)"""
+    txt = "\n".join(l for l in open(pth, encoding="utf-8").read().split("\n")
+                     if not l.startswith("|"))
+    out, top, cur = [], "", ["(до первого заголовка)", []]
+    for ln in txt.split("\n"):
+        m = re.match(r"^(#{2,3}) (.+)$", ln)
+        if m:
+            out.append((top, cur[0], "\n".join(cur[1])))
+            if m.group(1) == "##": top = m.group(2).strip()
+            cur = [m.group(2).strip(), []]
+        else: cur[1].append(ln)
+    out.append((top, cur[0], "\n".join(cur[1])))
+    return out
+_SEC = {q: _sections(q) for q in ("paper-audit.md", "paper-generator.md")}
+_R = [d for d in INV if d["verdict"] == "RETRACT"]
+_soft, _hard_n, _soft_n = [], 0, 0
+for d in _R:
+    loose = sorted(n for n in _dec(d["nums"]) - _LIVE if len(n) >= 4)
+    if not loose: continue
+    strict = [n for n in loose if _sharp(n)]
+    _soft_n += 1; _hard_n += 1 if strict else 0
+    for q, secs in _SEC.items():
+        for top, title, body in secs:
+            # ОБЛАСТЬ ПОМЕТКИ — то, что читатель видит рядом с числом: заголовок
+            # раздела, заголовок родителя, либо ТОТ ЖЕ абзац. Раньше маркер
+            # искался по всему телу раздела, и «retracted in §3» в §4 глушило
+            # проверку для ВСЕХ отзывов разом — вставленное туда 0,271 из G20
+            # проходило незамеченным.
+            if _MARK.search(top) or _MARK.search(title): continue
+            for para in body.split("\n\n"):
+                if _MARK.search(para): continue
+                hs = [n for n in strict if re.search(rf"(?<![\d.]){re.escape(n)}(?![\d])", para)]
+                ls = [n for n in loose if re.search(rf"(?<![\d.]){re.escape(n)}(?![\d])", para)]
+                if hs: bad(f"{d['id']}: числа отзыва {hs} в «{title[:40]}», об отзыве рядом не сказано")
+                elif ls: _soft.append(f"{d['id']}: {ls} в «{title[:40]}» — возможно совпадение значений")
+ok(f"отозванное в прозе: жёстко проверено {_hard_n} записей из {len(_R)}, мягко {_soft_n}; "
+   f"остальные не несут достаточно различимых чисел")
+for x in _soft: print(f"  ~ {x}")
+
+print("=" * 78); print("5. ССЫЛКИ И ОСТАТКИ РАЗДЕЛЕНИЯ"); print("=" * 78)
 for paper in ("paper-audit.md", "paper-generator.md"):
     t = open(paper, encoding="utf-8").read()
     secs = set(re.findall(r"^## (\d+[a-z]?)\.", t, re.M)) | set(re.findall(r"^### (\d+\.\d+)", t, re.M))

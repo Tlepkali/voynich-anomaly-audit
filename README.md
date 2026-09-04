@@ -76,6 +76,23 @@ numeric check on the same column was tried and abandoned: it fired on 30 rows of
 97, almost all of it formatting noise, and a check that cries wolf teaches you to
 ignore it.
 
+A fourth pass guards the retractions. A withdrawn claim must appear in the prose
+— that is where it is withdrawn — so what the check looks for is its figures
+standing in a section that says nothing about the withdrawal. A figure counts only
+if it belongs to a retracted row and to no surviving one, since a shared figure is
+legitimately live elsewhere. Two thresholds, because the trade is real: a strict
+one covers 2 of the 11 retractions with no false alarms, a loose one covers 6 but
+confuses values across contexts, and the loose findings are printed rather than
+failed. The coverage is printed either way — a check that hides its own blind spot
+is worse than one that cries wolf.
+
+That check passed vacuously on its first version, and the negative test is what
+showed it. The marker was searched across the whole section, and §4 contains the
+phrase "retracted in §3", a reference to a different withdrawal; it immunised the
+entire section for every retracted row at once, so a planted figure went through
+unseen. The scope is now what a reader actually sees beside the figure: the
+section heading, its parent heading, or the same paragraph.
+
 This is a check on arithmetic, bookkeeping and credit, not on judgement. It
 misses, by construction, the kind of error that matters most: a defensible
 alternative procedure giving a different answer.
