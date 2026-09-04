@@ -1,8 +1,8 @@
 # Voynich anomaly audit
 
 Code and working materials for an audit of claimed statistical peculiarities of
-the Voynich manuscript. Eighty-four claims — other people's and our own — each
-re-tested against a null model matched to the unit the claim concerns. 26
+the Voynich manuscript. Eighty-eight claims — other people's and our own — each
+re-tested against a null model matched to the unit the claim concerns. 28
 survive as stated; 11 are retractions, 10 of them of claims we made ourselves.
 
 Two draft write-ups: `paper-audit.md` (what survives the controls) and
@@ -13,7 +13,7 @@ Neither is submitted anywhere and we would rather be corrected than not.
 
     scripts/            ~218 files, standard library only (one exception below)
     scripts/measures.py     one definition per quantity, seeds in the signatures
-    scripts/inventory.py    the audit itself: 84 machine-readable records with
+    scripts/inventory.py    the audit itself: 88 machine-readable records with
                             claim / source / control applied / numbers / outcome
     scripts/fetch_data.sh   downloads the data, which is not in this repository
     paper-audit.md      draft: the audit, ~7,300 words

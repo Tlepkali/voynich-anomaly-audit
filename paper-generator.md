@@ -129,6 +129,17 @@ long-range recurrence at all — d6–20 sits at 0.99 at every rate tried — an
 junction reaches 6% at best. An earlier version of this section claimed each
 mechanism supplies exactly one signature; that was too clean and is withdrawn.
 
+This mechanism has a signature in the manuscript that was found before us and read
+the other way. Schinner (2007) reports that distances between similar words are
+geometrically distributed, and a neighbour rule firing with fixed probability
+produces exactly that. We confirm the fit: over the first twenty distances the
+ratio of observed to geometric runs 0.85–1.14, and the manuscript fits the
+geometric better than its own word-shuffled control does. He took it as evidence
+for a memoryless process and so for the hoax hypothesis; in the account here the
+same mechanism is one of four memories and supplies two of the four signatures.
+The observation is the same and only its reading differs, which is worth saying
+plainly rather than claiming the fact as new.
+
 This rule deserves a note, because the manuscript makes it available in a way
 languages do not: 84.7% of its types have a neighbour at edit distance 1, with
 12.06 neighbours each, against Italian 70.6% / 3.48, Spanish 58.6% / 1.89 and
@@ -624,7 +635,7 @@ observation, we have tried to say whose it is.
 ## Appendix. Claims audited in this paper
 
 Twenty-two claims, each with its source, the null model applied, and the outcome.
-The other sixty-two are in the companion paper. Machine-readable version, with the
+The other sixty-six are in the companion paper. Machine-readable version, with the
 numbers for each row, in `scripts/inventory.py`.
 
 | # | Claim | Source | Control applied | Outcome |
@@ -654,6 +665,7 @@ numbers for each row, in `scripts/inventory.py`.
 
 ## References
 
+Amancio, D. R. et al. (2013). Probing the statistical properties of unknown texts. *PLOS ONE* 8(7), e67310.
 Bennett, W. R. (1976). *Scientific and Engineering Problem-Solving with the Computer.*
 Bowern, C. & Lindemann, L. (2021). The linguistics of the Voynich manuscript. *Annual Review of Linguistics* 7, 285–308.
 Currier, P. (1976). Papers on the Voynich manuscript.
@@ -666,6 +678,7 @@ Parisel, C. (2026b). A quantitative confirmation of the Currier language distinc
 Reddy, S. & Knight, K. (2011). What we know about the Voynich manuscript. *ACL LaTeCH.*
 Rugg, G. (2004). An elegant hoax? *Cryptologia* 28(1).
 Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.
+Schinner, A. (2007). The Voynich manuscript: evidence of the hoax hypothesis. *Cryptologia* 31(2), 95–107.
 Timm, T. & Schinner, A. (2020). A possible generating algorithm of the Voynich manuscript. *Cryptologia* 44(1), 1–19. Generated text and source: github.com/TorstenTimm/SelfCitationTextgenerator.
 Zandbergen, R. (2025). Transliteration files, voynich.nu.
 Zattera, M. (2022). A twelve-slot positional structure for Voynichese words.

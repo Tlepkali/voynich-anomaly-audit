@@ -15,10 +15,10 @@ word boundary, an exceptionally dense vocabulary. They are normally treated as
 separate facts, and any proposed account of the text is expected to reproduce all
 of them.
 
-We re-examine sixty-two such claims, each against a null model matched on the
+We re-examine sixty-six such claims, each against a null model matched on the
 unit the claim concerns, on six independent transliterations and against eighteen
-reference corpora each at least as large as the manuscript. **Nineteen survive as
-stated.** Of the remainder, twenty-five dissolve under a matched control, ten
+reference corpora each at least as large as the manuscript. **Twenty-one survive as
+stated.** Of the remainder, twenty-six dissolve under a matched control, eleven
 shrink to a magnitude that decides nothing, two are consequences of something else
 already in the inventory, and six are retractions — five of them of claims we made
 ourselves in the course of this work.
@@ -468,6 +468,14 @@ retracted in §3 — and had no business in a list of what survives on the raw t
 The deficit itself survives the correction; its size does not, changing from 0.29×
 to 0.56× of Latin.
 
+One terminological trap is worth flagging before the next item, since we nearly
+fell into it. Reddy and Knight (2011) report "very few repeated word bigrams" and
+Amancio et al. (2013) report "unusually high duplicated bigrams". The phrases are
+almost the same and the findings are opposite: the first counts bigrams occurring
+more than once in the text, which are rare; the second counts bigrams made of the
+same word twice, which are common. Both are true, and they belong to different
+rows of our inventory.
+
 **No repeated phrase longer than two words.** This is the field's own statement of
 the main anomaly (Zandbergen), and it survives the sharpest comparison we can make:
 a genre-matched medieval herbal. Counting the share of word n-gram occurrences that
@@ -578,11 +586,11 @@ sets of numbers are not directly comparable, and anyone combining them should be
 aware of it. We would welcome the correction.
 ## 7. The inventory
 
-Sixty-two claims examined. **Nineteen survive as stated.** Of the other
-forty-three: twenty-five dissolve under a matched control, ten shrink to a magnitude
-that decides nothing, two are consequences of something else in the inventory, and
-six are retractions. Twenty-six of the sixty-two are claims we advanced
-ourselves; thirty-six are other people's, and in most of those cases the control confirms
+Sixty-six claims examined. **Twenty-one survive as stated.** Of the other
+forty-five: twenty-six dissolve under a matched control, eleven shrink to a
+magnitude that decides nothing, two are consequences of something else in the
+inventory, and six are retractions. Twenty-seven of the sixty-six are claims we
+advanced ourselves; thirty-nine are other people's, and in most of those cases the control confirms
 the observation while changing its statement.
 
 Five of the six retractions are of our own claims, and five retractions out of
@@ -711,6 +719,20 @@ all. Two alternative segmentations are not all of them, and a systematically
 wrong segmentation of some third kind would not be caught by this, but arbitrary
 re-segmentation does not threaten the results.
 
+There is also a method that answers the segmentation worry without going through
+the spaces at all, and we should have used it sooner. Landini (2001) applied
+spectral analysis to the character stream with the spaces deleted and recovered an
+indication of the modal token length from the periodicity alone. Repeating that in
+a simple form — the autocorrelation of each frequent character's indicator sequence
+in the space-free stream — six of the eight most frequent characters peak at lags 4
+to 6, bracketing the mean word length of 5.07, with amplitudes up to 1.69. Shuffling
+the same stream flattens every curve to 0.97–1.04. Latin with its spaces deleted
+gives no coherent peak at all: its four most frequent characters peak at lags 2, 2,
+3 and 11 against a mean word length of 5.81, with amplitudes between 0.75 and 1.21.
+The manuscript's word structure is therefore recoverable from the character stream
+*better* than Latin's is, which follows from how stereotyped its words are, and it
+does not depend on the transcriber's spaces being right.
+
 The sharpest version of that third kind is the position that the glyphs are not a
 writing system at all — for instance the proposal of García Jiménez
 (voynich.ninja thread 2384) that they encode an astronomical rather than a
@@ -745,7 +767,7 @@ Morfessor Baseline 2.0.6. A reader who trusts none of them should read §3 only 
 a demonstration that the attribution is algorithm-dependent, which is all we now
 claim for it.
 
-Sixty-two claims are audited here; twenty-two further claims arising from
+Sixty-six claims are audited here; twenty-two further claims arising from
 generative modelling are in the companion paper, which is why its count differs.
 
 All measurements are by one author with no independent replication. What we can
@@ -784,7 +806,7 @@ and the voynich.ninja community. Where a result is a control under someone else'
 observation, we have tried to say whose it is.
 ## Appendix. The inventory
 
-Sixty-two claims, each with its source, the null model applied, and the outcome.
+Sixty-six claims, each with its source, the null model applied, and the outcome.
 Machine-readable version, with the numbers for each row, in `scripts/inventory.py`.
 ### Vocabulary and word structure
 
@@ -827,6 +849,8 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | B8 | Word recurrence decay is language-like | close to Montemurro & Zanette 2013 | full distance range rather than the first six points | survives |
 | B10 | Adjacent word order is asymmetric: a given pair runs almost only one way | community; davidjackson's summary, curated thread 4779 | direct count of both orders on running text | survives |
 | B11 | The manuscript has no repeated phrases longer than two words | Zandbergen, who calls it one of the main anomalies | share of repeated word n-grams across eight corpora at 34,024 tokens, including a genre-matched herbal; within-line shuffle | survives |
+| B12 | Characters correlate at long range, especially beyond 72 characters | Schinner 2007 | character autocorrelation at lags 1–150 against a shuffle of the same stream | weakened |
+| B13 | Distances between similar words are geometrically distributed | Schinner 2007 | distance to the nearest edit-distance-1 word, 21,550 cases; fit compared with a word-shuffled control | survives |
 | B9 | Word-length autocorrelation exceeds that of all eighteen reference corpora | Matlach et al. 2022; Gaskell & Bowern | 18 corpora at 34,024 tokens; within-line shuffle, 200 repetitions | survives |
 ### Position in the line
 
@@ -845,6 +869,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | # | Claim | Source | Control applied | Outcome |
 |---|---|---|---|---|
 | D1 | Currier A and B are statistically distinct languages | Currier 1976 | Jaccard with a within-section split-half baseline | survives |
+| D1b | Language and hand labels have to be inferred; the file does not carry them | ours (methodological premise) | reading the IVTFF page headers | dissolves |
 | D2 | The manuscript's sections differ in their text | commonplace | same within-section baseline; matched sample size | dissolves |
 | D3 | The balneological section is markedly repetitive | Currier | matched samples; per-page; placement among 31 corpora | survives |
 | D4 | That repetitiveness is local clustering | ours (hypothesis) | repetition within a 10-word window against the section's own shuffle | dissolves |
@@ -861,6 +886,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | E2 | The text follows Zipf's law | commonplace | slope across 18 corpora at 34,024 tokens each | survives |
 | E3 | The hapax rate is language-like | ours | 18 corpora at 34,024 tokens, replacing a comparison with Latin alone | weakened |
 | E4 | The space is a real word boundary | commonplace | comparison against random boundaries | survives |
+| E4b | Word structure is visible without relying on the spaces | Landini 2001 | autocorrelation of frequent characters in the space-free stream; shuffled and Latin controls | survives |
 ### Origin hypotheses
 
 | # | Claim | Source | Control applied | Outcome |
@@ -886,6 +912,7 @@ Parisel, C. (2026b). A quantitative confirmation of the Currier language distinc
 Reddy, S. & Knight, K. (2011). What we know about the Voynich manuscript. *ACL LaTeCH.*
 Rugg, G. (2004). An elegant hoax? *Cryptologia* 28(1).
 Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.
+Schinner, A. (2007). The Voynich manuscript: evidence of the hoax hypothesis. *Cryptologia* 31(2), 95–107.
 Timm, T. & Schinner, A. (2020). A possible generating algorithm of the Voynich manuscript. *Cryptologia* 44(1), 1–19. Generated text and source: github.com/TorstenTimm/SelfCitationTextgenerator.
 Zandbergen, R. (2025). Transliteration files, voynich.nu.
 Zattera, M. (2022). A twelve-slot positional structure for Voynichese words.
