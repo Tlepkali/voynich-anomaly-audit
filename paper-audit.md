@@ -15,10 +15,10 @@ word boundary, an exceptionally dense vocabulary. They are normally treated as
 separate facts, and any proposed account of the text is expected to reproduce all
 of them.
 
-We re-examine fifty-seven such claims, each against a null model matched on the
+We re-examine sixty-two such claims, each against a null model matched on the
 unit the claim concerns, on six independent transliterations and against eighteen
-reference corpora each at least as large as the manuscript. **Sixteen survive as
-stated.** Of the remainder, twenty-four dissolve under a matched control, nine
+reference corpora each at least as large as the manuscript. **Nineteen survive as
+stated.** Of the remainder, twenty-five dissolve under a matched control, ten
 shrink to a magnitude that decides nothing, two are consequences of something else
 already in the inventory, and six are retractions — five of them of claims we made
 ourselves in the course of this work.
@@ -277,8 +277,9 @@ v101, where EVA's `ch`, `sh` and `cth` are single characters.
 
 One qualification precedes the three below and was added only after reading the
 literature. The low conditional entropy this section measures against Latin has
-been measured by Bowern and Lindemann (2021) against **250 languages**, and the
-manuscript falls below every one of them, at h2 ≈ 2.0–2.2 against a natural-language
+been measured by Bowern and Lindemann (2021) against **250 languages**, and by
+Lindemann and Bowern (2020) against **316 comparison texts**, and the manuscript
+falls below every one of them, at h2 ≈ 2.0–2.2 against a natural-language
 cloud between 3.0 and 4.0. Our unit argument does not touch that: it says the gap
 narrows when the vocabulary rather than the text is the unit, not that the gap is
 ordinary. Where we say "the manuscript's distance from Latin", the field can say
@@ -310,6 +311,19 @@ across word lengths 3 to 7. At length 3 the order reverses.*
 Conditional entropy behaves more regularly and has no exception: the type-level
 gap is closer to unity at every length — 0.96 against 0.84 at length 3, then
 0.88/0.75, 0.81/0.63, 0.76/0.63, 0.73/0.61.
+
+A second quantity behaves the same way and is worth recording beside it, because
+the standard description of it is half right. Word length is usually said to be
+narrowly and almost binomially distributed in the manuscript, unlike the wide
+asymmetric distributions of European languages (Stolfi; Reddy & Knight 2011).
+Measured as relative spread on tokens, "narrow" holds everywhere: 0.33–0.39 across
+all six transliterations against 0.47–0.57 for nine language corpora. Measured as
+skewness on types, "binomial" holds only in the merged alphabets — +0.07 in FSG and
++0.11 in Claston's v101, against +0.30 to +0.40 for the languages, so genuinely
+more symmetric — while EVA gives +0.99 to +1.06 and Currier +1.03, twice as skewed
+as any language in the set. The sign of the anomaly turns over with the alphabet,
+for the same reason as everything else here: EVA writes `ch` as two characters and
+the merged alphabets write it as one.
 
 Across transliterations the effect reproduces closely in the three EVA files
 (1.86×, 1.77×, 1.85×) and is absent in the two written in merged alphabets (0.52×
@@ -454,6 +468,22 @@ retracted in §3 — and had no business in a list of what survives on the raw t
 The deficit itself survives the correction; its size does not, changing from 0.29×
 to 0.56× of Latin.
 
+**No repeated phrase longer than two words.** This is the field's own statement of
+the main anomaly (Zandbergen), and it survives the sharpest comparison we can make:
+a genre-matched medieval herbal. Counting the share of word n-gram occurrences that
+appear more than once, at two words the manuscript's 23.4% is ordinary — Latin
+gives 19.5% — but at three words it gives **1.20% against 6.5–23.0%** for every
+other corpus, the herbal highest at 22.98%, and at four words 0.01% against
+0.82–8.50%. Against its own within-line shuffle the bigram figure is only 1.29×,
+the trigram figure 4.3×.
+
+The shape is worth naming, because we have now met it twice at different scales. On
+the character scale the manuscript is in *excess* of every language across one
+character of the word boundary and in *deficit* across three. On the word scale it
+is level with Latin across two words and an order of magnitude below everything
+across three. Local coupling is present and extended coupling is absent, at both
+scales. We do not have an account of why.
+
 **The 1.26× density residual** of §5.1.
 ## 6. A measure we could not make usable
 
@@ -548,11 +578,11 @@ sets of numbers are not directly comparable, and anyone combining them should be
 aware of it. We would welcome the correction.
 ## 7. The inventory
 
-Fifty-seven claims examined. **Sixteen survive as stated.** Of the other
-forty-one: twenty-four dissolve under a matched control, nine shrink to a magnitude
+Sixty-two claims examined. **Nineteen survive as stated.** Of the other
+forty-three: twenty-five dissolve under a matched control, ten shrink to a magnitude
 that decides nothing, two are consequences of something else in the inventory, and
-six are retractions. Twenty-six of the fifty-seven are claims we advanced
-ourselves; thirty-one are other people's, and in most of those cases the control confirms
+six are retractions. Twenty-six of the sixty-two are claims we advanced
+ourselves; thirty-six are other people's, and in most of those cases the control confirms
 the observation while changing its statement.
 
 Five of the six retractions are of our own claims, and five retractions out of
@@ -588,6 +618,18 @@ vocabulary whose glyphs are shuffled within each word recovers 5.9 of the 16
 canonical affixes on average against 16 of 16 from the real vocabulary, and every
 one it finds is a single glyph: the multi-character suffixes (`dy`, `iin`, `edy`)
 it never finds at all. The claim survives, and now it is not a tautology.
+
+Reading also showed that on one claim we had measured the weak version and missed
+the strong one. Our row A1 tests Stolfi's three-layer nesting — core, mantle, crust —
+and finds it barely above its own shuffle at 1.09×, which is honest, since with
+three classes and short words almost any sequence is unimodal. The stronger claim,
+that the characters of a word follow a stable left-to-right order, we had never
+tested: it holds at 28.1% against 4.0% for a within-word shuffle, a factor of
+seven. The field's own instrument is better than either of ours — a slot model is
+judged by the rank of the most frequent word it fails to generate, and the
+published models reach rank 89 (Zattera 2022) and 112 (Stolfi), where our automatic
+slot assignment fails at rank 1. Hand-built slot alphabets, with characters allowed
+in several slots, are not something an automatic procedure reproduces.
 
 One column of the table changed after we read the literature rather than the data.
 Of the claims we had marked as ours, four are not. The deficit of three-character
@@ -703,7 +745,7 @@ Morfessor Baseline 2.0.6. A reader who trusts none of them should read §3 only 
 a demonstration that the attribution is algorithm-dependent, which is all we now
 claim for it.
 
-Fifty-seven claims are audited here; twenty-two further claims arising from
+Sixty-two claims are audited here; twenty-two further claims arising from
 generative modelling are in the companion paper, which is why its count differs.
 
 All measurements are by one author with no independent replication. What we can
@@ -742,13 +784,14 @@ and the voynich.ninja community. Where a result is a control under someone else'
 observation, we have tried to say whose it is.
 ## Appendix. The inventory
 
-Fifty-seven claims, each with its source, the null model applied, and the outcome.
+Sixty-two claims, each with its source, the null model applied, and the outcome.
 Machine-readable version, with the numbers for each row, in `scripts/inventory.py`.
 ### Vocabulary and word structure
 
 | # | Claim | Source | Control applied | Outcome |
 |---|---|---|---|---|
 | A1 | Words are built from ordered positional slots | Stolfi 1997/2000; Zattera 2022; Greshko 2025 | within-word glyph shuffle; same glyph classes on Latin | weakened |
+| A1b | The characters of a word follow a stable left-to-right order | Tiltman 1967; Stolfi 2000; Zattera 2022 | order by mean relative position, against a within-word shuffle | survives |
 | A2 | Voynichese is more decomposable into affixes than languages are | ours (strengthening Stolfi 1997) | two decompositions: affix-plus-vocabulary-word, and Goldsmith signatures; combinatorial baseline | **retracted** |
 | A3 | Affix stacking is the distinctive property | ours | reduction depth, but only under the density-biased algorithm 1 | **retracted** |
 | A3b | Algorithm 1's figures are independent of its free parameters | ours (methodological premise) | settings swept: full vocabulary against the 5,000 most frequent types, 15 against 20 affixes, minimum remainder 2 against 3 | dissolves |
@@ -756,6 +799,8 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | A5 | Latin is equally decomposable given enough affixes | ours (test) | affix inventory raised to 400 | dissolves |
 | A13 | A hard within-word rule: `i` is followed by `i` or `n`, and `n` is almost always preceded by `i` | community; davidjackson's summary, curated thread 4779 | direct bigram count on running text against the stated 90% | survives |
 | A14 | Edit-distance-1 neighbourhood reduces to the known substitution classes | ours (test of a community claim) | the six classes of thread 4779 against the full edge set | dissolves |
+| A15 | The word-length distribution is narrow and almost binomial, unusually for a language | Stolfi; Reddy & Knight 2011 | skewness and relative spread on six transliterations, types and tokens, against nine corpora | weakened |
+| E3b | About half of all types are hapax | Zandbergen's summary | direct count on six transliterations, both scopes | dissolves |
 | A6 | Word types have anomalously many edit-distance-1 neighbours | close to Timm | two nulls: positional (char by length and position), and a character Markov chain | weakened |
 | A6b | The chain-regeneration gap is independent of how the vocabularies are matched | ours (methodological premise) | two defensible matchings: on mean type length, and on the whole length distribution; 5 sampling seeds x 3 chain seeds | dissolves |
 | A7 | The flat density profile is attributable to the affix layer | ours | affix stripping plus three controls -- insufficient; a second algorithm gives no effect | **retracted** |
@@ -781,6 +826,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | B7b | Each quantity in the project has one definition | ours (methodological premise) | canonical module against what individual scripts print; negative test on altered figures | dissolves |
 | B8 | Word recurrence decay is language-like | close to Montemurro & Zanette 2013 | full distance range rather than the first six points | survives |
 | B10 | Adjacent word order is asymmetric: a given pair runs almost only one way | community; davidjackson's summary, curated thread 4779 | direct count of both orders on running text | survives |
+| B11 | The manuscript has no repeated phrases longer than two words | Zandbergen, who calls it one of the main anomalies | share of repeated word n-grams across eight corpora at 34,024 tokens, including a genre-matched herbal; within-line shuffle | survives |
 | B9 | Word-length autocorrelation exceeds that of all eighteen reference corpora | Matlach et al. 2022; Gaskell & Bowern | 18 corpora at 34,024 tokens; within-line shuffle, 200 repetitions | survives |
 ### Position in the line
 
@@ -793,6 +839,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | C5 | Neal keys: single-leg gallows pair on the paragraph's top line | Neal; Tiltman; Pelling | permutation of labels within the line, preserving their count | dissolves |
 | C6 | The pair sits about two thirds across the top line | Neal | rate by sixths of the line | dissolves |
 | C7 | Single-leg gallows cluster with their neighbour on ordinary lines | community practice (they are filtered out) | per-line null; rare-class analogue measured in languages | weakened |
+| C11 | Individual characters sit at line ends in most of their occurrences | Currier 1976 | share of a character's word-final occurrences falling in the last word of a line, against the base rate; three alphabets | survives |
 ### Divisions of the manuscript
 
 | # | Claim | Source | Control applied | Outcome |
