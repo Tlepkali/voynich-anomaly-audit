@@ -947,7 +947,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | # | Claim | Source | Control applied | Outcome |
 |---|---|---|---|---|
 | A1 | Words are built from ordered positional slots | Stolfi 1997/2000; Zattera 2022; Greshko 2025 | within-word glyph shuffle; same glyph classes on Latin | weakened |
-| A1b | The characters of a word follow a stable left-to-right order | Tiltman 1967; Stolfi 2000; Zattera 2022 | order by mean relative position, against a within-word shuffle | survives |
+| A1b | The characters of a word follow a stable left-to-right order | Tiltman 1967; Stolfi 2000; Zattera 2022; Zandbergen's survey at voynich.nu/a3_para | order by mean relative position, against a within-word shuffle | survives |
 | A1c | The curve-line system describes word structure | Cham 2014; independently confirmed by Zattera's grammar | the rule implemented with both patches, plus a within-word shuffle null that the field does not report | weakened |
 | A2 | Voynichese is more decomposable into affixes than languages are | ours (strengthening Stolfi 1997) | two decompositions: affix-plus-vocabulary-word, and Goldsmith signatures; combinatorial baseline | **retracted** |
 | A3 | Affix stacking is the distinctive property | ours | reduction depth, but only under the density-biased algorithm 1 | **retracted** |
@@ -956,7 +956,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | A5 | Latin is equally decomposable given enough affixes | ours (test) | affix inventory raised to 400 | dissolves |
 | A13 | A hard within-word rule: `i` is followed by `i` or `n`, and `n` is almost always preceded by `i` | community; davidjackson's summary, curated thread 4779 | direct bigram count on running text against the stated 90% | survives |
 | A14 | Edit-distance-1 neighbourhood reduces to the known substitution classes | ours (test of a community claim) | the six classes of thread 4779 against the full edge set | dissolves |
-| A15 | The word-length distribution is narrow and almost binomial, unusually for a language | Stolfi; Reddy & Knight 2011 | skewness and relative spread on six transliterations, types and tokens, against nine corpora | weakened |
+| A15 | The word-length distribution is narrow and almost binomial, unusually for a language | Stolfi; Reddy & Knight 2011; Zandbergen's survey a4_word | skewness and relative spread on six transliterations, types and tokens, against nine corpora | weakened |
 | E3b | About half of all types are hapax | Zandbergen's summary | direct count on six transliterations, both scopes | dissolves |
 | A6 | Word types have anomalously many edit-distance-1 neighbours | close to Timm | two nulls: positional (char by length and position), and a character Markov chain | weakened |
 | A6b | The chain-regeneration gap is independent of how the vocabularies are matched | ours (methodological premise) | two defensible matchings: on mean type length, and on the whole length distribution; 5 sampling seeds x 3 chain seeds | dissolves |
@@ -983,8 +983,8 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | B7b | Each quantity in the project has one definition | ours (methodological premise) | canonical module against what individual scripts print; negative test on altered figures | dissolves |
 | B8 | Word recurrence decay is language-like | close to Montemurro & Zanette 2013 | full distance range rather than the first six points | survives |
 | B10 | Adjacent word order is asymmetric: a given pair runs almost only one way | community; davidjackson's summary, curated thread 4779 | direct count of both orders on running text | survives |
-| B11 | The manuscript has no repeated phrases longer than two words | Zandbergen, who calls it one of the main anomalies | share of repeated word n-grams across eight corpora at 34,024 tokens, including a genre-matched herbal; within-line shuffle | survives |
-| B12 | Characters correlate at long range, especially beyond 72 characters | Schinner 2007 | character autocorrelation at lags 1–150 against a shuffle of the same stream | weakened |
+| B11 | The manuscript has no repeated phrases longer than two words | Zandbergen, who calls it one of the main anomalies; Tiltman 1967 and Currier 1976 on repetition | share of repeated word n-grams across eight corpora at 34,024 tokens, including a genre-matched herbal; within-line shuffle | survives |
+| B12 | Characters correlate at long range, especially beyond 72 characters | Schinner 2007, summarising Reddy & Knight and Zandbergen | character autocorrelation at lags 1–150 against a shuffle of the same stream | weakened |
 | B13 | Distances between similar words are geometrically distributed | Schinner 2007 | distance to the nearest edit-distance-1 word, 21,550 cases; fit compared with a word-shuffled control | survives |
 | B14 | A word's last letter avoids matching the next word's first | Marco Ponzi, curated Graph Thread 2018 | word-order shuffle within lines, 20 repetitions, seven corpora | weakened |
 | E5 | The manuscript obeys Heaps' law | David Jackson, curated Graph Thread 2018 | exponent fitted over 0.5–34k tokens against seven corpora of the same length | survives |
@@ -1000,7 +1000,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | C5 | Neal keys: single-leg gallows pair on the paragraph's top line | Neal; Tiltman; Pelling | permutation of labels within the line, preserving their count | dissolves |
 | C6 | The pair sits about two thirds across the top line | Neal | rate by sixths of the line | dissolves |
 | C7 | Single-leg gallows cluster with their neighbour on ordinary lines | community practice (they are filtered out) | per-line null; rare-class analogue measured in languages | weakened |
-| C11 | Individual characters sit at line ends in most of their occurrences | Currier 1976 | share of a character's word-final occurrences falling in the last word of a line, against the base rate; three alphabets | survives |
+| C11 | Individual characters sit at line ends in most of their occurrences | Currier 1976; Zandbergen's survey a2_char | share of a character's word-final occurrences falling in the last word of a line, against the base rate; three alphabets | survives |
 ### Divisions of the manuscript
 
 | # | Claim | Source | Control applied | Outcome |
@@ -1015,7 +1015,7 @@ Machine-readable version, with the numbers for each row, in `scripts/inventory.p
 | D6 | Labelese is a distinct vocabulary | Pelling, ReneZ, Koen G | page-matched control; manual cleaning of the locus | survives |
 | D7 | Zodiac labels are shorter than ordinary words | attributed to the community | median against running text on the same pages | dissolves |
 | D8 | Zodiac labels favour ot-/ok- | Pelling | page-matched control | survives |
-| D9 | The f57v ring is a written-out alphabet, and so an internal key to glyph order | community commonplace | rank correlation of ring position against mean position-in-word and against glyph frequency; 10,000 ring permutations; threshold fixed before the run | dissolves |
+| D9 | The f57v ring is a written-out alphabet, and so an internal key to glyph order | community commonplace, discussed by Pelling and on voynich.ninja; priority not verified against sources | rank correlation of ring position against mean position-in-word and against glyph frequency; 10,000 ring permutations; threshold fixed before the run | dissolves |
 | D10 | The zodiac nymph labels are a counting sequence (degrees of the sign, or days) | community conjecture | four pre-registered signatures, the primary one cross-page agreement by position; nulls include running text from the same pages; sensitivity checked on synthetic counting sequences | dissolves |
 | D11 | The pharmaceutical labels are plant names, and a successful glyph-to-letter fit is evidence | the crib method at large | the resolving power of the method itself: one fitting budget against plant names, Latin, English and random letter strings, with a positive control on a known substitution | dissolves |
 ### Whole-text: entropy, Zipf, size

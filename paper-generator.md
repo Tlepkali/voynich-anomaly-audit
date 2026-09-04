@@ -659,7 +659,7 @@ numbers for each row, in `scripts/inventory.py`.
 
 | # | Claim | Source | Control applied | Outcome |
 |---|---|---|---|---|
-| G1 | Memoryless generation cannot produce the manuscript's properties | Greshko 2025 and in reply on the forum | shuffling the token sequence as the memoryless model | survives |
+| G1 | Memoryless generation cannot produce the manuscript's properties | Greshko 2025 and in reply on the forum; our model independently | shuffling the token sequence as the memoryless model | survives |
 | G2 | One kind of memory suffices | ours (test of Greshko's phrasing) | identity cache, windows 5-300, rates 0.05-0.30; held-out measures declared in advance | dissolves |
 | G3 | Each memory supplies exactly one signature | ours | near-neighbour rule tested separately, 5 seeds per configuration | **retracted** |
 | G4 | Three word-level memories combine without conflict | ours | joint fit on three measures, junction held out | survives |

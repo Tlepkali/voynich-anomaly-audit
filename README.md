@@ -50,15 +50,24 @@ Each recurring quantity is defined once in `scripts/measures.py`, with its seed
 and repetition count in the function signature. `make numbers` recomputes 83
 load-bearing figures from those definitions; `make check` verifies that each
 appears in the papers where it should, that the appendix matches the
-machine-readable inventory row for row and verdict for verdict, and that no
-section cross-reference dangles. It exits non-zero on any disagreement and
-reports its own coverage — currently 10% of the numbers in the audit paper and
-5% in the generative one, the rest being derived quantities and other people's
-figures.
+machine-readable inventory row for row and verdict for verdict, that the
+attribution of every row agrees between the two, and that no section
+cross-reference dangles. It exits non-zero on any disagreement and reports its
+own coverage — currently 10% of the numbers in the audit paper and 5% in the
+generative one, the rest being derived quantities and other people's figures.
 
-This is a check on arithmetic and bookkeeping, not on judgement. It found two
-real defects on its first run and misses, by construction, the kind of error
-that matters most: a defensible alternative procedure giving a different answer.
+The attribution check was added last, after a gap of its own. Rows and verdicts
+were compared from the start; the source column was not, so the reattributions
+the prior-art sweep wrote into the inventory did not reach the papers, and two
+appendix rows went on crediting us with other people's work for a month. Because
+the inventory is in Russian and the papers in English, the check compares two
+things: an ours-or-not flag, and a map of thirty surnames, where a name counts as
+a source if it carries a year or follows a survey reference. On its first run it
+found seven rows that had lost a credit in translation.
+
+This is a check on arithmetic, bookkeeping and credit, not on judgement. It
+misses, by construction, the kind of error that matters most: a defensible
+alternative procedure giving a different answer.
 
 ## Dependencies
 

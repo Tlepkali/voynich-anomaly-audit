@@ -112,7 +112,63 @@ for paper, pred, name in [("paper-audit.md", lambda d: not d["id"].startswith("G
         elif MARK[d["verdict"]] not in m.group(0):
             bad(f"{name}: {d['id']} в инвентаре {d['verdict']}, в приложении иначе")
 
-print("=" * 78); print("3. ССЫЛКИ И ОСТАТКИ РАЗДЕЛЕНИЯ"); print("=" * 78)
+print("=" * 78); print("3. АТРИБУЦИЯ: ЧЬЁ УТВЕРЖДЕНИЕ"); print("=" * 78)
+# Заведено 04.09.2026. Раздел 2 сличал приложение с инвентарём построчно и
+# повердиктно, но колонку «чьё» не сравнивал ВОВСЕ. Из-за этого пять
+# переатрибуций после разбора приор-арта легли в inventory.py и не доехали до
+# статей: B7 и C2 месяц стояли как «ours», хотя B7 — Карриер 1976 и Редди с
+# Найтом 2011, а C2 — сообщество. Статья присваивала чужое ровно там, где
+# чтение это и должно было убрать. Нашлось руками, а не прогоном.
+#
+# Инвентарь по-русски, приложения по-английски, поэтому сверяются две вещи:
+#   * ФЛАГ «своё» — \bнаш(е|а|и)\b против \bour. Граница слова обязательна:
+#     без неё «до наших дней» читается как притязание (ловилось на D11).
+#   * ИМЕНА — те, что несут атрибуцию: при имени стоит год либо оно идёт от
+#     «сводка». Прочие упоминания выводятся отдельно как мягкие: имя внутри
+#     описательного оборота источником не является, но и молча пропадать не
+#     должно.
+# Незнакомые имена печатаются списком — иначе карта тихо перестанет покрывать
+# новые записи, и проверка выродится, оставаясь зелёной.
+NAMES = {"Зандберген":"Zandbergen","Карриер":"Currier","Стольфи":"Stolfi","Грешко":"Greshko",
+ "Тилтман":"Tiltman","Редди":"Reddy","Шиннер":"Schinner","Боуэрн":"Bowern","Пеллинг":"Pelling",
+ "Заттер":"Zattera","Найт":"Knight","Беннетт":"Bennett","Ландини":"Landini","Смит":"Smith",
+ "Паризель":"Parisel","Нил":"Neal","Линдеманн":"Lindemann","Чам":"Cham","Тимм":"Timm",
+ "Сазонов":"Sazonov","Понци":"Ponzi","Джексон":"Jackson","Монтемурро":"Montemurro",
+ "Занетте":"Zanette","Матлах":"Matlach","Гаскелл":"Gaskell","Стернек":"Sterneck",
+ "Полиш":"Polish","Рагг":"Rugg","Ньюболд":"Newbold"}
+NOT_A_NAME = {"Брайан", "Дэвид", "Марко"}          # имена, фамилии рядом в карте
+OWN = re.compile(r"\bнаш(?:е|а|и|его|ей|ем)\b")
+
+CELL = {}
+for _p in ("paper-audit.md", "paper-generator.md"):
+    for _ln in open(_p, encoding="utf-8"):
+        if re.match(r"^\| [A-G]\d", _ln):
+            _f = _ln.split("|")
+            if len(_f) > 4: CELL[_f[1].strip()] = _f[3].strip()
+
+soft, unmapped, checked = [], set(), 0
+for d in INV:
+    ru, en = d["whose"], CELL.get(d["id"])
+    if en is None: continue                        # отсутствие строки ловит раздел 2
+    checked += 1
+    if bool(OWN.search(ru.lower())) != bool(re.search(r"\bour", en.lower())):
+        bad(f"{d['id']}: флаг «своё» расходится — инв «{ru[:44]}», статья «{en[:44]}»")
+    for stem, lat in NAMES.items():
+        m = re.search(stem, ru)
+        if not m or lat.lower() in en.lower(): continue
+        is_src = bool(re.search(r"\d{4}", ru[m.end():m.end() + 14])) or \
+                 "свод" in ru[max(0, m.start() - 12):m.start()].lower()
+        if is_src: bad(f"{d['id']}: {lat} значится источником в инвентаре, но не в статье")
+        else: soft.append(f"{d['id']}: {lat} упомянут в инвентаре без года — «{en[:44]}»")
+    for tok in re.findall(r"[А-ЯЁ][а-яё]{2,}", ru):
+        if tok in NOT_A_NAME: continue
+        if not any(tok.startswith(k) or k.startswith(tok) for k in NAMES): unmapped.add(tok)
+ok(f"атрибуция сверена по {checked} строкам: флаг «своё» и {len(NAMES)} имён")
+for x in soft: print(f"  ~ {x}")
+if unmapped:
+    print(f"  ~ не в карте имён (дополнить NAMES, если это фамилии): {', '.join(sorted(unmapped))}")
+
+print("=" * 78); print("4. ССЫЛКИ И ОСТАТКИ РАЗДЕЛЕНИЯ"); print("=" * 78)
 for paper in ("paper-audit.md", "paper-generator.md"):
     t = open(paper, encoding="utf-8").read()
     secs = set(re.findall(r"^## (\d+[a-z]?)\.", t, re.M)) | set(re.findall(r"^### (\d+\.\d+)", t, re.M))
