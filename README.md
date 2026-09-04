@@ -16,6 +16,7 @@ Neither is submitted anywhere and we would rather be corrected than not.
     scripts/inventory.py    the audit itself: 97 machine-readable records with
                             claim / source / control applied / numbers / outcome
     scripts/fetch_data.sh   downloads the data, which is not in this repository
+    arxiv/              submission package: LaTeX sources and six TikZ figures
     paper-audit.md      draft: the audit, ~11,900 words
     paper-generator.md  draft: generative constraints, ~7,100 words
     report.html         the full working record, in Russian, 82 sections
@@ -96,6 +97,24 @@ section heading, its parent heading, or the same paragraph.
 This is a check on arithmetic, bookkeeping and credit, not on judgement. It
 misses, by construction, the kind of error that matters most: a defensible
 alternative procedure giving a different answer.
+
+## The submission package
+
+    make arxiv
+
+Writes `arxiv/`: the two papers as LaTeX, and the six figures rebuilt as native
+TikZ rather than converted images. The figures read the same manifest the prose
+does, so `make check` keeps a figure and its paragraph in agreement, and the
+package contains no binary file that neither the harness nor a referee can
+inspect. Section numbering is manual throughout — there is a §6a and a §7a, which
+LaTeX's own numbering cannot produce — so the sections are unnumbered environments
+carrying their number in the title, and a cross-reference cannot drift.
+
+It has not been compiled. There is no LaTeX on the machine that wrote it, and the
+package says so. What runs instead is a syntactic check: brace and environment
+balance, every `\input` present, no bare `%` or `#`, the field count of every
+table row against its declared columns, and no character outside the Latin range.
+That check found one real defect on its first run and three bugs in itself.
 
 ## Dependencies
 

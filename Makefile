@@ -2,7 +2,7 @@
 PY   ?= python3
 VENV ?= .venv/bin/python      # нужен только для Morfessor
 
-.PHONY: check numbers verify-all inventory figures clean-numbers
+.PHONY: check numbers verify-all inventory figures arxiv clean-numbers
 
 check: data/paper_numbers.json          ## быстрая сверка статей с пересчитанным
 	$(PY) scripts/check_paper.py
@@ -19,6 +19,9 @@ figures:                                ## пересобрать SVG-фигур
 
 inventory:                              ## пересобрать блок инвентаря для report.html
 	$(PY) scripts/inv_render.py
+
+arxiv:                                  ## собрать пакет для arXiv в arxiv/
+	$(PY) scripts/build_arxiv.py
 
 clean-numbers:
 	rm -f data/paper_numbers.json
