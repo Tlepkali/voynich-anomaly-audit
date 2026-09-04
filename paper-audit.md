@@ -638,7 +638,7 @@ his in a way that matters more for languages than for Voynichese. And we cannot
 reproduce his mutual-information pair at all: our observed value is 0.171 against
 0.223, and our shuffled baseline 0.008 against his 0.049. We tried three null
 models — a global word shuffle, a shuffle within lines, and a shuffle preserving
-word length per position — and they give 0.007, 0.014 and 0.007 respectively. To
+word length per position — and they give 0.008, 0.014 and 0.007 respectively. To
 obtain his 78% drop from our observed value the baseline would have to be 0.038,
 five times what any of our shuffles produces.
 
