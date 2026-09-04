@@ -40,8 +40,17 @@ configuration's *worst* of the four ratios, the best any configuration achieves 
 no better. The limiting measure is the rank correlation in 27 of 54 configurations
 and the junction in 18.
 
-We then test that architecture against measures it was not fitted to, and half the
-result evaporates: 88.9% of its output consists of actual manuscript words, so its
+The structural claim makes a prediction about a published generator, and the
+prediction holds. The self-citation process of Timm and Schinner (2020) is the most
+developed instance of the family that selects whole words: four memories and no
+constraint across the word boundary. Their repository publishes its output, so
+nothing had to be run. It reaches the recurrence profile at 99% and fails the
+junction at 10%, as predicted; it also fails the length autocorrelation at 1%,
+which we did not predict, because its source token is drawn from the page rather
+than from the preceding word (§4.2).
+
+We then test our own architecture against measures it was not fitted to, and half
+the result evaporates: 88.9% of its output consists of actual manuscript words, so its
 vocabulary statistics test identity rather than architecture. Of nine held-out
 measures only two are informative; it passes one and fails the other — the
 line-start divergence — completely, because it has no notion of a line.
@@ -586,6 +595,16 @@ ciphertext units from tables, as does any nomenclator or table cipher, and such 
 design can be given memory. What it cannot do is acquire the junction, unless the
 choice of unit is made with weight depending on the previous unit's final
 character. That is a small change to describe and a real one to make.
+
+The same applies to accounts that are not ciphers. Timm and Schinner's self-citation
+process is a generation mechanism rather than an encipherment, and it belongs to
+the same family for this purpose: it selects a written unit and modifies it. On
+their own published output it behaves as the structural claim requires, reaching
+the recurrence profile and failing the junction at a tenth of target. That is a
+prediction met, not a refutation of their proposal, and two things in their favour
+should be said with it — their generator models the vocabulary better than ours,
+and only 36% of its types are actual manuscript words against our 89%, so the
+objection we raise against ourselves in §7 applies to them far less.
 
 Three limitations bound all of it. Every distribution used — boundary frequencies,
 the character chain, the neighbour sets, the frequency classes — is taken from the

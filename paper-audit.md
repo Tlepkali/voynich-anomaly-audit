@@ -37,6 +37,22 @@ manuscript's own vocabulary regenerates 28.8% of its 7,205 word types, against
 distribution of word lengths (§5.1). Matching the mean length alone, as we first
 did, gives 1.7–5.9% and doubles the apparent gap; we report both.
 
+A second is comparative. Rebuilding the three published accounts of Voynich word
+structure and scoring each against the same vocabulary with its glyphs permuted
+within words separates them where their reported coverage does not: Stolfi's
+core–mantle–crust at 0.9×, Cham's curve–line system at 2.3×, Zattera's twelve-slot
+model at 5.7× (§7a). Stolfi's constraint is satisfied more often by the shuffled
+vocabulary than by the real one.
+
+A prior-art sweep is reported in the same spirit as the retractions. Five results
+we had marked as ours are not, three of the papers concerned having been cited by
+us without being read, and our comparison set of eighteen corpora is an order of
+magnitude smaller than the field's for character-level measures (§4.2, §7.2). What
+we could return is a genre correction: those larger sets are Wikipedia-derived and
+the manuscript is a book, which inflates the entropy gap by about half of itself
+without overturning it, and makes the placement of Voynichese among language
+families by lexical diversity unreliable.
+
 Otherwise what we offer is negative and methodological: a count of how much of the
 inventory is an artefact of its comparison, a demonstration that the unit of
 measurement (type or token) substantially changes the manuscript's apparent
@@ -275,58 +291,6 @@ transcription effect, on our own files: the character-level h2 of the running te
 is 1.86 in EVA's 25 symbols, 2.05 in FSG's 23 and 2.29 in Claston's 68-symbol
 v101, where EVA's `ch`, `sh` and `cth` are single characters.
 
-One qualification precedes the three below and was added only after reading the
-literature. The low conditional entropy this section measures against Latin has
-been measured by Bowern and Lindemann (2021) against **250 languages**, and by
-Lindemann and Bowern (2020) against **316 comparison texts**, and the manuscript
-falls below every one of them, at h2 ≈ 2.0–2.2 against a natural-language
-cloud between 3.0 and 4.0. Our unit argument does not touch that: it says the gap
-narrows when the vocabulary rather than the text is the unit, not that the gap is
-ordinary. Where we say "the manuscript's distance from Latin", the field can say
-"from any of 250 languages", and on this measure our comparison set is an order of
-magnitude smaller than the best available. The same holds for type–token ratio,
-where Gheuens's moving-average index has been computed for 101 languages in seven
-families and places Voynichese in the ordinary range. We record this as a
-limitation of our comparison set rather than repair it, since building a
-250-language set was not in reach here.
-
-We can, however, contribute one thing to theirs. Their comparison set is 294
-Wikipedia samples and eighteen historical texts, and the manuscript is a book —
-the same genre mismatch that defeats the cross-corpus comparison in §6. Measuring
-the character-level h2 of five languages for which we hold both a book and a
-Wikipedia sample, at matched size, the genre shift is consistently positive and
-sizeable: +0.27 (English), +0.24 (Spanish), +0.39 (French), +0.23 (Italian), +0.39
-(Hebrew), a mean of +0.30. The manuscript's distance to the nearest *book* value is
-0.61. **Their conclusion survives this** — against books alone the manuscript is
-still below every one of them, by twice the genre effect — but the size of the gap
-is inflated by roughly half of itself by the choice of genre. Where the rank
-correlation of §6 died because the genre sensitivity exceeded the signal, here the
-signal is twice the sensitivity, so what needs correcting is the number and not the
-finding.
-
-The same question has a different answer one measure over. Lindemann (2022) places
-Voynichese among language families using the moving-average type–token ratio and
-the share of the ten most common words, against 160 languages, and concludes that
-it sits in the middle of the morphological-complexity range, closest to medieval
-Germanic, with Turkic and Uralic excluded. That comparison set is also
-Wikipedia-derived. Between the languages this is a virtue — they are all the same
-genre, so the comparison among them is controlled. It is the *placement of the
-manuscript among them* that is not, because the manuscript is a book. On our five
-book/Wikipedia pairs the genre shift in MATTR is +8.1, +2.4, +3.8, −5.6 and +16.6
-points: a mean of +5.1, a range spanning twenty-two points, and **not even
-consistent in sign**. The spread across the five books themselves is 11.5 points.
-A quantity whose genre term is that large relative to its between-language term
-will not place a text in a family reliably unless the genre is matched, and here it
-cannot be. We report this as a caution on the method rather than a correction to
-the result, since we hold five book corpora and he holds one hundred and sixty
-languages.
-
-Those authors also supply a causal account we do not: the low h2 follows from
-characters and combinations occurring exclusively in one of the three positional
-fields of a word (Tiltman 1967, Stolfi 2000). And they perform the operation of our
-§3 — deleting affixes and re-measuring entropy — to show that removing `qo-` and
-`-dy` makes the h2 of Currier A and B nearly identical, 2.23 against 2.24.
-
 Three qualifications, none of which was in an earlier version of this section.
 
 The size of the effect depends on word length, and "roughly half" is the value at
@@ -343,10 +307,28 @@ Conditional entropy behaves more regularly and has no exception: the type-level
 gap is closer to unity at every length — 0.96 against 0.84 at length 3, then
 0.88/0.75, 0.81/0.63, 0.76/0.63, 0.73/0.61.
 
-A second quantity behaves the same way and is worth recording beside it, because
-the standard description of it is half right. Word length is usually said to be
-narrowly and almost binomially distributed in the manuscript, unlike the wide
-asymmetric distributions of European languages (Stolfi; Reddy & Knight 2011).
+Across transliterations the rigidity effect reproduces closely in the three EVA
+files (1.86×, 1.77×, 1.85×) and is absent in the two written in merged alphabets
+(0.52× and 1.05×). We cannot say why. Those two have words a full character
+shorter, so they could only be measured at length 3 — exactly where the effect
+reverses in the EVA files as well. Alphabet and word length are not separable in
+these data.
+
+We do not claim more than this. The frequency skew at length 4 is in fact similar
+in the two corpora (top five types cover 26.7% of Voynichese tokens against 28.0%
+of Latin's), so the unit effect here is not driven by an unusual distribution; it
+is the ordinary consequence of measuring a vocabulary property on a token stream.
+An earlier and much more dramatic version of this result in our own notes (five
+types covering 81.4% of tokens) was an artefact of the decomposition retracted in
+§3.
+
+### 4.1 A second quantity that turns over with the alphabet
+
+Word length is usually said to be narrowly and almost binomially distributed in the
+manuscript, unlike the wide asymmetric distributions of European languages (Stolfi;
+Reddy & Knight 2011). The description is half right, and which half depends on the
+transliteration in the same way the result above does.
+
 Measured as relative spread on tokens, "narrow" holds everywhere: 0.33–0.39 across
 all six transliterations against 0.47–0.57 for nine language corpora. Measured as
 skewness on types, "binomial" holds only in the merged alphabets — +0.07 in FSG and
@@ -356,19 +338,60 @@ as any language in the set. The sign of the anomaly turns over with the alphabet
 for the same reason as everything else here: EVA writes `ch` as two characters and
 the merged alphabets write it as one.
 
-Across transliterations the effect reproduces closely in the three EVA files
-(1.86×, 1.77×, 1.85×) and is absent in the two written in merged alphabets (0.52×
-and 1.05×). We cannot say why. Those two have words a full character shorter, so
-they could only be measured at length 3 — exactly where the effect reverses in the
-EVA files as well. Alphabet and word length are not separable in these data.
+### 4.2 Our comparison set against the field's
 
-We do not claim more than this. The frequency skew at length 4 is in fact similar
-in the two corpora (top five types cover 26.7% of Voynichese tokens against 28.0%
-of Latin's), so the unit effect here is not driven by an unusual distribution; it
-is the ordinary consequence of measuring a vocabulary property on a token stream.
-An earlier and much more dramatic version of this result in our own notes (five
-types covering 81.4% of tokens) was an artefact of the decomposition retracted in
-§3.
+Two things belong here that we learned by reading rather than measuring, and the
+first is a limitation of this section.
+
+The low conditional entropy we measure against Latin has been measured by Bowern
+and Lindemann (2021) against 250 languages, and by Lindemann and Bowern (2020)
+against 294 Wikipedia samples and eighteen historical texts, with the manuscript
+below every one of them at h2 ≈ 2.0–2.2 against a natural-language cloud between
+3.0 and 4.0. Our unit argument does not touch that: it says the gap narrows when
+the vocabulary rather than the text is the unit, not that the gap is ordinary.
+Where we say "the manuscript's distance from Latin", the field can say "from any of
+250 languages", and on this measure our comparison set is an order of magnitude
+smaller than the best available. The same holds for the type–token ratio, where the
+moving-average index introduced by Gheuens (2019) has been computed for 101
+languages in seven families and places Voynichese in the ordinary range. We record
+this as a limitation of our comparison set rather than repair it, since building a
+250-language set was not in reach here. Those authors also supply a causal account
+we do not: the low h2 follows from characters and combinations occurring
+exclusively in one of the three positional fields of a word (Tiltman 1967, Stolfi
+2000). And they perform the operation of our §3 — deleting affixes and re-measuring
+entropy — to show that removing `qo-` and `-dy` makes the h2 of Currier A and B
+nearly identical, 2.23 against 2.24.
+
+The second thing is a contribution to theirs, and it is about genre. Those
+comparison sets are Wikipedia-derived and the manuscript is a book: the same
+mismatch that defeats the cross-corpus comparison in §6. Measuring the
+character-level h2 of five languages for which we hold both a book and a Wikipedia
+sample, at matched size, the genre shift is consistently positive and sizeable:
++0.27 (English), +0.24 (Spanish), +0.39 (French), +0.23 (Italian), +0.39 (Hebrew),
+a mean of +0.30. The manuscript's distance to the nearest *book* value is 0.61.
+**Their conclusion survives this** — against books alone the manuscript is still
+below every one of them, by twice the genre effect — but the size of the gap is
+inflated by roughly half of itself by the choice of genre. Where the rank
+correlation of §6 died because the genre sensitivity exceeded the signal, here the
+signal is twice the sensitivity, so what needs correcting is the number and not the
+finding.
+
+One measure over, the same question has a different answer. Lindemann (2022) places
+Voynichese among language families using the moving-average type–token ratio and
+the share of the ten most common words, against 160 languages, concluding that it
+sits in the middle of the morphological-complexity range, closest to medieval
+Germanic, with Turkic and Uralic excluded. That set is Wikipedia-derived too.
+Between the languages this is a virtue — they are all the same genre, so the
+comparison among them is controlled. It is the *placement of the manuscript among
+them* that is not. On our five book/Wikipedia pairs the genre shift in MATTR is
++8.1, +2.4, +3.8, −5.6 and +16.6 points: a mean of +5.1, a range spanning
+twenty-two points, and **not even consistent in sign**. The spread across the five
+books themselves is 11.5 points. A quantity whose genre term is that large relative
+to its between-language term will not place a text in a family reliably unless the
+genre is matched, and here it cannot be. We report this as a caution on the method
+rather than a correction to the result, since we hold five book corpora and he
+holds one hundred and sixty languages.
+
 ## 5. What is left unexplained, and what left it
 
 ### 5.1 Neighbourhood density, mostly explained after all
@@ -632,31 +655,32 @@ six are retractions. Thirty of the seventy-two are claims we advanced ourselves;
 forty-two are other people's, and in most of those cases the control confirms
 the observation while changing its statement.
 
-Five of the six retractions are of our own claims, and five retractions out of
-twenty-six is a poor ratio. We report it rather than quietly dropping the
-failures, because the shape of the failures is the paper's content. Four of the
-six died the same death: a comparison set or a selection criterion that was not
-independent of the quantity being explained.
+Five of the six retractions are of our own claims, and five out of thirty is a poor
+ratio. We report it rather than quietly dropping the failures, because the shape of
+the failures is the paper's content. Four of the six died the same death: a
+comparison set or a selection criterion that was not independent of the quantity
+being explained.
 
 Of the four most-cited peculiarities — low entropy, rigid slots, adjacent
 repetition, boundary behaviour — the first two are roughly halved by measuring
 types instead of tokens (§4), the third is the absence of a prohibition rather
 than an excess (§5), and the fourth remains as stated.
 
-We also swept the table itself, asking of every row whether its null model
-contains the mechanism whose sufficiency is in question or destroys it along with
-everything else. That is the disease two of our retractions died of. It found no
-third instance, but it found something we had not looked for: **three rows carried
-no null at all.** Two of them — the Zipf slope and the word-length autocorrelation
-— now have one, and both survive: the Zipf slope of −1.165 sits inside the
-eighteen-corpus range of −1.229 to −0.769, and the autocorrelation is treated in
-the companion paper's §2.1; the third, the hapax rate, was marked as
-surviving on a comparison with Latin alone, and against eighteen corpora the
-manuscript's 0.697 is above every one of them (0.420–0.694, Latin closest at
-0.694). It is a small exceedance and we now record it as weakened rather than
-confirmed, but the direction of the claim reverses: the hapax rate is not
-language-like, it is at the top of the language range. That is our own
-recommendation 3 below, violated in our own table.
+### 7.1 Sweeping the table for the disease that caused two retractions
+
+We swept the table itself, asking of every row whether its null model contains the
+mechanism whose sufficiency is in question or destroys it along with everything
+else. It found no third instance, but it found something we had not looked for:
+**three rows carried no null at all.** Two of them — the Zipf slope and the
+word-length autocorrelation — now have one, and both survive: the Zipf slope of
+−1.165 sits inside the eighteen-corpus range of −1.229 to −0.769, and the
+autocorrelation is treated in the companion paper's §2.1. The third, the hapax
+rate, was marked as surviving on a comparison with Latin alone; against eighteen
+corpora the manuscript's 0.697 is above every one of them (0.420–0.694, Latin
+closest at 0.694). It is a small exceedance and we record it as weakened rather
+than confirmed, but the direction reverses: the hapax rate is not language-like, it
+is at the top of the language range. That is recommendation 3 below, violated in
+our own table.
 
 The sweep also supplied a control the affix result never had. "Unsupervised affix
 discovery recovers the canonical affixes" is close to tautological if both lists
@@ -666,63 +690,64 @@ canonical affixes on average against 16 of 16 from the real vocabulary, and ever
 one it finds is a single glyph: the multi-character suffixes (`dy`, `iin`, `edy`)
 it never finds at all. The claim survives, and now it is not a tautology.
 
+### 7.2 What reading the literature took back
+
+Of the claims we had marked as ours, five are not, and three of the papers
+concerned we had cited without reading.
+
+The deficit of three-character information across the word boundary was observed by
+Currier (1976) and quantified by Reddy and Knight (2011), who found the same
+one-character against two-character asymmetry fifteen years before us by a
+different measure. Applying Goldsmith's unsupervised morphology to this text —
+the control that forces the retraction in §3 — was done by the same authors in the
+same paper. The line-edge character bias and the within-line scramble that controls
+it are theirs as well, confirming Currier. The weak word order we establish as
+existing at all was measured by them as an 8.85% improvement in word predictability
+from bigram context, against 151% for English and 123% for Hungarian: so it exists,
+and it is an order of magnitude weaker than any language they tested. And the
+methodological point of §7a below — that a model's tightness reveals more than its
+coverage — was made by Pelling in 2010 and formalised by Zattera in 2022; an
+earlier draft of this section claimed it as an observation of our own.
+
 Reading also showed that on one claim we had measured the weak version and missed
-the strong one. Our row A1 tests Stolfi's three-layer nesting — core, mantle, crust —
-and finds it barely above its own shuffle at 1.09×, which is honest, since with
-three classes and short words almost any sequence is unimodal. The stronger claim,
-that the characters of a word follow a stable left-to-right order, we had never
-tested: it holds at 28.1% against 4.0% for a within-word shuffle, a factor of
-seven. The field's own instrument is better than either of ours — a slot model is
-judged by the rank of the most frequent word it fails to generate, and the
-published models reach rank 89 (Zattera 2022) and 112 (Stolfi), where our automatic
-slot assignment fails at rank 1. Hand-built slot alphabets, with characters allowed
-in several slots, are not something an automatic procedure reproduces.
+the strong one. Row A1 tests Stolfi's three-layer nesting — core, mantle, crust —
+and finds it barely above its own shuffle, which is honest, since with three
+classes and short words almost any sequence is unimodal. The stronger claim, that
+the characters of a word follow a stable left-to-right order, we had never tested:
+it holds at 28.1% against 4.0% for a within-word shuffle.
 
-So we implemented Zattera's, which is stated completely enough in his paper to be
-rebuilt. It reproduces: his twelve-slot model classifies 83.1% of our running-text
-tokens as regular against the 86.6% he reports, and the first word it fails to
-generate is rank 95 against the 89 reported, the difference being that we use
-running text in one transliteration and he a majority transcription across all
-loci. His pruned grammar, which trades coverage for precision, generates 1,140 of
-our types against the 1,113 he reports.
+The full table, with the null model applied to each claim, is in the appendix and
+in machine-readable form in the accompanying code.
 
-That gives the measurement neither side had. The field reports coverage without a
-null; we had a null with a model too crude to use it. **Under his model, 46.5% of
-the manuscript's types are regular, against 8.2% of the same vocabulary with the
-glyphs shuffled within each word — a factor of 5.7.** The slot structure is real
-at that magnitude, and it is not a consequence of the glyph inventory alone.
+## 7a. Three models of word structure under one null
 
-The same null makes two published accounts comparable for the first time. Cham's
-curve-line system (2014), which Zattera reports his grammar independently
-confirms, sorts glyphs into curves and lines and requires that a word not mix them
-except through the glyph `a`. Reported coverage is 96.63% with its two patches
-against 86.6% for the slot model, which makes the two look level. Against the
-shuffle they are not: the curve-line system covers 76.8% of types where the
-shuffled vocabulary gets 33.5%, a factor of 2.3, while the slot model's factor is
-5.7.
+The field judges a model of Voynich word structure by two quantities. Coverage is
+the share of real words it generates. Tightness — Pelling's term, from his 2010
+review of Sean Palmer's generator, where coverage of 95% meant little because the
+paradigm "produces way too many words" — is the share of generated strings that are
+real; Zattera (2022) formalises it as precision and tabulates recall, precision and
+F1 for eight published grammars.
 
-We should be careful about what that adds, because the field is not without an
-instrument here, and has not been for fifteen years. Pelling put it plainly in 2010,
-reviewing Sean Palmer's word generator: coverage of 95% means little when the
-paradigm "produces way too many words", and **"tightness will always be more
-revealing than coverage"**. Zattera formalises exactly that as precision and
-tabulates it with recall and F1 for eight published grammars. Any claim that the
-field compares models by coverage alone would be wrong, and an earlier draft of
-this section made it.
+We can add a third. The null ratio is a model's coverage relative to its coverage
+of the same vocabulary with the glyphs permuted within each word. Tightness asks
+whether a model over-generates arbitrary strings; the null asks whether what it
+does capture exceeds what the glyph inventory imposes by itself. The two can
+disagree, and on these models they do: Zattera's slot model has a tightness of
+roughly 0.0007 — 4.6 million generated strings for 3,347 real types — and the
+highest null ratio we measure, while his pruned grammar reverses that with a
+tightness of 0.358 and coverage low enough to fail at the second most frequent
+word.
 
-What the shuffle asks is a third thing, and the three can disagree. Coverage is the
-share of real words a model generates; tightness is the share of generated strings
-that are real; the null ratio is coverage relative to the coverage of the same
-vocabulary with its glyphs permuted. Zattera's slot model has a tightness of
-roughly 0.0007 — it generates 4.6 million strings for 3,347 real types — and a null
-ratio of 5.7, the highest we measured. His pruned grammar reverses that: tightness
-0.358, and coverage low enough that it fails at the second most frequent word.
-Tightness asks whether a model over-generates arbitrary strings; the null asks
-whether what it does capture exceeds what the glyph inventory imposes by itself. A
-model can score well on one and badly on the other, and these two do.
-
-Put all three published accounts of Voynich word structure under that one null, on
-types, and they order cleanly:
+Two of the three accounts state their rules completely enough to rebuild, and ours
+reproduce. Zattera's twelve-slot model classifies 83.1% of our running-text tokens
+as regular against the 86.6% he reports, and the first word it fails to generate is
+rank 95 against his 89, the difference being that we use running text in one
+transliteration where he uses a majority transcription across all loci; his pruned
+grammar generates 1,140 of our types against his 1,113. Cham's curve-line system
+(2014), which Zattera reports his grammar independently confirms, does not
+reproduce exactly: our base coverage is 44.7% of types against his 71.49%, and our
+base-plus-first-patch figure of 71.4% coincides with his base, which suggests his
+glyph classification differs from ours in precisely what that patch supplies.
 
 | model | manuscript | glyphs shuffled within words | ratio |
 |---|---|---|---|
@@ -730,38 +755,20 @@ types, and they order cleanly:
 | Cham, curve–line with both patches | 76.8% | 33.5% | **2.3×** |
 | Zattera, twelve slots | 46.5% | 8.2% | **5.7×** |
 
-Stable to within a tenth across five shuffle seeds. Stolfi's constraint is
-satisfied *more often* by the shuffled vocabulary than by the real one: a word
-whose class sequence rises to a peak and falls is nearly any word, and permuting
-its glyphs makes it slightly more so. That is not a new verdict — Zattera's table
-gives his grammar a recall of 0.881, which matches the coverage we measure, against
-a precision near zero and an F1 of zero — but it is an independent one, and it is
-reassuring that the two instruments agree where both apply. Where they do not,
-Cham's system is absent from that table, the null still ranks it, and it lands
-between the two. We should add that our implementation of the curve-line
-system does not reproduce its author's figures exactly — our base coverage is
-44.7% against his 71.49%, and our base-plus-first-patch figure of 71.4% coincides
-with his base, which suggests his glyph classification differs from ours in
-precisely what that patch supplies. The comparison of factors is robust to that;
-the absolute coverages are not.
+Stable to within a tenth across five shuffle seeds. By reported coverage the three
+look level — 88.1%, 96.63% and 86.6% in their authors' figures — and by this ratio
+they do not. **Stolfi's constraint is satisfied more often by the shuffled
+vocabulary than by the real one**: a word whose class sequence rises to a peak and
+falls is nearly any word, and permuting its glyphs makes it slightly more so. That
+is not a new verdict, since Zattera's table gives that grammar a recall of 0.881 —
+matching the coverage we measure — against a precision near zero and an F1 of zero.
+It is an independent one, and the two instruments agreeing where both apply is
+worth more than either alone. Where they do not both apply, Cham's system being
+absent from that table, the null still ranks it, and it lands between the other two.
 
-One column of the table changed after we read the literature rather than the data.
-Of the claims we had marked as ours, four are not. The deficit of three-character
-information across the word boundary was observed by Currier (1976) and quantified
-by Reddy and Knight (2011), who found the same one-character/two-character
-asymmetry fifteen years before us by a different measure. Applying Goldsmith's
-unsupervised morphology to this text, which we use as the control that forces the
-retraction in §3, was done by the same authors in the same paper. The line-edge
-character bias and the within-line scramble that controls it are theirs as well,
-confirming Currier. And the weak word order we establish in the appendix as
-existing at all was measured by them as an 8.85% improvement in word predictability
-from bigram context, against 151% for English and 123% for Hungarian — so it
-exists, and it is an order of magnitude weaker than any language they tested. We
-had cited that paper without having read it. The corrections are recorded in the
-inventory rows rather than hidden in this paragraph.
+The comparison of ratios is robust to our imperfect reconstruction of the
+curve-line system; the absolute coverages are not.
 
-The full table, with the null model applied to each claim, is in the appendix and
-in machine-readable form in the accompanying code.
 ## 8. What this implies for future proposals
 
 A generative account of Voynichese is normally asked to reproduce the anomaly
@@ -818,6 +825,11 @@ Both quantities are stochastic at that precision (the chain figure ranges
 and nothing in the comparison turns on it. We leave the figures as the script
 produced them rather than harmonise them by hand.
 
+Incidentally, the transcriber's uncertainty is informative: joining exactly the
+spaces he marked preserves more structure than joining random ones (rank
+correlation +0.089 against +0.048, density 10.60 against 7.40, regeneration 26.4%
+against 19.7%).
+
 No conclusion in this paper depends on the segmentation being right. Destroying
 18.4% of word boundaries at random leaves every measure far from its language
 values; the density shape and the one-character junction excess do not move at
@@ -856,14 +868,10 @@ anywhere: 97.8% of the 5,344 occurrences of `q` are followed by it. That folio i
 radial and circular text, which our analysis excludes throughout, so the check is
 of the prediction on its own ground and not a defence of our scope.
 
-Incidentally, the transcriber's uncertainty is informative: joining exactly the
-spaces he marked preserves more structure than joining random ones (rank
-correlation +0.089 against +0.048, density 10.60 against 7.40, regeneration 26.4%
-against 19.7%).
-
 The comparison set is 18 reference corpora at ≥34,000 words, weighted toward
-European languages and scripture, and the one corpus that would settle §6 — a
-book-length Mongolian text — is missing.
+European languages and scripture; §4.2 records how much smaller that is than what
+the field uses for character-level measures. The one corpus that would settle §6 —
+a book-length Mongolian text — is missing.
 
 The neighbourhood-density ratio is transcription-dependent in absolute value and
 should be quoted per file.
@@ -881,14 +889,15 @@ offer instead is machine-checked internal consistency. Each recurring quantity �
 neighbourhood density, the length profile, slot rigidity, conditional entropy,
 the junction, the four sequence signatures, the affix decomposition — is defined
 once, in `scripts/measures.py`, with its seed and its number of repetitions in
-the function signature. `scripts/paper_numbers.py` recomputes 77 load-bearing
+the function signature. `scripts/paper_numbers.py` recomputes 83 load-bearing
 figures from those definitions and `scripts/check_paper.py` verifies that each
 appears in the text where it should, that the appendix matches the
 machine-readable inventory row for row and verdict for verdict, and that no
 section cross-reference dangles. It exits non-zero on any disagreement.
 
-Those 77 are about an eighth of the numbers printed in this paper; the check
-reports its own coverage so the figure cannot quietly decay. The rest are
+Those 83 cover a tenth of the numbers printed in this paper; the check reports its
+own coverage, and the size of the manifest is itself one of the checked figures, so
+neither can quietly decay. The rest are
 derived quantities, other people's figures, and values from scripts not yet in
 the manifest.
 

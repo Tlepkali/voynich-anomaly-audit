@@ -136,7 +136,7 @@ rec("lenauto_null_hi", max(_nl), "{:+.3f}", B, "a shuffle *within lines*")
 # доля одноразовых слов и наклон Ципфа (записи E3 и E2, где контроля не было)
 import collections as _c, math as _m
 _cnt=_c.Counter(tv)
-rec("hapax_voy", sum(1 for v in _cnt.values() if v==1)/len(_cnt), "{:.3f}", A, "Latin closest at")
+rec("hapax_voy", sum(1 for v in _cnt.values() if v==1)/len(_cnt), "{:.3f}", A, "above every one of them")
 _f=sorted(_cnt.values(), reverse=True); _n=min(len(_f),3000)
 _xs=[_m.log(i+1) for i in range(_n)]; _ys=[_m.log(v) for v in _f[:_n]]
 _mx,_my=st.mean(_xs),st.mean(_ys)
@@ -149,6 +149,9 @@ for fn, lab in [("bk_it.clean", "ita"), ("bk_es.clean", "spa"), ("latin.clean", 
     T = M.types(M.ref_lines(fn, LENS))
     rec(f"nbfrac_{lab}", M.has_neighbour(T) * 100, "{:.1f}", B, "cut to the manuscript's")
     rec(f"dens_{lab}", M.density(T), "{:.2f}", B, "cut to the manuscript's")
+
+# размер самого манифеста — под собственную проверку, чтобы §9 не устаревал
+rec("manifest_size", len(OUT) + 1, "{:d}", A, "load-bearing")
 
 os.makedirs("data", exist_ok=True)
 json.dump(OUT, open("data/paper_numbers.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
