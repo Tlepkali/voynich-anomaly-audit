@@ -635,7 +635,7 @@ observation, we have tried to say whose it is.
 ## Appendix. Claims audited in this paper
 
 Twenty-two claims, each with its source, the null model applied, and the outcome.
-The other seventy-one are in the companion paper. Machine-readable version, with the
+The other seventy-two are in the companion paper. Machine-readable version, with the
 numbers for each row, in `scripts/inventory.py`.
 
 | # | Claim | Source | Control applied | Outcome |
@@ -679,6 +679,7 @@ Reddy, S. & Knight, K. (2011). What we know about the Voynich manuscript. *ACL L
 Rugg, G. (2004). An elegant hoax? *Cryptologia* 28(1).
 Stolfi, J. (1997, 2000). Prefix-midfix-suffix decomposition; crust-mantle-core grammar.
 Schinner, A. (2007). The Voynich manuscript: evidence of the hoax hypothesis. *Cryptologia* 31(2), 95–107.
+Sterneck, R., Polish, A. & Bowern, C. (2021). Topic modeling in the Voynich manuscript. arXiv:2107.02858.
 Timm, T. & Schinner, A. (2020). A possible generating algorithm of the Voynich manuscript. *Cryptologia* 44(1), 1–19. Generated text and source: github.com/TorstenTimm/SelfCitationTextgenerator.
 Zandbergen, R. (2025). Transliteration files, voynich.nu.
 Zattera, M. (2022). A twelve-slot positional structure for Voynichese words.

@@ -1,7 +1,7 @@
 # Voynich anomaly audit
 
 Code and working materials for an audit of claimed statistical peculiarities of
-the Voynich manuscript. Ninety-three claims — other people's and our own — each
+the Voynich manuscript. Ninety-four claims — other people's and our own — each
 re-tested against a null model matched to the unit the claim concerns. 29
 survive as stated; 11 are retractions, 10 of them of claims we made ourselves.
 
@@ -11,9 +11,9 @@ Neither is submitted anywhere and we would rather be corrected than not.
 
 ## What is here
 
-    scripts/            ~218 files, standard library only (one exception below)
+    scripts/            ~230 files, standard library only (one exception below)
     scripts/measures.py     one definition per quantity, seeds in the signatures
-    scripts/inventory.py    the audit itself: 93 machine-readable records with
+    scripts/inventory.py    the audit itself: 94 machine-readable records with
                             claim / source / control applied / numbers / outcome
     scripts/fetch_data.sh   downloads the data, which is not in this repository
     paper-audit.md      draft: the audit, ~7,300 words
@@ -131,6 +131,54 @@ their own published output. It reaches the recurrence profile and fails the word
 boundary at 10%, as predicted; it also fails length autocorrelation, which was not
 predicted, because its source token is drawn from the page rather than from the
 preceding word.
+
+## What the literature took back
+
+A prior-art sweep through the curated forum threads and the reference literature
+ran to nineteen passes. Its results are recorded in the inventory rows; the
+summary is that the sweep cost us more than it gave.
+
+Five results marked as ours were not. The word-boundary asymmetry at one versus
+three characters was Currier's observation and Reddy and Knight's measurement;
+applying Goldsmith's unsupervised morphology to this text, which is the control
+forcing our central retraction, was theirs too; the line-edge character bias and
+the within-line scramble that controls it are theirs; the question of whether
+scribal hands differ in the text was asked and answered by Sterneck, Polish and
+Bowern, who concluded that scribe and subject determine topic jointly; and the
+methodological point that tightness reveals more than coverage was made by Pelling
+in 2010, twelve years before Zattera formalised it as precision. We had cited three
+of these papers without reading them.
+
+Our comparison set is also smaller than the field's by an order of magnitude for
+character-level measures: conditional entropy has been placed against 294 Wikipedia
+samples and moving-average type-token ratio against 160 languages, where we hold
+eighteen corpora.
+
+What the sweep added is chiefly one thing: a null model under the field's own
+models of word structure. Rebuilding Zattera's twelve-slot model (which
+reproduces: 83.1% of our tokens regular against his 86.6%, first failure at rank 95
+against 89), Cham's curve-line system, and Stolfi's core-mantle-crust, and scoring
+each against the same vocabulary with its glyphs permuted within words:
+
+| model | manuscript | glyphs shuffled | ratio |
+|---|---|---|---|
+| Stolfi, core-mantle-crust | 88.5% | 93.6% | 0.9x |
+| Cham, curve-line | 76.8% | 33.5% | 2.3x |
+| Zattera, twelve slots | 46.5% | 8.2% | 5.7x |
+
+Stolfi's constraint is satisfied more often by the shuffled vocabulary than the
+real one. That agrees with Zattera's own table, where the same grammar has recall
+0.881 and an F1 of zero. This null is not a substitute for precision — the two
+disagree on the slot model, which has a tightness near 0.0007 and the highest null
+ratio we measured — but it asks a question nobody had asked: whether the structure
+a model finds exceeds what the glyph inventory imposes.
+
+Two smaller returns. The manuscript has no repeated phrase longer than two words,
+which the field states as its main anomaly and our inventory had missed: against a
+genre-matched medieval herbal, trigram repetition is 1.20% against 22.98%. And the
+genre of a comparison set matters to the entropy result: the manuscript's distance
+to the nearest book value is 0.61 where the book-to-Wikipedia shift is 0.30, so
+that conclusion survives but its magnitude is inflated by about half of itself.
 
 ## Credit
 
