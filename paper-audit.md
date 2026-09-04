@@ -355,8 +355,8 @@ Where we say "the manuscript's distance from Latin", the field can say "from any
 250 languages", and on this measure our comparison set is an order of magnitude
 smaller than the best available. The same holds for the type–token ratio, where the
 moving-average index (Covington & McFall 2010), applied to this text by Gheuens
-(2019), has been computed for 101
-languages in seven families and places Voynichese in the ordinary range. We record
+(2019), has been computed by Lindemann (2022) for 160
+languages and places Voynichese in the ordinary range. We record
 this as a limitation of our comparison set rather than repair it, since building a
 250-language set was not in reach here. Those authors also supply a causal account
 we do not: the low h2 follows from characters and combinations occurring
