@@ -53,6 +53,16 @@ the manuscript is a book, which inflates the entropy gap by about half of itself
 without overturning it, and makes the placement of Voynichese among language
 families by lexical diversity unreliable.
 
+A third is prescriptive, and follows from the rest. Some sixty-five decipherments
+have been published and the field has no way to adjudicate them, not from
+credulity but because it has never stated what a solution would have to do to
+count as one. We propose a criterion in five gates (§8a) — mechanical
+reproducibility, beating a wrong-target null, reading folios held out from the
+key, accounting for the structural facts that survive here, and declaring the
+method in advance — and check it against the case that matters: a genuine
+substitution of a genuine language passes all five. Our own retracted
+decomposition would have failed the second.
+
 Otherwise what we offer is negative and methodological: a count of how much of the
 inventory is an artefact of its comparison, a demonstration that the unit of
 measurement (type or token) substantially changes the manuscript's apparent
@@ -822,6 +832,86 @@ Five recommendations, each of which we violated at least once in this work.
    claim there we had to withdraw — that each memory supplies exactly one
    signature — was caught by a mechanism we had not thought of, not by a held-out
    measure. The discipline is necessary and not sufficient.
+## 8a. An acceptance criterion for a claimed decipherment
+
+The section above concerns generative accounts. Decipherment claims — of which
+some sixty-five have been published — need something else, and the reason they
+accumulate without resolution is not that the field is credulous but that it has
+never stated what a solution would have to do in order to count as one.
+
+The contrast worth holding is Thomas Urquhart's Cyphral Distich, sixty-four
+numbers printed in 1653 and read in 2026. What settled it was not the ingenuity
+of the method but the shape of the answer: two lines of exactly thirty-two
+letters, rhyming, grammatical, and consistent with a distich the author had
+announced in advance. A wrong rule does not produce that. **A solution is
+verifiable when it exhibits structure the solver did not put into it**, and
+nothing in the Voynich literature is currently required to.
+
+What follows is an attempt to state the requirement. Five gates, cheapest first;
+failing any one is failing. We have checked each against the case that matters —
+a genuine substitution of a genuine language would pass all five — because a
+criterion no true solution could satisfy is not a criterion but a refusal.
+
+**Gate 0. Mechanical reproducibility.** The rules are published in full, and a
+third party applying them to a folio the author did not use reproduces the
+author's reading character for character. Not approximately. If two readers
+following the rules obtain different text, there is no method, only a skill.
+
+The sharp form of this concerns degrees of freedom. A substitution key over
+twenty-five glyphs is roughly 117 bits, fixed once; a method that permits choices
+*per token* — this glyph is sometimes a vowel, sometimes silent, as sense
+requires — has a parameter count that grows with the text, and then the output is
+constrained by nothing. The key must be finite, and every branch in it must be a
+rule rather than a judgement.
+
+**Gate 1. Beat the null.** A claimed lexical fit must exceed what the same
+fitting budget achieves against a target set known to be wrong. We give the
+instrument and the reason for it in §7a and in the crib measurement: the
+pharmaceutical labels fit plant names at 0.690 and random letter strings at
+0.676, while the same fitter recovers a known substitution of plant names at
+1.000. A reading that produces plausible words at that level is producing what
+noise produces. A workable threshold, and the one we used, is that the advantage
+of the proposed target over the best wrong target should be at least half of what
+the same procedure shows on a known cipher.
+
+**Gate 2. Held-out folios.** The key is derived on no more than 80% of the text;
+the remaining folios are read at the same quality, and the quality is judged by
+someone who does not know the proposal. The held-out folios are chosen by an
+outside party or by a rule published in advance, not by the author.
+
+This is the Distich property, made routine. If the reading degrades on text the
+key was not fitted to, the key was fitted; and the degradation is measurable. To
+our knowledge no published decipherment has been tested this way.
+
+**Gate 3. Structural accounting.** A decipherment is not only a reading; it is a
+claim about how the text was made, and the claim must reproduce what survives its
+controls. Six figures, all in the appendix:
+
+| what a solution must produce | manuscript | languages |
+|---|---|---|
+| repeated word trigrams | **1.20%** | 6.5–23.0% (a genre-matched herbal, 22.98%) |
+| adjacent identical words | **1.01×** | Latin 0.02×, English 0.08× |
+| boundary information, one character | **0.194** | 0.047–0.147 |
+| boundary information, three characters | **0.245** | 0.435–0.867 |
+| vocabulary regenerated by a character chain | **28.8%** | 3.5–6.6% |
+| Currier A against B | **0.143** | self-against-self 0.180–0.206 |
+
+with the line-position family — Grove words, LAAFU, line-initial-only
+vocabulary — alongside. If the proposal is abbreviated Latin, its Latin must have
+no repeated trigrams and must lack the prohibition on adjacent repetition that
+every language we measured has. Most proposals do not ask.
+
+**Gate 4. Declared in advance.** Method, comparison set and thresholds are fixed
+and published before being applied to the text they read. Without this, gates 1
+to 3 are defeated by choosing after the fact.
+
+Two remarks on what this does. It rejects nothing for being wrong; it rejects
+proposals for not yet being claims that can be tested, and a proposal stopped at
+Gate 0 has not been refuted. And it cuts toward us as well: the decomposition
+retracted in §3 would have failed Gate 1, because its selection criterion used
+the quantity it explained. We found that ourselves, and later than this gate
+would have.
+
 ## 9. Limitations
 
 The word segmentation is no longer merely assumed. The ZL transliteration marks
