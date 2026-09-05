@@ -621,6 +621,15 @@ sequence structure while reproducing line-positional structure only through the 
 rules of §8, which are fitted to the manuscript's own line statistics, so it is at
 best a partial account of the text.
 
+Those three limitations are also where this paper meets the criterion the
+companion proposes in its §8a. One of its gates asks any account of the text —
+decipherment or generative — to reproduce the facts that survive their controls,
+and the constraints assembled here are a partial answer to it from the generative
+side: the boundary information is reproduced by construction rather than by
+selection, and the line-positional family is not reproduced at all by a generator
+that emits a stream. We would rather have that stated as a standard, against which
+this paper falls short in a specified way, than have it read as a success.
+
 ## 10. Limitations
 
 Word segmentation is taken as given; the companion paper shows that no conclusion
